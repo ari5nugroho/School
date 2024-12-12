@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,27 @@ namespace login.View
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moveImageBook(object sender)
+        {
+            Guna2Button b = (Guna2Button)sender;
+            imgSlide.Location = new Point(b.Location.X +127, b.Location.Y -26 );
+            imgSlide.SendToBack();
+        }
+        private void guna2Button6_CheckedChanged(object sender, EventArgs e)
+        {
+            moveImageBook(sender);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
