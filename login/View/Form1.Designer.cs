@@ -58,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 608);
+            this.panel1.Size = new System.Drawing.Size(199, 795);
             this.panel1.TabIndex = 0;
             // 
             // guna2Button6
@@ -234,7 +234,7 @@
             this.panel2.Location = new System.Drawing.Point(199, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 6, 6, 6);
-            this.panel2.Size = new System.Drawing.Size(873, 608);
+            this.panel2.Size = new System.Drawing.Size(873, 795);
             this.panel2.TabIndex = 1;
             // 
             // imgSlide
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(1072, 608);
+            this.ClientSize = new System.Drawing.Size(1072, 795);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
