@@ -73,6 +73,12 @@
     <Compile Include="Controller\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FeesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FeesControl.Designer.cs">
+      <DependentUpon>FeesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

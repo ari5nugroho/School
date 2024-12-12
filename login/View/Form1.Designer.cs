@@ -103,7 +103,7 @@
             this.guna2Button5.ForeColor = System.Drawing.Color.White;
             this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(33, 413);
+            this.guna2Button5.Location = new System.Drawing.Point(33, 411);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(163, 43);
             this.guna2Button5.TabIndex = 6;
@@ -128,7 +128,7 @@
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
             this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(33, 342);
+            this.guna2Button4.Location = new System.Drawing.Point(33, 341);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(163, 43);
             this.guna2Button4.TabIndex = 5;
@@ -153,7 +153,7 @@
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button3.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(33, 271);
+            this.guna2Button3.Location = new System.Drawing.Point(33, 270);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(163, 43);
             this.guna2Button3.TabIndex = 4;
@@ -232,7 +232,7 @@
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
             this.label1.Location = new System.Drawing.Point(63, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 19);
+            this.label1.Size = new System.Drawing.Size(74, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Outlook";
             this.label1.Click += new System.EventHandler(this.label1_Click);
