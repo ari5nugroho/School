@@ -67,11 +67,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\AttendacesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AttendacesControl.Designer.cs">
+      <DependentUpon>AttendacesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EventsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\EventsControl.Designer.cs">
+      <DependentUpon>EventsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FeesControl.cs">
       <SubType>UserControl</SubType>
@@ -105,8 +117,14 @@
     <Compile Include="View\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AttendacesControl.resx">
+      <DependentUpon>AttendacesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EventsControl.resx">
+      <DependentUpon>EventsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FeesControl.resx">
       <DependentUpon>FeesControl.cs</DependentUpon>
