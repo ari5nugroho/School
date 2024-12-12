@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using login.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,5 +39,10 @@ namespace login.View
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+        }
+
     }
 }
