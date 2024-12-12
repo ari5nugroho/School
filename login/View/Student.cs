@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace login.Controller
+namespace login.View
 {
-    public partial class Dashboard : UserControl
+    public partial class Student : UserControl
     {
-        public Dashboard()
+        public Student()
         {
             InitializeComponent();
         }
