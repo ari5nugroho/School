@@ -195,5 +195,8 @@
   <ItemGroup>
     <Folder Include="Controller\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\digital-wallet-icon-vector-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

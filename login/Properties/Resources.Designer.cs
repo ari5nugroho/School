@@ -123,6 +123,16 @@ namespace login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap digital_wallet_icon_vector_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("digital-wallet-icon-vector-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap education_book_logo_template_vector_illustration {
             get {
                 object obj = ResourceManager.GetObject("education-book-logo-template-vector-illustration", resourceCulture);
