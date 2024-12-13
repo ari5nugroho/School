@@ -121,12 +121,11 @@
             this.btnDelTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnDelTcr.ForeColor = System.Drawing.Color.White;
             this.btnDelTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelTcr.Location = new System.Drawing.Point(476, 423);
+            this.btnDelTcr.Location = new System.Drawing.Point(460, 423);
             this.btnDelTcr.Name = "btnDelTcr";
-            this.btnDelTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnDelTcr.Size = new System.Drawing.Size(132, 47);
             this.btnDelTcr.TabIndex = 56;
             this.btnDelTcr.Text = "Delete";
-            this.btnDelTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelTcr.UseVisualStyleBackColor = false;
             // 
             // btnEdtTcr
@@ -135,12 +134,11 @@
             this.btnEdtTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnEdtTcr.ForeColor = System.Drawing.Color.White;
             this.btnEdtTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdtTcr.Location = new System.Drawing.Point(328, 423);
+            this.btnEdtTcr.Location = new System.Drawing.Point(312, 423);
             this.btnEdtTcr.Name = "btnEdtTcr";
-            this.btnEdtTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnEdtTcr.Size = new System.Drawing.Size(132, 47);
             this.btnEdtTcr.TabIndex = 55;
             this.btnEdtTcr.Text = "Edit";
-            this.btnEdtTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEdtTcr.UseVisualStyleBackColor = false;
             // 
             // btnAddTcr
@@ -149,12 +147,11 @@
             this.btnAddTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddTcr.ForeColor = System.Drawing.Color.White;
             this.btnAddTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddTcr.Location = new System.Drawing.Point(176, 423);
+            this.btnAddTcr.Location = new System.Drawing.Point(160, 423);
             this.btnAddTcr.Name = "btnAddTcr";
-            this.btnAddTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnAddTcr.Size = new System.Drawing.Size(132, 47);
             this.btnAddTcr.TabIndex = 54;
             this.btnAddTcr.Text = "Add";
-            this.btnAddTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddTcr.UseVisualStyleBackColor = false;
             // 
             // label2
@@ -198,12 +195,11 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(628, 423);
+            this.button4.Location = new System.Drawing.Point(612, 423);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 37);
+            this.button4.Size = new System.Drawing.Size(132, 47);
             this.button4.TabIndex = 57;
             this.button4.Text = "Back";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // label6
@@ -306,8 +302,8 @@
             // 
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(754, 13);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
@@ -317,9 +313,9 @@
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(809, 13);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
@@ -328,8 +324,7 @@
             // 
             // Teacher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);

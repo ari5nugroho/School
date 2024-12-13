@@ -146,12 +146,11 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(571, 405);
+            this.button4.Location = new System.Drawing.Point(569, 407);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 32);
+            this.button4.Size = new System.Drawing.Size(132, 47);
             this.button4.TabIndex = 40;
             this.button4.Text = "Back";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // btnDelStd
@@ -160,12 +159,11 @@
             this.btnDelStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnDelStd.ForeColor = System.Drawing.Color.White;
             this.btnDelStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelStd.Location = new System.Drawing.Point(445, 405);
+            this.btnDelStd.Location = new System.Drawing.Point(431, 407);
             this.btnDelStd.Name = "btnDelStd";
-            this.btnDelStd.Size = new System.Drawing.Size(96, 32);
+            this.btnDelStd.Size = new System.Drawing.Size(132, 47);
             this.btnDelStd.TabIndex = 39;
             this.btnDelStd.Text = "Delete";
-            this.btnDelStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelStd.UseVisualStyleBackColor = false;
             // 
             // btnEdtStd
@@ -174,12 +172,11 @@
             this.btnEdtStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnEdtStd.ForeColor = System.Drawing.Color.White;
             this.btnEdtStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdtStd.Location = new System.Drawing.Point(315, 405);
+            this.btnEdtStd.Location = new System.Drawing.Point(293, 407);
             this.btnEdtStd.Name = "btnEdtStd";
-            this.btnEdtStd.Size = new System.Drawing.Size(96, 32);
+            this.btnEdtStd.Size = new System.Drawing.Size(132, 47);
             this.btnEdtStd.TabIndex = 38;
             this.btnEdtStd.Text = "Edit";
-            this.btnEdtStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEdtStd.UseVisualStyleBackColor = false;
             // 
             // btnAddStd
@@ -188,12 +185,11 @@
             this.btnAddStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddStd.ForeColor = System.Drawing.Color.White;
             this.btnAddStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddStd.Location = new System.Drawing.Point(187, 405);
+            this.btnAddStd.Location = new System.Drawing.Point(155, 407);
             this.btnAddStd.Name = "btnAddStd";
-            this.btnAddStd.Size = new System.Drawing.Size(96, 32);
+            this.btnAddStd.Size = new System.Drawing.Size(132, 47);
             this.btnAddStd.TabIndex = 37;
             this.btnAddStd.Text = "Add";
-            this.btnAddStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddStd.UseVisualStyleBackColor = false;
             // 
             // label6
@@ -321,8 +317,8 @@
             // 
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(751, 10);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
@@ -332,9 +328,9 @@
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(806, 10);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
@@ -343,8 +339,7 @@
             // 
             // Student
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtAdrsStd);

@@ -191,13 +191,11 @@
             this.button4.AutoSize = true;
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(587, 395);
+            this.button4.Location = new System.Drawing.Point(570, 397);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 32);
+            this.button4.Size = new System.Drawing.Size(132, 47);
             this.button4.TabIndex = 57;
             this.button4.Text = "Back";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // btnDelFee
@@ -205,13 +203,11 @@
             this.btnDelFee.AutoSize = true;
             this.btnDelFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnDelFee.ForeColor = System.Drawing.Color.White;
-            this.btnDelFee.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelFee.Location = new System.Drawing.Point(462, 395);
+            this.btnDelFee.Location = new System.Drawing.Point(436, 397);
             this.btnDelFee.Name = "btnDelFee";
-            this.btnDelFee.Size = new System.Drawing.Size(96, 32);
+            this.btnDelFee.Size = new System.Drawing.Size(132, 47);
             this.btnDelFee.TabIndex = 56;
             this.btnDelFee.Text = "Delete";
-            this.btnDelFee.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelFee.UseVisualStyleBackColor = false;
             // 
             // btnEdtFee
@@ -219,13 +215,11 @@
             this.btnEdtFee.AutoSize = true;
             this.btnEdtFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnEdtFee.ForeColor = System.Drawing.Color.White;
-            this.btnEdtFee.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdtFee.Location = new System.Drawing.Point(331, 395);
+            this.btnEdtFee.Location = new System.Drawing.Point(299, 397);
             this.btnEdtFee.Name = "btnEdtFee";
-            this.btnEdtFee.Size = new System.Drawing.Size(96, 32);
+            this.btnEdtFee.Size = new System.Drawing.Size(132, 47);
             this.btnEdtFee.TabIndex = 55;
             this.btnEdtFee.Text = "Edit";
-            this.btnEdtFee.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEdtFee.UseVisualStyleBackColor = false;
             // 
             // btnAddFee
@@ -233,13 +227,11 @@
             this.btnAddFee.AutoSize = true;
             this.btnAddFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddFee.ForeColor = System.Drawing.Color.White;
-            this.btnAddFee.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddFee.Location = new System.Drawing.Point(203, 395);
+            this.btnAddFee.Location = new System.Drawing.Point(161, 397);
             this.btnAddFee.Name = "btnAddFee";
-            this.btnAddFee.Size = new System.Drawing.Size(96, 32);
+            this.btnAddFee.Size = new System.Drawing.Size(132, 47);
             this.btnAddFee.TabIndex = 54;
             this.btnAddFee.Text = "Add";
-            this.btnAddFee.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddFee.UseVisualStyleBackColor = false;
             // 
             // label7
@@ -248,7 +240,7 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label7.Location = new System.Drawing.Point(373, 447);
+            this.label7.Location = new System.Drawing.Point(373, 457);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 31);
             this.label7.TabIndex = 58;
@@ -269,8 +261,8 @@
             // 
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(753, 8);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
@@ -280,9 +272,9 @@
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(808, 8);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
@@ -291,8 +283,7 @@
             // 
             // FeesControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.GDVFee);
