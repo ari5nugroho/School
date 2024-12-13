@@ -32,31 +32,31 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAdrsStd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GDVStd = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDelStd = new System.Windows.Forms.Button();
+            this.btnEdtStd = new System.Windows.Forms.Button();
+            this.btnAddStd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbClsStd = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtDOBStd = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cmbGenStd = new System.Windows.Forms.ComboBox();
+            this.txtFeeStd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNameStd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVStd)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -90,6 +90,16 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
             this.guna2ControlBox2.TabIndex = 46;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources._21;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -114,13 +124,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Students";
             // 
-            // textBox3
+            // txtAdrsStd
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 343);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(605, 32);
-            this.textBox3.TabIndex = 43;
+            this.txtAdrsStd.Location = new System.Drawing.Point(124, 343);
+            this.txtAdrsStd.Multiline = true;
+            this.txtAdrsStd.Name = "txtAdrsStd";
+            this.txtAdrsStd.Size = new System.Drawing.Size(605, 32);
+            this.txtAdrsStd.TabIndex = 43;
             // 
             // label8
             // 
@@ -146,16 +156,16 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Students List";
             // 
-            // dataGridView1
+            // GDVStd
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 518);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 202);
-            this.dataGridView1.TabIndex = 41;
+            this.GDVStd.BackgroundColor = System.Drawing.Color.White;
+            this.GDVStd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GDVStd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GDVStd.Location = new System.Drawing.Point(32, 518);
+            this.GDVStd.Name = "GDVStd";
+            this.GDVStd.RowHeadersWidth = 51;
+            this.GDVStd.Size = new System.Drawing.Size(803, 202);
+            this.GDVStd.TabIndex = 41;
             // 
             // button4
             // 
@@ -171,47 +181,47 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnDelStd
             // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(445, 405);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 32);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "Delete";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDelStd.AutoSize = true;
+            this.btnDelStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnDelStd.ForeColor = System.Drawing.Color.White;
+            this.btnDelStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelStd.Location = new System.Drawing.Point(445, 405);
+            this.btnDelStd.Name = "btnDelStd";
+            this.btnDelStd.Size = new System.Drawing.Size(96, 32);
+            this.btnDelStd.TabIndex = 39;
+            this.btnDelStd.Text = "Delete";
+            this.btnDelStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelStd.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnEdtStd
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(315, 405);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 32);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "Edit";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnEdtStd.AutoSize = true;
+            this.btnEdtStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnEdtStd.ForeColor = System.Drawing.Color.White;
+            this.btnEdtStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEdtStd.Location = new System.Drawing.Point(315, 405);
+            this.btnEdtStd.Name = "btnEdtStd";
+            this.btnEdtStd.Size = new System.Drawing.Size(96, 32);
+            this.btnEdtStd.TabIndex = 38;
+            this.btnEdtStd.Text = "Edit";
+            this.btnEdtStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEdtStd.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnAddStd
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(187, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 32);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Add";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddStd.AutoSize = true;
+            this.btnAddStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnAddStd.ForeColor = System.Drawing.Color.White;
+            this.btnAddStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddStd.Location = new System.Drawing.Point(187, 405);
+            this.btnAddStd.Name = "btnAddStd";
+            this.btnAddStd.Size = new System.Drawing.Size(96, 32);
+            this.btnAddStd.TabIndex = 37;
+            this.btnAddStd.Text = "Add";
+            this.btnAddStd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddStd.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -225,16 +235,16 @@
             this.label6.TabIndex = 36;
             this.label6.Text = "Class";
             // 
-            // comboBox2
+            // cmbClsStd
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbClsStd.FormattingEnabled = true;
+            this.cmbClsStd.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBox2.Location = new System.Drawing.Point(446, 179);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(123, 24);
-            this.comboBox2.TabIndex = 35;
+            this.cmbClsStd.Location = new System.Drawing.Point(446, 179);
+            this.cmbClsStd.Name = "cmbClsStd";
+            this.cmbClsStd.Size = new System.Drawing.Size(123, 24);
+            this.cmbClsStd.TabIndex = 35;
             // 
             // label5
             // 
@@ -248,13 +258,13 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "DOB";
             // 
-            // dateTimePicker1
+            // dtDOBStd
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(607, 269);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(122, 22);
-            this.dateTimePicker1.TabIndex = 33;
+            this.dtDOBStd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDOBStd.Location = new System.Drawing.Point(607, 269);
+            this.dtDOBStd.Name = "dtDOBStd";
+            this.dtDOBStd.Size = new System.Drawing.Size(122, 22);
+            this.dtDOBStd.TabIndex = 33;
             // 
             // label4
             // 
@@ -269,25 +279,25 @@
             this.label4.Text = "Gender";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // comboBox1
+            // cmbGenStd
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbGenStd.FormattingEnabled = true;
+            this.cmbGenStd.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBox1.Location = new System.Drawing.Point(607, 179);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(122, 24);
-            this.comboBox1.TabIndex = 30;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbGenStd.Location = new System.Drawing.Point(607, 179);
+            this.cmbGenStd.Name = "cmbGenStd";
+            this.cmbGenStd.Size = new System.Drawing.Size(122, 24);
+            this.cmbGenStd.TabIndex = 30;
+            this.cmbGenStd.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // textBox2
+            // txtFeeStd
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 262);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 27);
-            this.textBox2.TabIndex = 29;
+            this.txtFeeStd.Location = new System.Drawing.Point(124, 262);
+            this.txtFeeStd.Multiline = true;
+            this.txtFeeStd.Name = "txtFeeStd";
+            this.txtFeeStd.Size = new System.Drawing.Size(275, 27);
+            this.txtFeeStd.TabIndex = 29;
             // 
             // label2
             // 
@@ -301,13 +311,13 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Fees";
             // 
-            // textBox1
+            // txtNameStd
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 176);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 27);
-            this.textBox1.TabIndex = 27;
+            this.txtNameStd.Location = new System.Drawing.Point(124, 176);
+            this.txtNameStd.Multiline = true;
+            this.txtNameStd.Name = "txtNameStd";
+            this.txtNameStd.Size = new System.Drawing.Size(271, 27);
+            this.txtNameStd.TabIndex = 27;
             // 
             // label3
             // 
@@ -334,39 +344,29 @@
             this.label9.Text = "Add Student";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::login.Properties.Resources._21;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtAdrsStd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GDVStd);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelStd);
+            this.Controls.Add(this.btnEdtStd);
+            this.Controls.Add(this.btnAddStd);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbClsStd);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtDOBStd);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cmbGenStd);
+            this.Controls.Add(this.txtFeeStd);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNameStd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Name = "Student";
@@ -374,8 +374,8 @@
             this.Load += new System.EventHandler(this.Student_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVStd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,23 +387,23 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAdrsStd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GDVStd;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelStd;
+        private System.Windows.Forms.Button btnEdtStd;
+        private System.Windows.Forms.Button btnAddStd;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbClsStd;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDOBStd;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cmbGenStd;
+        private System.Windows.Forms.TextBox txtFeeStd;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNameStd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;

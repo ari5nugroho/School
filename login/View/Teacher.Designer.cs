@@ -31,26 +31,26 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmbSubjectTcr = new System.Windows.Forms.ComboBox();
+            this.txtPhoneStd = new System.Windows.Forms.TextBox();
+            this.btnDelTcr = new System.Windows.Forms.Button();
+            this.btnEdtTcr = new System.Windows.Forms.Button();
+            this.btnAddTcr = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GDVTcr = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtDOBTcr = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAdrsTcr = new System.Windows.Forms.TextBox();
+            this.txtNameTcr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbGenTcr = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVTcr)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,10 +86,10 @@
             this.label8.TabIndex = 62;
             this.label8.Text = "Subjects";
             // 
-            // comboBox2
+            // cmbSubjectTcr
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbSubjectTcr.FormattingEnabled = true;
+            this.cmbSubjectTcr.Items.AddRange(new object[] {
             "Math",
             "English",
             "Bahasa Indonesia",
@@ -98,60 +98,60 @@
             "Chemistry",
             "Biology",
             "Physics"});
-            this.comboBox2.Location = new System.Drawing.Point(601, 273);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(122, 24);
-            this.comboBox2.TabIndex = 61;
+            this.cmbSubjectTcr.Location = new System.Drawing.Point(601, 273);
+            this.cmbSubjectTcr.Name = "cmbSubjectTcr";
+            this.cmbSubjectTcr.Size = new System.Drawing.Size(122, 24);
+            this.cmbSubjectTcr.TabIndex = 61;
             // 
-            // textBox3
+            // txtPhoneStd
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 273);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(291, 27);
-            this.textBox3.TabIndex = 60;
+            this.txtPhoneStd.Location = new System.Drawing.Point(137, 273);
+            this.txtPhoneStd.Multiline = true;
+            this.txtPhoneStd.Name = "txtPhoneStd";
+            this.txtPhoneStd.Size = new System.Drawing.Size(291, 27);
+            this.txtPhoneStd.TabIndex = 60;
             // 
-            // button3
+            // btnDelTcr
             // 
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(476, 423);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 37);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "Delete";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDelTcr.AutoSize = true;
+            this.btnDelTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnDelTcr.ForeColor = System.Drawing.Color.White;
+            this.btnDelTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelTcr.Location = new System.Drawing.Point(476, 423);
+            this.btnDelTcr.Name = "btnDelTcr";
+            this.btnDelTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnDelTcr.TabIndex = 56;
+            this.btnDelTcr.Text = "Delete";
+            this.btnDelTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelTcr.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnEdtTcr
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(328, 423);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 37);
-            this.button2.TabIndex = 55;
-            this.button2.Text = "Edit";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnEdtTcr.AutoSize = true;
+            this.btnEdtTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnEdtTcr.ForeColor = System.Drawing.Color.White;
+            this.btnEdtTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEdtTcr.Location = new System.Drawing.Point(328, 423);
+            this.btnEdtTcr.Name = "btnEdtTcr";
+            this.btnEdtTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnEdtTcr.TabIndex = 55;
+            this.btnEdtTcr.Text = "Edit";
+            this.btnEdtTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEdtTcr.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnAddTcr
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(176, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 37);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Add";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddTcr.AutoSize = true;
+            this.btnAddTcr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.btnAddTcr.ForeColor = System.Drawing.Color.White;
+            this.btnAddTcr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddTcr.Location = new System.Drawing.Point(176, 423);
+            this.btnAddTcr.Name = "btnAddTcr";
+            this.btnAddTcr.Size = new System.Drawing.Size(96, 37);
+            this.btnAddTcr.TabIndex = 54;
+            this.btnAddTcr.Text = "Add";
+            this.btnAddTcr.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddTcr.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -177,16 +177,16 @@
             this.label7.TabIndex = 51;
             this.label7.Text = "Teachers List";
             // 
-            // dataGridView1
+            // GDVTcr
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(45, 561);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(790, 205);
-            this.dataGridView1.TabIndex = 58;
+            this.GDVTcr.BackgroundColor = System.Drawing.Color.White;
+            this.GDVTcr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GDVTcr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GDVTcr.Location = new System.Drawing.Point(45, 561);
+            this.GDVTcr.Name = "GDVTcr";
+            this.GDVTcr.RowHeadersWidth = 51;
+            this.GDVTcr.Size = new System.Drawing.Size(790, 205);
+            this.GDVTcr.TabIndex = 58;
             // 
             // button4
             // 
@@ -226,13 +226,13 @@
             this.label5.TabIndex = 52;
             this.label5.Text = "DOB";
             // 
-            // dateTimePicker1
+            // dtDOBTcr
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(601, 186);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(122, 22);
-            this.dateTimePicker1.TabIndex = 50;
+            this.dtDOBTcr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDOBTcr.Location = new System.Drawing.Point(601, 186);
+            this.dtDOBTcr.Name = "dtDOBTcr";
+            this.dtDOBTcr.Size = new System.Drawing.Size(122, 22);
+            this.dtDOBTcr.TabIndex = 50;
             // 
             // label4
             // 
@@ -246,21 +246,21 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "Gender";
             // 
-            // textBox2
+            // txtAdrsTcr
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 354);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(435, 27);
-            this.textBox2.TabIndex = 47;
+            this.txtAdrsTcr.Location = new System.Drawing.Point(137, 354);
+            this.txtAdrsTcr.Multiline = true;
+            this.txtAdrsTcr.Name = "txtAdrsTcr";
+            this.txtAdrsTcr.Size = new System.Drawing.Size(435, 27);
+            this.txtAdrsTcr.TabIndex = 47;
             // 
-            // textBox1
+            // txtNameTcr
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 186);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 27);
-            this.textBox1.TabIndex = 46;
+            this.txtNameTcr.Location = new System.Drawing.Point(137, 186);
+            this.txtNameTcr.Multiline = true;
+            this.txtNameTcr.Name = "txtNameTcr";
+            this.txtNameTcr.Size = new System.Drawing.Size(291, 27);
+            this.txtNameTcr.TabIndex = 46;
             // 
             // label3
             // 
@@ -274,16 +274,16 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Name";
             // 
-            // comboBox1
+            // cmbGenTcr
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbGenTcr.FormattingEnabled = true;
+            this.cmbGenTcr.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBox1.Location = new System.Drawing.Point(463, 186);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(109, 24);
-            this.comboBox1.TabIndex = 48;
+            this.cmbGenTcr.Location = new System.Drawing.Point(463, 186);
+            this.cmbGenTcr.Name = "cmbGenTcr";
+            this.cmbGenTcr.Size = new System.Drawing.Size(109, 24);
+            this.cmbGenTcr.TabIndex = 48;
             // 
             // label9
             // 
@@ -305,29 +305,29 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmbSubjectTcr);
+            this.Controls.Add(this.txtPhoneStd);
+            this.Controls.Add(this.btnDelTcr);
+            this.Controls.Add(this.btnEdtTcr);
+            this.Controls.Add(this.btnAddTcr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GDVTcr);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtDOBTcr);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAdrsTcr);
+            this.Controls.Add(this.txtNameTcr);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbGenTcr);
             this.Controls.Add(this.panel1);
             this.Name = "Teacher";
             this.Size = new System.Drawing.Size(873, 795);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVTcr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,23 +338,23 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbSubjectTcr;
+        private System.Windows.Forms.TextBox txtPhoneStd;
+        private System.Windows.Forms.Button btnDelTcr;
+        private System.Windows.Forms.Button btnEdtTcr;
+        private System.Windows.Forms.Button btnAddTcr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GDVTcr;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDOBTcr;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdrsTcr;
+        private System.Windows.Forms.TextBox txtNameTcr;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbGenTcr;
         private System.Windows.Forms.Label label9;
     }
 }
