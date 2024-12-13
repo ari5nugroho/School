@@ -223,7 +223,7 @@
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
             this.label1.Location = new System.Drawing.Point(63, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 23);
+            this.label1.Size = new System.Drawing.Size(60, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Outlook";
             this.label1.Click += new System.EventHandler(this.label1_Click);

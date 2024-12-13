@@ -117,6 +117,12 @@
     <Compile Include="View\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Teacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\AttendacesControl.resx">
       <DependentUpon>AttendacesControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="View\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -215,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\digital-wallet-icon-vector-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher-icon-template-free-vector-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
