@@ -49,6 +49,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbGenTcr = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GDVTcr)).BeginInit();
             this.SuspendLayout();
@@ -56,11 +58,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.panel1.Controls.Add(this.guna2ControlBox2);
+            this.panel1.Controls.Add(this.guna2ControlBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 66);
+            this.panel1.Size = new System.Drawing.Size(873, 58);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -68,11 +72,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(97, 17);
+            this.label1.Location = new System.Drawing.Point(98, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 28);
+            this.label1.Size = new System.Drawing.Size(85, 28);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Students";
+            this.label1.Text = "Teacher";
             // 
             // label8
             // 
@@ -298,6 +302,30 @@
             this.label9.Text = "Add Teacher";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.Location = new System.Drawing.Point(754, 13);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox2.TabIndex = 11;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.Location = new System.Drawing.Point(809, 13);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox1.TabIndex = 10;
+            // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,5 +384,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbGenTcr;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

@@ -1,6 +1,8 @@
-﻿using login.View;
+﻿using login.Controller;
+using login.View;
 using System;
 using System.Windows.Forms;
+
 
 namespace login
 {
@@ -31,7 +33,7 @@ namespace login
             if(UNametb.Text == "" || Passtb.Text == "")
             {
                 Form1 form1 = new Form1();
-                form1.Show();
+                form1.Show(); 
                 this.Hide();
             }
         }

@@ -16,5 +16,10 @@ namespace login.View
         {
             InitializeComponent();
         }
+
+        private void AttendacesControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

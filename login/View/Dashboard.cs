@@ -21,5 +21,10 @@ namespace login.Controller
         {
 
         }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
