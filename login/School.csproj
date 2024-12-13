@@ -228,5 +228,8 @@
   <ItemGroup>
     <None Include="Resources\teacher-icon-template-free-vector-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\th %281%29.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
