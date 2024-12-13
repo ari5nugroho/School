@@ -34,11 +34,11 @@
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.imgSlide = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.imgSlide = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -188,6 +188,16 @@
             this.guna2Button2.CheckedChanged += new System.EventHandler(this.guna2Button6_CheckedChanged);
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
+            // imgSlide
+            // 
+            this.imgSlide.Image = global::login.Properties.Resources._2;
+            this.imgSlide.Location = new System.Drawing.Point(160, 103);
+            this.imgSlide.Name = "imgSlide";
+            this.imgSlide.Size = new System.Drawing.Size(39, 95);
+            this.imgSlide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgSlide.TabIndex = 1;
+            this.imgSlide.TabStop = false;
+            // 
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
@@ -228,25 +238,6 @@
             this.label1.Text = "Outlook";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(199, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 6, 6, 6);
-            this.panel2.Size = new System.Drawing.Size(873, 795);
-            this.panel2.TabIndex = 1;
-            // 
-            // imgSlide
-            // 
-            this.imgSlide.Image = global::login.Properties.Resources._2;
-            this.imgSlide.Location = new System.Drawing.Point(160, 103);
-            this.imgSlide.Name = "imgSlide";
-            this.imgSlide.Size = new System.Drawing.Size(39, 95);
-            this.imgSlide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgSlide.TabIndex = 1;
-            this.imgSlide.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.Logo_Project_AM;
@@ -256,6 +247,15 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(199, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 6, 6, 6);
+            this.panel2.Size = new System.Drawing.Size(873, 795);
+            this.panel2.TabIndex = 1;
             // 
             // Form1
             // 
