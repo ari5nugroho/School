@@ -237,11 +237,11 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(63, 29);
+            this.label1.Location = new System.Drawing.Point(66, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 19);
+            this.label1.Size = new System.Drawing.Size(122, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Outlook";
+            this.label1.Text = "Sigma Highschool";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
