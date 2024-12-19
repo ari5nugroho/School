@@ -143,9 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
     <Compile Include="Model\Entity\Student.cs" />
+    <Compile Include="Model\Entity\Teacher.cs" />
     <Compile Include="Model\Repository\StudentRepository.cs" />
+    <Compile Include="Model\Repository\TeacherRepository.cs" />
     <Compile Include="View\AttendacesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,11 +205,11 @@
     <Compile Include="View\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Teacher.cs">
+    <Compile Include="View\Teachers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Teacher.Designer.cs">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <Compile Include="View\Teachers.Designer.cs">
+      <DependentUpon>Teachers.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\AttendacesControl.resx">
       <DependentUpon>AttendacesControl.cs</DependentUpon>
@@ -245,8 +248,8 @@
     <EmbeddedResource Include="View\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Teacher.resx">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <EmbeddedResource Include="View\Teachers.resx">
+      <DependentUpon>Teachers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

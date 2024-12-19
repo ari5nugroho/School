@@ -64,7 +64,7 @@ namespace login.View
 
         private void btnTcrSB_Click(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher();  // Membuat instance dari UserControl Teacher
+            Teachers teacher = new Teachers();  // Membuat instance dari UserControl Teacher
             LoadUserControl(teacher);  // Menampilkan teacher di mainPanel
         }
 
