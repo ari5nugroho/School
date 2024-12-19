@@ -46,7 +46,7 @@ namespace login.View
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Student student = new Student();  // Membuat instance dari UserControl Student
+            Students student = new Students();  // Membuat instance dari UserControl Student
             LoadUserControl(student);  // Menampilkan Student di mainPanel
         }
 
@@ -70,7 +70,7 @@ namespace login.View
 
         private void btnAttSB_Click(object sender, EventArgs e)
         {
-            AttendacesControl att = new AttendacesControl();  // Membuat instance dari UserControl Attedaces
+            Attendaces att = new Attendaces();  // Membuat instance dari UserControl Attedaces
             LoadUserControl(att);  // Menampilkan attedaces di mainPanel
         }
 

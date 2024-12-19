@@ -142,18 +142,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AttendanceController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
+    <Compile Include="Model\Entity\Attendance.cs" />
     <Compile Include="Model\Entity\Student.cs" />
     <Compile Include="Model\Entity\Teacher.cs" />
+    <Compile Include="Model\Repository\AttendanceRepository.cs" />
     <Compile Include="Model\Repository\StudentRepository.cs" />
     <Compile Include="Model\Repository\TeacherRepository.cs" />
-    <Compile Include="View\AttendacesControl.cs">
+    <Compile Include="View\Attendaces.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AttendacesControl.Designer.cs">
-      <DependentUpon>AttendacesControl.cs</DependentUpon>
+    <Compile Include="View\Attendaces.Designer.cs">
+      <DependentUpon>Attendaces.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -199,11 +202,11 @@
     <Compile Include="View\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Student.cs">
+    <Compile Include="View\Students.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="View\Students.Designer.cs">
+      <DependentUpon>Students.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Teachers.cs">
       <SubType>UserControl</SubType>
@@ -211,8 +214,8 @@
     <Compile Include="View\Teachers.Designer.cs">
       <DependentUpon>Teachers.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AttendacesControl.resx">
-      <DependentUpon>AttendacesControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\Attendaces.resx">
+      <DependentUpon>Attendaces.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -245,8 +248,8 @@
     <EmbeddedResource Include="View\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="View\Students.resx">
+      <DependentUpon>Students.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Teachers.resx">
       <DependentUpon>Teachers.cs</DependentUpon>

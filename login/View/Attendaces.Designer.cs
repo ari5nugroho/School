@@ -1,6 +1,6 @@
 ﻿namespace login.View
 {
-    partial class AttendacesControl
+    partial class Attendaces
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.GDVAtt = new System.Windows.Forms.DataGridView();
             this.txtStIdAtt = new System.Windows.Forms.TextBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVAtt)).BeginInit();
@@ -67,6 +67,30 @@
             this.panel1.Size = new System.Drawing.Size(873, 57);
             this.panel1.TabIndex = 3;
             // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(753, 14);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox2.TabIndex = 11;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 14);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox1.TabIndex = 10;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources.digital_wallet_icon_vector_removebg_preview;
@@ -85,7 +109,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(100, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 28);
+            this.label1.Size = new System.Drawing.Size(169, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Students Attendance";
             // 
@@ -97,7 +121,7 @@
             this.label9.Location = new System.Drawing.Point(100, 75);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 32);
+            this.label9.Size = new System.Drawing.Size(163, 25);
             this.label9.TabIndex = 53;
             this.label9.Text = "Add Attendance";
             // 
@@ -109,7 +133,7 @@
             this.label6.Location = new System.Drawing.Point(307, 129);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 23);
+            this.label6.Size = new System.Drawing.Size(104, 19);
             this.label6.TabIndex = 57;
             this.label6.Text = "Student Name";
             // 
@@ -129,7 +153,7 @@
             this.label3.Location = new System.Drawing.Point(101, 129);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 23);
+            this.label3.Size = new System.Drawing.Size(82, 19);
             this.label3.TabIndex = 54;
             this.label3.Text = "Student ID";
             // 
@@ -141,7 +165,7 @@
             this.label5.Location = new System.Drawing.Point(101, 204);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 23);
+            this.label5.Size = new System.Drawing.Size(42, 19);
             this.label5.TabIndex = 60;
             this.label5.Text = "Date";
             // 
@@ -150,7 +174,7 @@
             this.dtAtt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtAtt.Location = new System.Drawing.Point(106, 238);
             this.dtAtt.Name = "dtAtt";
-            this.dtAtt.Size = new System.Drawing.Size(123, 22);
+            this.dtAtt.Size = new System.Drawing.Size(123, 20);
             this.dtAtt.TabIndex = 59;
             // 
             // label2
@@ -161,7 +185,7 @@
             this.label2.Location = new System.Drawing.Point(101, 281);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 23);
+            this.label2.Size = new System.Drawing.Size(51, 19);
             this.label2.TabIndex = 62;
             this.label2.Text = "Status";
             // 
@@ -173,7 +197,7 @@
             "Female"});
             this.cmbStatusAtt.Location = new System.Drawing.Point(106, 313);
             this.cmbStatusAtt.Name = "cmbStatusAtt";
-            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 24);
+            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 21);
             this.cmbStatusAtt.TabIndex = 61;
             // 
             // button4
@@ -201,6 +225,7 @@
             this.btnDelAtt.TabIndex = 66;
             this.btnDelAtt.Text = "Delete";
             this.btnDelAtt.UseVisualStyleBackColor = false;
+            this.btnDelAtt.Click += new System.EventHandler(this.btnDelAtt_Click);
             // 
             // btnEdtAtt
             // 
@@ -214,6 +239,7 @@
             this.btnEdtAtt.TabIndex = 65;
             this.btnEdtAtt.Text = "Edit";
             this.btnEdtAtt.UseVisualStyleBackColor = false;
+            this.btnEdtAtt.Click += new System.EventHandler(this.btnEdtAtt_Click);
             // 
             // btnAddAtt
             // 
@@ -227,6 +253,7 @@
             this.btnAddAtt.TabIndex = 64;
             this.btnAddAtt.Text = "Add";
             this.btnAddAtt.UseVisualStyleBackColor = false;
+            this.btnAddAtt.Click += new System.EventHandler(this.btnAddAtt_Click);
             // 
             // label7
             // 
@@ -236,7 +263,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.label7.Location = new System.Drawing.Point(339, 441);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(199, 31);
+            this.label7.Size = new System.Drawing.Size(152, 24);
             this.label7.TabIndex = 68;
             this.label7.Text = "Attendance List";
             // 
@@ -259,31 +286,7 @@
             this.txtStIdAtt.Size = new System.Drawing.Size(137, 27);
             this.txtStIdAtt.TabIndex = 70;
             // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(753, 14);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox2.TabIndex = 11;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 14);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox1.TabIndex = 10;
-            // 
-            // AttendacesControl
+            // Attendaces
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -304,7 +307,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AttendacesControl";
+            this.Name = "Attendaces";
             this.Size = new System.Drawing.Size(873, 795);
             this.Load += new System.EventHandler(this.AttendacesControl_Load);
             this.panel1.ResumeLayout(false);

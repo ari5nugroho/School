@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace login.View
 {
-    public partial class Student : UserControl
+    public partial class Students : UserControl
     {
-        public Student()
+        public Students()
         {
             InitializeComponent();
         }

@@ -25,7 +25,7 @@ namespace login.Model.Context
             {
                 // atur ulang lokasi database yang disesuaikan dengan
                 // lokasi database perpustakaan Anda
-                string dbName = @"E:\Pemrograman Lanjut\SchoolSystem\DbPerpustakaan.db";
+                string dbName = @"E:\Finnnal\Database\DbSchool.db";
                 // deklarasi variabel connectionString, ref: 
 
                 string connectionString = string.Format("Data Source = {0};FailIfMissing=True", dbName);

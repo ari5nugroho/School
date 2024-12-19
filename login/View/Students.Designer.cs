@@ -1,6 +1,6 @@
 ﻿namespace login.View
 {
-    partial class Student
+    partial class Students
     {
         /// <summary> 
         /// Required designer variable.
