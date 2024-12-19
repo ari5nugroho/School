@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace login.Model.Entity
 {
-    internal class Student
+    public class Student
     {
         public string StName { get; set; }
         public string StGen { get; set; }
@@ -14,5 +14,6 @@ namespace login.Model.Entity
         public string StClass { get; set; }
         public string StAdrs { get; set; }
         public string StFee { get; set; }
+
     }
 }

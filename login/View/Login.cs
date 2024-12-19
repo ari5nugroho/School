@@ -110,7 +110,7 @@ namespace login
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
@@ -121,6 +121,11 @@ namespace login
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

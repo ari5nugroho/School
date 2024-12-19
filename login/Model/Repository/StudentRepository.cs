@@ -71,7 +71,7 @@ namespace login.Model.Repository
         public int Delete(Student std)
         {
             int result = 0;
-            string sql = @"Delete from stStudent stName=@SName";
+            string sql = @"Delete from stStudent where stName=@SName";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@Sname", std.StName);
@@ -98,7 +98,7 @@ namespace login.Model.Repository
             try
             {
                 // deklarasi perintah SQL
-                string sql = @"select stName,stGen,stDOB,stClass,stFee,stAdrs from tbStudent";
+                string sql = @"select stName,stGen,stDOB,stClass,stFee,stAdrs from stStudent";
                 // membuat objek command menggunakan blok using
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {

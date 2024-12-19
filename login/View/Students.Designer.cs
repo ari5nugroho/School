@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAdrsStd = new System.Windows.Forms.TextBox();
@@ -52,8 +54,6 @@
             this.txtNameStd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVStd)).BeginInit();
@@ -76,6 +76,31 @@
             this.panel1.Size = new System.Drawing.Size(873, 58);
             this.panel1.TabIndex = 0;
             // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(751, 10);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox2.TabIndex = 11;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(806, 10);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox1.TabIndex = 10;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::login.Properties.Resources._21;
@@ -93,7 +118,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(114, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 28);
+            this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Students";
             // 
@@ -113,7 +138,7 @@
             this.label8.Location = new System.Drawing.Point(124, 317);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 23);
+            this.label8.Size = new System.Drawing.Size(64, 19);
             this.label8.TabIndex = 42;
             this.label8.Text = "Address";
             // 
@@ -125,7 +150,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.label7.Location = new System.Drawing.Point(340, 469);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 31);
+            this.label7.Size = new System.Drawing.Size(126, 24);
             this.label7.TabIndex = 32;
             this.label7.Text = "Students List";
             // 
@@ -139,6 +164,7 @@
             this.GDVStd.RowHeadersWidth = 51;
             this.GDVStd.Size = new System.Drawing.Size(803, 202);
             this.GDVStd.TabIndex = 41;
+            this.GDVStd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVStd_CellContentClick);
             // 
             // button4
             // 
@@ -165,6 +191,7 @@
             this.btnDelStd.TabIndex = 39;
             this.btnDelStd.Text = "Delete";
             this.btnDelStd.UseVisualStyleBackColor = false;
+            this.btnDelStd.Click += new System.EventHandler(this.btnDelStd_Click);
             // 
             // btnEdtStd
             // 
@@ -178,6 +205,7 @@
             this.btnEdtStd.TabIndex = 38;
             this.btnEdtStd.Text = "Edit";
             this.btnEdtStd.UseVisualStyleBackColor = false;
+            this.btnEdtStd.Click += new System.EventHandler(this.btnEdtStd_Click);
             // 
             // btnAddStd
             // 
@@ -191,6 +219,7 @@
             this.btnAddStd.TabIndex = 37;
             this.btnAddStd.Text = "Add";
             this.btnAddStd.UseVisualStyleBackColor = false;
+            this.btnAddStd.Click += new System.EventHandler(this.btnAddStd_Click);
             // 
             // label6
             // 
@@ -200,7 +229,7 @@
             this.label6.Location = new System.Drawing.Point(442, 154);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.Size = new System.Drawing.Size(46, 19);
             this.label6.TabIndex = 36;
             this.label6.Text = "Class";
             // 
@@ -208,11 +237,12 @@
             // 
             this.cmbClsStd.FormattingEnabled = true;
             this.cmbClsStd.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "10",
+            "11",
+            "12"});
             this.cmbClsStd.Location = new System.Drawing.Point(446, 179);
             this.cmbClsStd.Name = "cmbClsStd";
-            this.cmbClsStd.Size = new System.Drawing.Size(123, 24);
+            this.cmbClsStd.Size = new System.Drawing.Size(123, 21);
             this.cmbClsStd.TabIndex = 35;
             // 
             // label5
@@ -223,7 +253,7 @@
             this.label5.Location = new System.Drawing.Point(603, 247);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 23);
+            this.label5.Size = new System.Drawing.Size(44, 19);
             this.label5.TabIndex = 34;
             this.label5.Text = "DOB";
             // 
@@ -232,7 +262,7 @@
             this.dtDOBStd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDOBStd.Location = new System.Drawing.Point(607, 269);
             this.dtDOBStd.Name = "dtDOBStd";
-            this.dtDOBStd.Size = new System.Drawing.Size(122, 22);
+            this.dtDOBStd.Size = new System.Drawing.Size(122, 20);
             this.dtDOBStd.TabIndex = 33;
             // 
             // label4
@@ -243,7 +273,7 @@
             this.label4.Location = new System.Drawing.Point(603, 150);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 23);
+            this.label4.Size = new System.Drawing.Size(59, 19);
             this.label4.TabIndex = 31;
             this.label4.Text = "Gender";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -256,7 +286,7 @@
             "Female"});
             this.cmbGenStd.Location = new System.Drawing.Point(607, 179);
             this.cmbGenStd.Name = "cmbGenStd";
-            this.cmbGenStd.Size = new System.Drawing.Size(122, 24);
+            this.cmbGenStd.Size = new System.Drawing.Size(122, 21);
             this.cmbGenStd.TabIndex = 30;
             this.cmbGenStd.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -276,7 +306,7 @@
             this.label2.Location = new System.Drawing.Point(124, 236);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 23);
+            this.label2.Size = new System.Drawing.Size(41, 19);
             this.label2.TabIndex = 28;
             this.label2.Text = "Fees";
             // 
@@ -296,7 +326,7 @@
             this.label3.Location = new System.Drawing.Point(124, 150);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 23);
+            this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 26;
             this.label3.Text = "Name";
             // 
@@ -308,36 +338,12 @@
             this.label9.Location = new System.Drawing.Point(122, 91);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(161, 32);
+            this.label9.Size = new System.Drawing.Size(129, 25);
             this.label9.TabIndex = 44;
             this.label9.Text = "Add Student";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(751, 10);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox2.TabIndex = 11;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(806, 10);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox1.TabIndex = 10;
-            // 
-            // Student
+            // Students
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -361,7 +367,7 @@
             this.Controls.Add(this.txtNameStd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.Name = "Student";
+            this.Name = "Students";
             this.Size = new System.Drawing.Size(873, 795);
             this.Load += new System.EventHandler(this.Student_Load);
             this.panel1.ResumeLayout(false);

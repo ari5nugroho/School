@@ -15,38 +15,45 @@ namespace login.Model.Context
         // deklarasi property Conn (connection), untuk menyimpan objek koneksi
         public SQLiteConnection Conn
         {
-            get { return Con ?? (Con = GetOpenConnection()); }
+            get
+            {
+                if (Con == null || Con.State == ConnectionState.Closed)
+                {
+                    Con = GetOpenConnection();
+                }
+                return Con;
+            }
         }
         // Method untuk melakukan koneksi ke database
         private SQLiteConnection GetOpenConnection()
         {
-            SQLiteConnection conn = null; // deklarasi objek connection
-            try // penggunaan blok try-catch untuk penanganan error
+            SQLiteConnection conn = null;
+            try
             {
-                // atur ulang lokasi database yang disesuaikan dengan
-                // lokasi database perpustakaan Anda
-                string dbName = @"E:\Finnnal\Database\DbSchool.db";
-                // deklarasi variabel connectionString, ref: 
-
-                string connectionString = string.Format("Data Source = {0};FailIfMissing=True", dbName);
-                conn = new SQLiteConnection(connectionString); // buat objek connection
-                conn.Open(); // buka koneksi ke database
+                string dbName = @"E:\Pemrograman Lanjut\ProjectFinal\Database\DbSchool.db";
+                string connectionString = $"Data Source={dbName};FailIfMissing=True";
+                conn = new SQLiteConnection(connectionString);
+                conn.Open();
             }
-            // jika terjadi error di blok try, akan ditangani langsung oleh blok catch
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.Print("Open Connection Error: {0}", ex.Message);
+                throw; // Lempar kembali pengecualian untuk penanganan lebih lanjut
             }
             return conn;
         }
         // Method ini digunakan untuk menghapus objek koneksi dari memory ketika sudah tidak digunakan
+
         public void Dispose()
         {
             if (Con != null)
             {
                 try
                 {
-                    if (Con.State != ConnectionState.Closed) Con.Close();
+                    if (Con.State != ConnectionState.Closed)
+                    {
+                        Con.Close();
+                    }
                 }
                 finally
                 {
@@ -55,5 +62,7 @@ namespace login.Model.Context
             }
             GC.SuppressFinalize(this);
         }
+
+
     }
 }
