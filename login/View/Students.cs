@@ -45,6 +45,14 @@ namespace login.View
 
             // Pastikan posisi awal datagrid berada di tengah
             CenterGridView();
+
+            OnCreate += StudentCreatedHandler;
+        }
+
+        private void StudentCreatedHandler(Student std)
+        {
+            MessageBox.Show($"Student {std.StName} berhasil ditambahkan!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataStudent(); // Refresh DataGridView
         }
 
         private void InisialisasiGridView()
@@ -125,6 +133,7 @@ namespace login.View
                     std.StAdrs                   // Kolom Alamat
                 );
             }
+
         }
 
 
@@ -152,6 +161,18 @@ namespace login.View
 
         private void btnAddStd_Click(object sender, EventArgs e)
         {
+            /*
+            // Validasi input kosong
+            if (string.IsNullOrWhiteSpace(txtNameStd.Text) ||
+                cmbGenStd.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(txtFeeStd.Text) ||
+                string.IsNullOrWhiteSpace(txtAdrsStd.Text) ||
+                cmbClsStd.SelectedIndex == -1)
+            {
+                MessageBox.Show("Harap lengkapi semua data sebelum menambahkan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (isNewData) std = new Student();
             std.StName = txtNameStd.Text;
             std.StGen = cmbGenStd.SelectedItem.ToString();
@@ -187,6 +208,66 @@ namespace login.View
                 {
                     OnUpdate(std);
                     this.Close();
+                }
+            }*/
+            // Perbaikan
+            if (string.IsNullOrWhiteSpace(txtNameStd.Text) ||
+            cmbGenStd.SelectedIndex == -1 ||
+            string.IsNullOrWhiteSpace(txtFeeStd.Text) ||
+             string.IsNullOrWhiteSpace(txtAdrsStd.Text) ||
+            cmbClsStd.SelectedIndex == -1)
+            {
+                MessageBox.Show("Harap lengkapi semua data sebelum menambahkan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (isNewData) std = new Student();
+            std.StName = txtNameStd.Text;
+            std.StGen = cmbGenStd.SelectedItem.ToString();
+            std.StDOB = dtDOBStd.Text;
+            std.StClass = cmbClsStd.SelectedItem.ToString();
+            std.StFee = txtFeeStd.Text;
+            std.StAdrs = txtAdrsStd.Text;
+
+            int result = 0;
+
+            if (isNewData)
+            {
+                result = controller.Create(std);
+                if (result > 0)
+                {
+                    if (OnCreate != null)
+                    {
+                        OnCreate(std);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event OnCreate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    txtNameStd.Clear();
+                    cmbGenStd.SelectedIndex = -1;
+                    dtDOBStd.Value = DateTime.Now;
+                    cmbClsStd.SelectedIndex = -1;
+                    txtFeeStd.Clear();
+                    txtAdrsStd.Clear();
+
+                    txtNameStd.Focus();
+                }
+            }
+            else
+            {
+                result = controller.Update(std);
+                if (result > 0)
+                {
+                    if (OnUpdate != null)
+                    {
+                        OnUpdate(std);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

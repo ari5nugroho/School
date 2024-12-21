@@ -16,7 +16,7 @@ namespace login.Model.Repository
         public int Create(Student std)
         {
             int result = 0;
-            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@Name,@Gen,@DOB,@Class,@Fee,@Adrs)";
+            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@stName,@stGen,@stDOB,@stClass,@stFee,@stAdrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@stName", std.StName);
@@ -44,12 +44,12 @@ namespace login.Model.Repository
             string sql = @"update stStudent set stName=@SName,stGen=@SGen,stDOB=@SDOB,stClass=@SClass,stFee=@SFee,stAdrs=@SAdrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@Sname", std.StName);
-                cmd.Parameters.AddWithValue("@SGen", std.StGen);
-                cmd.Parameters.AddWithValue("@SDOB", std.StDOB);
-                cmd.Parameters.AddWithValue("@SClass", std.StClass);
-                cmd.Parameters.AddWithValue("@SFee", std.StFee);
-                cmd.Parameters.AddWithValue("@SAdrs", std.StAdrs);
+                cmd.Parameters.AddWithValue("@stName", std.StName);
+                cmd.Parameters.AddWithValue("@stGen", std.StGen);
+                cmd.Parameters.AddWithValue("@stDOB", std.StDOB);
+                cmd.Parameters.AddWithValue("@stClass", std.StClass);
+                cmd.Parameters.AddWithValue("@stFee", std.StFee);
+                cmd.Parameters.AddWithValue("@stAdrs", std.StAdrs);
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
@@ -66,15 +66,15 @@ namespace login.Model.Repository
         public int Delete(Student std)
         {
             int result = 0;
-            string sql = @"Delete from stStudent where stName=@SName";
+            string sql = @"Delete from stStudent where stName=@stName";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@Sname", std.StName);
-                cmd.Parameters.AddWithValue("@SGen", std.StGen);
-                cmd.Parameters.AddWithValue("@SDOB", std.StDOB);
-                cmd.Parameters.AddWithValue("@SClass", std.StClass);
-                cmd.Parameters.AddWithValue("@SFee", std.StFee);
-                cmd.Parameters.AddWithValue("@SAdrs", std.StAdrs);
+                cmd.Parameters.AddWithValue("@stName", std.StName);
+                cmd.Parameters.AddWithValue("@stGen", std.StGen);
+                cmd.Parameters.AddWithValue("@stDOB", std.StDOB);
+                cmd.Parameters.AddWithValue("@stClass", std.StClass);
+                cmd.Parameters.AddWithValue("@stFee", std.StFee);
+                cmd.Parameters.AddWithValue("@stAdrs", std.StAdrs);
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
