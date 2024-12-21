@@ -16,7 +16,7 @@ namespace login.Model.Repository
         public int Create(Student std)
         {
             int result = 0;
-            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@stName,@stGen,@stDOB,@stClass,@stFee,@stAdrs)";
+            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@Name,@stGen,@stDOB,@stClass,@stFee,@stAdrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@stName", std.StName);
