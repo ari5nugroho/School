@@ -7,10 +7,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace login.View
 {
@@ -24,36 +27,103 @@ namespace login.View
         public event CreateUpdateEventHandler OnUpdate;
         // deklarasi event ketika terjadi proses hapus data
         public event CreateUpdateEventHandler OnDelete;
-       
+        private StudentController controller;
+        private bool isNewData = true;
+
         private Student std;
         public Students()
         {
             InitializeComponent();
-            GDVStd.SelectionChanged += GDVStd_SelectionChanged; // Menghubungkan eve
-            LoadStudents();
+            controller = new StudentController();
+            InisialisasiGridView();
+            LoadDataStudent();
+            
+            
         }
-        private void LoadStudents()
+
+        private void InisialisasiGridView()
         {
-            StudentController studentController = new StudentController();
-            var students = studentController.ReadAll();
-            GDVStd.DataSource = students;
-        }
-        private void GDVStd_SelectionChanged(object sender, EventArgs e)
-        {
-            if (GDVStd.SelectedRows.Count > 0)
+            GDVStd.Columns.Clear();
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
-                var selectedRow = GDVStd.SelectedRows[0];
-                txtNameStd.Text = selectedRow.Cells["StName"].Value.ToString();
-                cmbGenStd.Text = selectedRow.Cells["StGen"].Value.ToString();
-                dtDOBStd.Text = selectedRow.Cells["StDOB"].Value.ToString();
-                cmbClsStd.Text = selectedRow.Cells["StClass"].Value.ToString();
-                txtFeeStd.Text = selectedRow.Cells["StFee"].Value.ToString();
-                txtAdrsStd.Text = selectedRow.Cells["StAdrs"].Value.ToString();
+                HeaderText = "StId",
+                Width = 35,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Name",
+                Width = 91,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Gen",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "DOB",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Class",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Fee",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
+            });
+
+            GDVStd.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Address",
+                Width = 120,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            // Mengatur garis grid
+            GDVStd.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            GDVStd.GridColor = System.Drawing.Color.Black;
+        }
+        private void LoadDataStudent()
+        {
+            // Kosongkan DataGridView
+            GDVStd.Rows.Clear();
+
+            // Panggil method ReadAll untuk mengambil data dari database
+            List<Student> ListOfStudent = controller.ReadAll();
+
+            // Iterasi melalui data mahasiswa dan tambahkan ke DataGridView
+            foreach (var std in ListOfStudent)
+            {
+                GDVStd.Rows.Add(
+                    std.StId, // Kolom ID
+                    std.StName,                  // Kolom Nama
+                    std.StGen,                   // Kolom Gender
+                    std.StDOB, // Kolom Tanggal Lahir
+                    std.StClass,                 // Kolom Kelas
+                    std.StFee,     // Kolom Biaya
+                    std.StAdrs                   // Kolom Alamat
+                );
             }
         }
 
-      
-       
+
+
+
         private void Student_Load(object sender, EventArgs e)
         {
 
@@ -76,19 +146,48 @@ namespace login.View
 
         private void btnAddStd_Click(object sender, EventArgs e)
         {
-            Student std = new Student
-            {
-                StName = txtNameStd.Text,
-                StGen = cmbGenStd.Text,
-                StDOB = dtDOBStd.Text,
-                StClass = cmbClsStd.Text,
-                StFee = txtFeeStd.Text,
-                StAdrs = txtAdrsStd.Text
-            };
+            if (isNewData) std = new Student();
+            std.StName = txtNameStd.Text;
+            std.StGen = cmbGenStd.SelectedItem.ToString();
+            std.StDOB = dtDOBStd.Text;
+            std.StClass = cmbClsStd.SelectedItem.ToString();
+            std.StFee = txtFeeStd.Text;
+            std.StAdrs = txtAdrsStd.Text;
 
-            StudentController studentController = new StudentController();
-            studentController.Create(std);
-            LoadStudents(); // Refresh DataGridView
+            int result = 0;
+
+            if (isNewData)
+            {
+                result = controller.Create(std);
+                if (result > 0)
+                {
+                    OnCreate(std);
+
+                    txtNameStd.Clear();
+                    cmbGenStd.SelectedIndex = -1;
+                    dtDOBStd.Value = DateTime.Now;
+                    cmbClsStd.SelectedIndex = -1;
+                    txtFeeStd.Clear();
+                    txtAdrsStd.Clear();
+
+                    txtNameStd.Focus();
+                }
+
+            }
+            else
+            {
+                result = controller.Update(std);
+                if (result > 0)
+                {
+                    OnUpdate(std);
+                    this.Close();
+                }
+            }
+        }
+
+        private void Close()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnEdtStd_Click(object sender, EventArgs e)
@@ -116,7 +215,7 @@ namespace login.View
 
                 StudentController studentController = new StudentController();
                 studentController.Update(std);
-                LoadStudents(); // Refresh DataGridView
+               
             }
             else
             {
@@ -137,7 +236,7 @@ namespace login.View
 
                 StudentController studentController = new StudentController();
                 studentController.Delete(std);
-                LoadStudents(); // Refresh DataGridView
+                
             }
             else
             {
@@ -145,10 +244,23 @@ namespace login.View
             }
 
         }
-
+        int Key = 0;
         private void GDVStd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
+            cmbGenStd.SelectedItem = GDVStd.SelectedRows[0].Cells[2].Value.ToString();
+            dtDOBStd.Text = GDVStd.SelectedRows[0].Cells[3].Value.ToString();
+            cmbClsStd.SelectedItem = GDVStd.SelectedRows[0].Cells[4].Value.ToString();
+            txtFeeStd.Text = GDVStd.SelectedRows[0].Cells[5].Value.ToString();
+            txtAdrsStd.Text = GDVStd.SelectedRows[0].Cells[6].Value.ToString();
+            if (txtNameStd.Text == "")
+            {
+                Key = 0;
+            }
+            else
+            {
+                Key = Convert.ToInt32(GDVStd.SelectedRows[0].Cells[0].Value.ToString());
+            }
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)

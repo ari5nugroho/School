@@ -8,58 +8,57 @@ using System.Data.SQLite;
 
 namespace login.Model.Context
 {
-    internal class DbContext : IDisposable
+    public class DbContext : IDisposable
     {
-        // deklarasi private variabel / field
         private SQLiteConnection Con;
+
         // deklarasi property Conn (connection), untuk menyimpan objek koneksi
         public SQLiteConnection Conn
         {
-            get
-            {
-                if (Con == null || Con.State == ConnectionState.Closed)
-                {
-                    Con = GetOpenConnection();
-                }
-                return Con;
-            }
+            get { return Con ?? (Con = GetOpenConnection()); }
         }
+
         // Method untuk melakukan koneksi ke database
         private SQLiteConnection GetOpenConnection()
         {
-            SQLiteConnection conn = null;
-            try
+            SQLiteConnection conn = null; // deklarasi objek connection
+
+            try // penggunaan blok try-catch untuk penanganan error
             {
-                string dbName = @"E:\Pemrograman Lanjut\ProjectFinal\Database\DbSchool.db";
-                string connectionString = $"Data Source={dbName};FailIfMissing=True";
-                conn = new SQLiteConnection(connectionString);
-                conn.Open();
+                // atur ulang lokasi database yang disesuaikan dengan
+                // lokasi database perpustakaan Anda
+                string dbName = @"E:\Finnnal\Database\DbSchool.db";
+
+                // deklarasi variabel connectionString, ref: https://www.connectionstrings.com/
+                string connectionString = string.Format("Data Source={0};FailIfMissing=True", dbName);
+
+                conn = new SQLiteConnection(connectionString); // buat objek connection
+                conn.Open(); // buka koneksi ke database
             }
+            // jika terjadi error di blok try, akan ditangani langsung oleh blok catch
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.Print("Open Connection Error: {0}", ex.Message);
-                throw; // Lempar kembali pengecualian untuk penanganan lebih lanjut
             }
+
             return conn;
         }
-        // Method ini digunakan untuk menghapus objek koneksi dari memory ketika sudah tidak digunakan
 
+        // Method ini digunakan untuk menghapus objek koneksi dari memory ketika sudah tidak digunakan
         public void Dispose()
         {
             if (Con != null)
             {
                 try
                 {
-                    if (Con.State != ConnectionState.Closed)
-                    {
-                        Con.Close();
-                    }
+                    if (Con.State != ConnectionState.Closed) Con.Close();
                 }
                 finally
                 {
                     Con.Dispose();
                 }
             }
+
             GC.SuppressFinalize(this);
         }
 

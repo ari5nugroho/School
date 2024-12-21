@@ -2,16 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using login.Model.Context;
 using login.Model.Entity;
 
 namespace login.Model.Repository
 {
-    internal class StudentRepository
+    public class StudentRepository
     {
         private SQLiteConnection Con;
         public StudentRepository(DbContext context)
@@ -21,7 +16,7 @@ namespace login.Model.Repository
         public int Create(Student std)
         {
             int result = 0;
-            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, tFee, stAdrs) values (@stName,@sten,@stDOB,@stClass,@stFee,@stAdrs)";
+            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@Name,@Gen,@DOB,@Class,@Fee,@Adrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@stName", std.StName);
@@ -98,7 +93,7 @@ namespace login.Model.Repository
             try
             {
                 // deklarasi perintah SQL
-                string sql = @"select stName,stGen,stDOB,stClass,stFee,stAdrs from stStudent";
+                string sql = @"select * from stStudent";
                 // membuat objek command menggunakan blok using
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
@@ -110,10 +105,11 @@ namespace login.Model.Repository
                         {
                             // proses konversi dari row result set ke object
                             Student std = new Student();
+                            std.StId = dtr["StId"].ToString();
                             std.StName = dtr["StName"].ToString();
                             std.StGen = dtr["StGen"].ToString();
                             std.StDOB = dtr["stDOB"].ToString();
-                            std.StDOB = dtr["stClass"].ToString();
+                            std.StClass = dtr["stClass"].ToString();
                             std.StFee = dtr["stFee"].ToString();
                             std.StAdrs = dtr["stAdrs"].ToString();
                             // tambahkan objek mahasiswa ke dalam collection

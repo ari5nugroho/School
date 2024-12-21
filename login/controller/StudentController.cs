@@ -7,7 +7,7 @@ using login.Model.Repository;
 
 namespace login.Controller
 {
-    internal class StudentController
+    public class StudentController
     {
         private StudentRepository _repository;
 
@@ -48,22 +48,55 @@ namespace login.Controller
 
         public int Create(Student std)
         {
-            if (!ValidateStudent(std)) return 0;
+            int result = 0;
+            if (string.IsNullOrEmpty(std.StName))
+            {
+                MessageBox.Show("Nama harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
 
+            if (string.IsNullOrEmpty(std.StGen))
+            {
+                MessageBox.Show("Gen harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+
+            if (string.IsNullOrEmpty(std.StDOB))
+            {
+                MessageBox.Show("DOB harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(std.StClass))
+            {
+                MessageBox.Show("Class harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(std.StFee))
+            {
+                MessageBox.Show("Fee harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+            if (string.IsNullOrEmpty(std.StAdrs))
+            {
+                MessageBox.Show("Address harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
             using (DbContext context = new DbContext())
             {
                 _repository = new StudentRepository(context);
-                int result = _repository.Create(std);
-                if (result > 0)
-                {
-                    MessageBox.Show("Data Murid berhasil Ditambahkan !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Data Murid gagal disimpan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                return result;
+                result = _repository.Create(std);
             }
+            if (result > 0)
+            {
+                MessageBox.Show("Data Murid berhasil Ditambahkan !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            else
+
+                MessageBox.Show("Data Murid gagal disimpan !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            return result;
         }
 
         public int Update(Student std)
@@ -118,6 +151,7 @@ namespace login.Controller
                 _repository = new StudentRepository(context);
                 list = _repository.ReadAll();
             }
+
             return list;
         }
     }

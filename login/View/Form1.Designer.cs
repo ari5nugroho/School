@@ -60,7 +60,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 795);
+            this.panel1.Size = new System.Drawing.Size(199, 788);
             this.panel1.TabIndex = 0;
             // 
             // btnFeeSB
@@ -239,7 +239,7 @@
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
             this.label1.Location = new System.Drawing.Point(66, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 19);
+            this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sigma Highschool";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -261,7 +261,7 @@
             this.mainPanel.Location = new System.Drawing.Point(199, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(0, 6, 6, 6);
-            this.mainPanel.Size = new System.Drawing.Size(873, 795);
+            this.mainPanel.Size = new System.Drawing.Size(873, 788);
             this.mainPanel.TabIndex = 1;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -278,7 +278,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(1072, 795);
+            this.ClientSize = new System.Drawing.Size(1072, 788);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

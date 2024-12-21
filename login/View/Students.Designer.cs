@@ -38,7 +38,6 @@
             this.txtAdrsStd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.GDVStd = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.btnDelStd = new System.Windows.Forms.Button();
             this.btnEdtStd = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.txtNameStd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.GDVStd = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVStd)).BeginInit();
@@ -153,18 +153,6 @@
             this.label7.Size = new System.Drawing.Size(126, 24);
             this.label7.TabIndex = 32;
             this.label7.Text = "Students List";
-            // 
-            // GDVStd
-            // 
-            this.GDVStd.BackgroundColor = System.Drawing.Color.White;
-            this.GDVStd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GDVStd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GDVStd.Location = new System.Drawing.Point(32, 518);
-            this.GDVStd.Name = "GDVStd";
-            this.GDVStd.RowHeadersWidth = 51;
-            this.GDVStd.Size = new System.Drawing.Size(803, 202);
-            this.GDVStd.TabIndex = 41;
-            this.GDVStd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVStd_CellContentClick);
             // 
             // button4
             // 
@@ -343,15 +331,31 @@
             this.label9.Text = "Add Student";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
+            // GDVStd
+            // 
+            this.GDVStd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GDVStd.BackgroundColor = System.Drawing.Color.White;
+            this.GDVStd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GDVStd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GDVStd.GridColor = System.Drawing.Color.Purple;
+            this.GDVStd.Location = new System.Drawing.Point(36, 512);
+            this.GDVStd.Name = "GDVStd";
+            this.GDVStd.ReadOnly = true;
+            this.GDVStd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GDVStd.Size = new System.Drawing.Size(803, 251);
+            this.GDVStd.TabIndex = 45;
+            // 
             // Students
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.GDVStd);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtAdrsStd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.GDVStd);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelStd);
             this.Controls.Add(this.btnEdtStd);
@@ -388,7 +392,6 @@
         private System.Windows.Forms.TextBox txtAdrsStd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView GDVStd;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelStd;
         private System.Windows.Forms.Button btnEdtStd;
@@ -406,5 +409,6 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.DataGridView GDVStd;
     }
 }
