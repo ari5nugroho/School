@@ -30,6 +30,8 @@ namespace login.View
         private StudentController controller;
         private bool isNewData = true;
 
+
+
         private Student std;
         public Students()
         {
@@ -37,8 +39,12 @@ namespace login.View
             controller = new StudentController();
             InisialisasiGridView();
             LoadDataStudent();
-            
-            
+
+            // Tambahkan handler untuk event Resize
+            this.Resize += Students_Resize;
+
+            // Pastikan posisi awal datagrid berada di tengah
+            CenterGridView();
         }
 
         private void InisialisasiGridView()
@@ -48,49 +54,49 @@ namespace login.View
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "StId",
-                Width = 35,
+                Width = 55,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Name",
-                Width = 91,
+                Width = 111,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Gen",
-                Width = 50,
+                Width = 70,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "DOB",
-                Width = 50,
+                Width = 70,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Class",
-                Width = 50,
+                Width = 70,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Fee",
-                Width = 50,
+                Width = 70,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
             GDVStd.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Address",
-                Width = 120,
+                Width = 140,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
@@ -263,9 +269,24 @@ namespace login.View
             }
         }
 
+        private void Students_Resize(object sender, EventArgs e)
+        {
+            CenterGridView();
+        }
+        private void CenterGridView()
+        {
+            // Hitung posisi horizontal untuk menempatkan di tengah
+            GDVStd.Left = (415 - 203) / 2;
+
+        }
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void GDVStd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
