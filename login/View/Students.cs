@@ -283,9 +283,50 @@ namespace login.View
 
         private void btnEdtStd_Click(object sender, EventArgs e)
         {
+            if (Key == 0)
+            {
+                MessageBox.Show("Silakan pilih data yang ingin diedit!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Validasi input
+            if (string.IsNullOrWhiteSpace(txtNameStd.Text) ||
+                cmbGenStd.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(txtFeeStd.Text) ||
+                string.IsNullOrWhiteSpace(txtAdrsStd.Text) ||
+                cmbClsStd.SelectedIndex == -1)
+            {
+                MessageBox.Show("Harap lengkapi semua data sebelum menyimpan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            if (isNewData) std = new Student();
+            // Update data mahasiswa
+            std = new Student
+            {
+                StId = GDVStd.SelectedRows[0].Cells[0].Value.ToString(),
+                StName = txtNameStd.Text,
+                StGen = cmbGenStd.SelectedItem.ToString(),
+                StDOB = dtDOBStd.Value.ToString("yyyy-MM-dd"),
+                StClass = cmbClsStd.SelectedItem.ToString(),
+                StFee = txtFeeStd.Text,
+                StAdrs = txtAdrsStd.Text
+            };
+
+            // Kirim data ke controller untuk diperbarui
+            int result = controller.Update(std);
+
+            if (result > 0)
+            {
+                OnUpdate?.Invoke(std);
+                MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadDataStudent(); // Refresh DataGridView
+            }
+            else
+            {
+                MessageBox.Show("Gagal memperbarui data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            /*if (isNewData) std = new Student();
             std.StName = txtNameStd.Text;
             std.StGen = cmbGenStd.SelectedItem.ToString();
             std.StDOB = dtDOBStd.Text;
@@ -333,12 +374,41 @@ namespace login.View
                         MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            }*/
         }
 
         private void btnDelStd_Click(object sender, EventArgs e)
         {
             if (Key == 0)
+            {
+                MessageBox.Show("Silakan pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Konfirmasi penghapusan
+            var confirmResult = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult == DialogResult.Yes)
+            {
+                std = new Student
+                {
+                    StId = GDVStd.SelectedRows[0].Cells[0].Value.ToString()
+                };
+
+                int result = controller.Delete(std);
+                if (result > 0)
+                {
+                    OnDelete?.Invoke(std);
+                    MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataStudent(); // Refresh DataGridView
+                }
+                else
+                {
+                    MessageBox.Show("Gagal menghapus data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+            /*if (Key == 0)
             {
                 MessageBox.Show("Pilih Murid");
             }
@@ -386,7 +456,9 @@ namespace login.View
             /*else
             {
                 MessageBox.Show("Silakan pilih siswa yang ingin dihapus.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
+            }
+            */
+
 
         }
         int Key = 0;
@@ -413,7 +485,7 @@ namespace login.View
         private void GDVStd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
-            txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
+            /*txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
             cmbGenStd.SelectedItem = GDVStd.SelectedRows[0].Cells[2].Value.ToString();
             dtDOBStd.Text = GDVStd.SelectedRows[0].Cells[3].Value.ToString();
             cmbClsStd.SelectedItem = GDVStd.SelectedRows[0].Cells[4].Value.ToString();
@@ -426,6 +498,19 @@ namespace login.View
             else
             {
                 Key = Convert.ToInt32(GDVStd.SelectedRows[0].Cells[0].Value.ToString());
+            }*/
+
+            if (e.RowIndex >= 0) // Pastikan klik berada di dalam baris data
+            {
+                DataGridViewRow row = GDVStd.Rows[e.RowIndex];
+
+                txtNameStd.Text = row.Cells[1].Value.ToString();
+                cmbGenStd.SelectedItem = row.Cells[2].Value.ToString();
+                dtDOBStd.Text = row.Cells[3].Value.ToString();
+                cmbClsStd.SelectedItem = row.Cells[4].Value.ToString();
+                txtFeeStd.Text = row.Cells[5].Value.ToString();
+                txtAdrsStd.Text = row.Cells[6].Value.ToString();
+                Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
             }
         }
     }

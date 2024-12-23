@@ -38,7 +38,6 @@
             this.txtAdrsStd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnDelStd = new System.Windows.Forms.Button();
             this.btnEdtStd = new System.Windows.Forms.Button();
             this.btnAddStd = new System.Windows.Forms.Button();
@@ -157,26 +156,13 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Students List";
             // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(569, 407);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(132, 47);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Back";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // btnDelStd
             // 
             this.btnDelStd.AutoSize = true;
             this.btnDelStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnDelStd.ForeColor = System.Drawing.Color.White;
             this.btnDelStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelStd.Location = new System.Drawing.Point(431, 407);
+            this.btnDelStd.Location = new System.Drawing.Point(501, 404);
             this.btnDelStd.Name = "btnDelStd";
             this.btnDelStd.Size = new System.Drawing.Size(132, 47);
             this.btnDelStd.TabIndex = 39;
@@ -190,15 +176,13 @@
             this.btnEdtStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnEdtStd.ForeColor = System.Drawing.Color.White;
             this.btnEdtStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdtStd.Location = new System.Drawing.Point(293, 407);
+            this.btnEdtStd.Location = new System.Drawing.Point(363, 404);
             this.btnEdtStd.Name = "btnEdtStd";
             this.btnEdtStd.Size = new System.Drawing.Size(132, 47);
             this.btnEdtStd.TabIndex = 38;
             this.btnEdtStd.Text = "Edit";
             this.btnEdtStd.UseVisualStyleBackColor = false;
-
             this.btnEdtStd.Click += new System.EventHandler(this.btnEdtStd_Click);
-
             // 
             // btnAddStd
             // 
@@ -206,7 +190,7 @@
             this.btnAddStd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddStd.ForeColor = System.Drawing.Color.White;
             this.btnAddStd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddStd.Location = new System.Drawing.Point(155, 407);
+            this.btnAddStd.Location = new System.Drawing.Point(225, 404);
             this.btnAddStd.Name = "btnAddStd";
             this.btnAddStd.Size = new System.Drawing.Size(132, 47);
             this.btnAddStd.TabIndex = 37;
@@ -361,7 +345,6 @@
             this.Controls.Add(this.txtAdrsStd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelStd);
             this.Controls.Add(this.btnEdtStd);
             this.Controls.Add(this.btnAddStd);
@@ -397,7 +380,6 @@
         private System.Windows.Forms.TextBox txtAdrsStd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelStd;
         private System.Windows.Forms.Button btnEdtStd;
         private System.Windows.Forms.Button btnAddStd;

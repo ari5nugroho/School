@@ -41,9 +41,10 @@ namespace login.Model.Repository
         public int Update(Student std)
         {
             int result = 0;
-            string sql = @"update stStudent set stName=@stName,stGen=@stGen,stDOB=@stDOB,stClass=@stClass,stFee=@stFee,stAdrs=@stAdrs";
+            string sql = @"update stStudent set stName=@stName,stGen=@stGen,stDOB=@stDOB,stClass=@stClass,stFee=@stFee,stAdrs=@stAdrs WHERE stId = @stId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
+                cmd.Parameters.AddWithValue("@stId", std.StId);
                 cmd.Parameters.AddWithValue("@stName", std.StName);
                 cmd.Parameters.AddWithValue("@stGen", std.StGen);
                 cmd.Parameters.AddWithValue("@stDOB", std.StDOB);
