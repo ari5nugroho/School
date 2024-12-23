@@ -196,7 +196,9 @@
             this.btnEdtStd.TabIndex = 38;
             this.btnEdtStd.Text = "Edit";
             this.btnEdtStd.UseVisualStyleBackColor = false;
+
             this.btnEdtStd.Click += new System.EventHandler(this.btnEdtStd_Click);
+
             // 
             // btnAddStd
             // 

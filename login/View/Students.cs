@@ -47,6 +47,8 @@ namespace login.View
             CenterGridView();
 
             OnCreate += StudentCreatedHandler;
+            OnUpdate += StudentUpdateHandler;
+            OnDelete += StudentDeleteHandler;
         }
 
         private void StudentCreatedHandler(Student std)
@@ -54,7 +56,16 @@ namespace login.View
             MessageBox.Show($"Student {std.StName} berhasil ditambahkan!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
-
+        private void StudentUpdateHandler(Student std)
+        {
+            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataStudent(); // Refresh DataGridView
+        }
+        private void StudentDeleteHandler(Student std)
+        {
+            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataStudent(); // Refresh DataGridView
+        }
         private void InisialisasiGridView()
         {
             GDVStd.Columns.Clear();
@@ -257,6 +268,37 @@ namespace login.View
             }
             else
             {
+               
+                    
+                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                
+            }
+        }
+
+        private void Close()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnEdtStd_Click(object sender, EventArgs e)
+        {
+
+
+            if (isNewData) std = new Student();
+            std.StName = txtNameStd.Text;
+            std.StGen = cmbGenStd.SelectedItem.ToString();
+            std.StDOB = dtDOBStd.Text;
+            std.StClass = cmbClsStd.SelectedItem.ToString();
+            std.StFee = txtFeeStd.Text;
+            std.StAdrs = txtAdrsStd.Text;
+
+            int result = 0;
+
+         
+
+            if (isNewData)
+            {
                 result = controller.Update(std);
                 if (result > 0)
                 {
@@ -268,86 +310,89 @@ namespace login.View
                     {
                         MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
+                    std.StName = txtNameStd.Text;
+                    std.StGen = cmbGenStd.SelectedIndex.ToString();
+                    std.StDOB = dtDOBStd.Value.ToString("yyyy-MM-dd");
+                    std.StClass = cmbClsStd.SelectedIndex.ToString();
+                    std.StFee = txtFeeStd.Text;
+                    std.StAdrs = txtAdrsStd.Text;
                 }
-            }
-        }
-
-        private void Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void btnEdtStd_Click(object sender, EventArgs e)
-        {
-            if (GDVStd.SelectedRows.Count > 0)
-            {
-                var selectedRow = GDVStd.SelectedRows[0];
-                Student std = new Student
-                {
-                    StName = selectedRow.Cells["StName"].Value.ToString(),
-                    StGen = selectedRow.Cells["StGen"].Value.ToString(),
-                    StDOB = selectedRow.Cells["StDOB"].Value.ToString(),
-                    StClass = selectedRow.Cells["StClass"].Value.ToString(),
-                    StFee = selectedRow.Cells["StFee"].Value.ToString(),
-                    StAdrs = selectedRow.Cells["StAdrs"].Value.ToString()
-                };
-
-                // Update data dari textbox
-                std.StName = txtNameStd.Text;
-                std.StGen = cmbGenStd.Text;
-                std.StDOB = dtDOBStd.Text;
-                std.StClass = cmbClsStd.Text;
-                std.StFee = txtFeeStd.Text;
-                std.StAdrs = txtAdrsStd.Text;
-
-                StudentController studentController = new StudentController();
-                studentController.Update(std);
-               
             }
             else
             {
-                MessageBox.Show("Silakan pilih siswa yang ingin diedit.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                result = controller.Delete(std);
+                if (result > 0)
+                {
+                    if (OnDelete != null)
+                    {
+                        OnDelete(std);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
         private void btnDelStd_Click(object sender, EventArgs e)
         {
-            if (GDVStd.SelectedRows.Count > 0)
+            if (Key == 0)
             {
-                var selectedRow = GDVStd.SelectedRows[0];
-                Student std = new Student
-                {
-                    StName = selectedRow.Cells["StName"].Value.ToString()
-                    // Anda mungkin ingin menambahkan ID atau parameter lain jika diperlukan
-                };
+                MessageBox.Show("Pilih Murid");
+            }
 
-                StudentController studentController = new StudentController();
-                studentController.Delete(std);
-                
+            if (isNewData) std = new Student();
+            std.StName = txtNameStd.Text;
+            std.StGen = cmbGenStd.SelectedItem.ToString();
+            std.StDOB = dtDOBStd.Text;
+            std.StClass = cmbClsStd.SelectedItem.ToString();
+            std.StFee = txtFeeStd.Text;
+            std.StAdrs = txtAdrsStd.Text;
+
+            int result = 0;
+
+            if (isNewData)
+            {
+                result = controller.Delete(std);
+                if (result > 0)
+                {
+                    if (OnDelete != null)
+                    {
+                        OnDelete(std);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event OnCreate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    txtNameStd.Clear();
+                    cmbGenStd.SelectedIndex = -1;
+                    dtDOBStd.Value = DateTime.Now;
+                    cmbClsStd.SelectedIndex = -1;
+                    txtFeeStd.Clear();
+                    txtAdrsStd.Clear();
+
+                    txtNameStd.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Silakan pilih siswa yang ingin dihapus.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               
+                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
             }
+            /*else
+            {
+                MessageBox.Show("Silakan pilih siswa yang ingin dihapus.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }*/
 
         }
         int Key = 0;
         private void GDVStd_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
-            cmbGenStd.SelectedItem = GDVStd.SelectedRows[0].Cells[2].Value.ToString();
-            dtDOBStd.Text = GDVStd.SelectedRows[0].Cells[3].Value.ToString();
-            cmbClsStd.SelectedItem = GDVStd.SelectedRows[0].Cells[4].Value.ToString();
-            txtFeeStd.Text = GDVStd.SelectedRows[0].Cells[5].Value.ToString();
-            txtAdrsStd.Text = GDVStd.SelectedRows[0].Cells[6].Value.ToString();
-            if (txtNameStd.Text == "")
-            {
-                Key = 0;
-            }
-            else
-            {
-                Key = Convert.ToInt32(GDVStd.SelectedRows[0].Cells[0].Value.ToString());
-            }
+           
         }
 
         private void Students_Resize(object sender, EventArgs e)
@@ -368,6 +413,20 @@ namespace login.View
         private void GDVStd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+            txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
+            cmbGenStd.SelectedItem = GDVStd.SelectedRows[0].Cells[2].Value.ToString();
+            dtDOBStd.Text = GDVStd.SelectedRows[0].Cells[3].Value.ToString();
+            cmbClsStd.SelectedItem = GDVStd.SelectedRows[0].Cells[4].Value.ToString();
+            txtFeeStd.Text = GDVStd.SelectedRows[0].Cells[5].Value.ToString();
+            txtAdrsStd.Text = GDVStd.SelectedRows[0].Cells[6].Value.ToString();
+            if (txtNameStd.Text == "")
+            {
+                Key = 0;
+            }
+            else
+            {
+                Key = Convert.ToInt32(GDVStd.SelectedRows[0].Cells[0].Value.ToString());
+            }
         }
     }
 }

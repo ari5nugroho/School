@@ -101,31 +101,29 @@ namespace login.Controller
 
         public int Update(Student std)
         {
-            if (!ValidateStudent(std)) return 0;
+            int result = 0;
 
             using (DbContext context = new DbContext())
             {
                 _repository = new StudentRepository(context);
-                int result = _repository.Update(std);
-                if (result > 0)
-                {
-                    MessageBox.Show("Data Murid berhasil Diperbarui !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Data Murid gagal diperbarui !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                return result;
+                result = _repository.Update(std);
+
+                
             }
+            if (result > 0)
+            {
+                MessageBox.Show("Data Murid berhasil Diperbarui !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+
+                MessageBox.Show("Data Murid gagal diperbarui !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            return result;
         }
 
         public int Delete(Student std)
         {
-            if (string.IsNullOrEmpty(std.StName))
-            {
-                MessageBox.Show("Nama harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
+            
 
             using (DbContext context = new DbContext())
             {

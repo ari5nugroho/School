@@ -16,7 +16,7 @@ namespace login.Model.Repository
         public int Create(Student std)
         {
             int result = 0;
-            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@Name,@stGen,@stDOB,@stClass,@stFee,@stAdrs)";
+            string sql = @"insert into stStudent (stName, stGen, stDOB, stClass, stFee, stAdrs) values (@stName,@stGen,@stDOB,@stClass,@stFee,@stAdrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@stName", std.StName);
@@ -41,7 +41,7 @@ namespace login.Model.Repository
         public int Update(Student std)
         {
             int result = 0;
-            string sql = @"update stStudent set stName=@SName,stGen=@SGen,stDOB=@SDOB,stClass=@SClass,stFee=@SFee,stAdrs=@SAdrs)";
+            string sql = @"update stStudent set stName=@stName,stGen=@stGen,stDOB=@stDOB,stClass=@stClass,stFee=@stFee,stAdrs=@stAdrs";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@stName", std.StName);
@@ -66,15 +66,11 @@ namespace login.Model.Repository
         public int Delete(Student std)
         {
             int result = 0;
-            string sql = @"Delete from stStudent where stName=@stName";
+            string sql = @"Delete from stStudent where stId = @stId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stName", std.StName);
-                cmd.Parameters.AddWithValue("@stGen", std.StGen);
-                cmd.Parameters.AddWithValue("@stDOB", std.StDOB);
-                cmd.Parameters.AddWithValue("@stClass", std.StClass);
-                cmd.Parameters.AddWithValue("@stFee", std.StFee);
-                cmd.Parameters.AddWithValue("@stAdrs", std.StAdrs);
+                cmd.Parameters.AddWithValue("@stId", std.StId);
+               
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result

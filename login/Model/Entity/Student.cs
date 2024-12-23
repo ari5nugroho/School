@@ -16,5 +16,6 @@ namespace login.Model.Entity
         public string StAdrs { get; set; }
         public string StFee { get; set; }
 
+        
     }
 }
