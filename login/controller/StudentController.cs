@@ -9,43 +9,7 @@ namespace login.Controller
 {
     public class StudentController
     {
-        private StudentRepository _repository;
-
-        private bool ValidateStudent(Student std)
-        {
-            if (string.IsNullOrEmpty(std.StName))
-            {
-                MessageBox.Show("Nama harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            if (string.IsNullOrEmpty(std.StGen))
-            {
-                MessageBox.Show("Gen harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            if (string.IsNullOrEmpty(std.StDOB))
-            {
-                MessageBox.Show("DOB harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            if (string.IsNullOrEmpty(std.StClass))
-            {
-                MessageBox.Show("Class harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            if (string.IsNullOrEmpty(std.StFee))
-            {
-                MessageBox.Show("Fee harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            if (string.IsNullOrEmpty(std.StAdrs))
-            {
-                MessageBox.Show("Address harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            return true;
-        }
-
+        private StudentRepository _repository;      
         public int Create(Student std)
         {
             int result = 0;

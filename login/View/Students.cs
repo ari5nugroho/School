@@ -120,7 +120,7 @@ namespace login.View
             });
 
             // Mengatur garis grid
-            GDVStd.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            GDVStd.CellBorderStyle = DataGridViewCellBorderStyle.None;
             GDVStd.GridColor = System.Drawing.Color.Black;
         }
         private void LoadDataStudent()
@@ -172,55 +172,7 @@ namespace login.View
 
         private void btnAddStd_Click(object sender, EventArgs e)
         {
-            /*
-            // Validasi input kosong
-            if (string.IsNullOrWhiteSpace(txtNameStd.Text) ||
-                cmbGenStd.SelectedIndex == -1 ||
-                string.IsNullOrWhiteSpace(txtFeeStd.Text) ||
-                string.IsNullOrWhiteSpace(txtAdrsStd.Text) ||
-                cmbClsStd.SelectedIndex == -1)
-            {
-                MessageBox.Show("Harap lengkapi semua data sebelum menambahkan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (isNewData) std = new Student();
-            std.StName = txtNameStd.Text;
-            std.StGen = cmbGenStd.SelectedItem.ToString();
-            std.StDOB = dtDOBStd.Text;
-            std.StClass = cmbClsStd.SelectedItem.ToString();
-            std.StFee = txtFeeStd.Text;
-            std.StAdrs = txtAdrsStd.Text;
-
-            int result = 0;
-
-            if (isNewData)
-            {
-                result = controller.Create(std);
-                if (result > 0)
-                {
-                    OnCreate(std);
-
-                    txtNameStd.Clear();
-                    cmbGenStd.SelectedIndex = -1;
-                    dtDOBStd.Value = DateTime.Now;
-                    cmbClsStd.SelectedIndex = -1;
-                    txtFeeStd.Clear();
-                    txtAdrsStd.Clear();
-
-                    txtNameStd.Focus();
-                }
-
-            }
-            else
-            {
-                result = controller.Update(std);
-                if (result > 0)
-                {
-                    OnUpdate(std);
-                    this.Close();
-                }
-            }*/
+            
             // Perbaikan
             if (string.IsNullOrWhiteSpace(txtNameStd.Text) ||
             cmbGenStd.SelectedIndex == -1 ||
@@ -276,10 +228,7 @@ namespace login.View
             }
         }
 
-        private void Close()
-        {
-            throw new NotImplementedException();
-        }
+      
 
         private void btnEdtStd_Click(object sender, EventArgs e)
         {
@@ -326,55 +275,7 @@ namespace login.View
                 MessageBox.Show("Gagal memperbarui data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            /*if (isNewData) std = new Student();
-            std.StName = txtNameStd.Text;
-            std.StGen = cmbGenStd.SelectedItem.ToString();
-            std.StDOB = dtDOBStd.Text;
-            std.StClass = cmbClsStd.SelectedItem.ToString();
-            std.StFee = txtFeeStd.Text;
-            std.StAdrs = txtAdrsStd.Text;
-
-            int result = 0;
-
-         
-
-            if (isNewData)
-            {
-                result = controller.Update(std);
-                if (result > 0)
-                {
-                    if (OnUpdate != null)
-                    {
-                        OnUpdate(std);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    std.StName = txtNameStd.Text;
-                    std.StGen = cmbGenStd.SelectedIndex.ToString();
-                    std.StDOB = dtDOBStd.Value.ToString("yyyy-MM-dd");
-                    std.StClass = cmbClsStd.SelectedIndex.ToString();
-                    std.StFee = txtFeeStd.Text;
-                    std.StAdrs = txtAdrsStd.Text;
-                }
-            }
-            else
-            {
-                result = controller.Delete(std);
-                if (result > 0)
-                {
-                    if (OnDelete != null)
-                    {
-                        OnDelete(std);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }*/
+           
         }
 
         private void btnDelStd_Click(object sender, EventArgs e)
@@ -462,10 +363,7 @@ namespace login.View
 
         }
         int Key = 0;
-        private void GDVStd_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+       
 
         private void Students_Resize(object sender, EventArgs e)
         {

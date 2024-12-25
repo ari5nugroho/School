@@ -34,13 +34,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbSubjectTcr = new System.Windows.Forms.ComboBox();
-            this.txtPhoneStd = new System.Windows.Forms.TextBox();
+            this.txtPhoneTcr = new System.Windows.Forms.TextBox();
             this.btnDelTcr = new System.Windows.Forms.Button();
             this.btnEdtTcr = new System.Windows.Forms.Button();
             this.btnAddTcr = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.GDVTcr = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbGenTcr = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.GDVTcr = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GDVTcr)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +90,7 @@
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
             this.guna2ControlBox1.TabIndex = 10;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // label1
             // 
@@ -131,13 +132,13 @@
             this.cmbSubjectTcr.Size = new System.Drawing.Size(122, 21);
             this.cmbSubjectTcr.TabIndex = 61;
             // 
-            // txtPhoneStd
+            // txtPhoneTcr
             // 
-            this.txtPhoneStd.Location = new System.Drawing.Point(137, 273);
-            this.txtPhoneStd.Multiline = true;
-            this.txtPhoneStd.Name = "txtPhoneStd";
-            this.txtPhoneStd.Size = new System.Drawing.Size(291, 27);
-            this.txtPhoneStd.TabIndex = 60;
+            this.txtPhoneTcr.Location = new System.Drawing.Point(137, 273);
+            this.txtPhoneTcr.Multiline = true;
+            this.txtPhoneTcr.Name = "txtPhoneTcr";
+            this.txtPhoneTcr.Size = new System.Drawing.Size(291, 27);
+            this.txtPhoneTcr.TabIndex = 60;
             // 
             // btnDelTcr
             // 
@@ -151,6 +152,7 @@
             this.btnDelTcr.TabIndex = 56;
             this.btnDelTcr.Text = "Delete";
             this.btnDelTcr.UseVisualStyleBackColor = false;
+            this.btnDelTcr.Click += new System.EventHandler(this.btnDelTcr_Click);
             // 
             // btnEdtTcr
             // 
@@ -164,6 +166,7 @@
             this.btnEdtTcr.TabIndex = 55;
             this.btnEdtTcr.Text = "Edit";
             this.btnEdtTcr.UseVisualStyleBackColor = false;
+            this.btnEdtTcr.Click += new System.EventHandler(this.btnEdtTcr_Click);
             // 
             // btnAddTcr
             // 
@@ -202,17 +205,6 @@
             this.label7.Size = new System.Drawing.Size(128, 24);
             this.label7.TabIndex = 51;
             this.label7.Text = "Teachers List";
-            // 
-            // GDVTcr
-            // 
-            this.GDVTcr.BackgroundColor = System.Drawing.Color.White;
-            this.GDVTcr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GDVTcr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GDVTcr.Location = new System.Drawing.Point(45, 561);
-            this.GDVTcr.Name = "GDVTcr";
-            this.GDVTcr.RowHeadersWidth = 51;
-            this.GDVTcr.Size = new System.Drawing.Size(790, 205);
-            this.GDVTcr.TabIndex = 58;
             // 
             // button4
             // 
@@ -323,20 +315,36 @@
             this.label9.Text = "Add Teacher";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // Teacher
+            // GDVTcr
+            // 
+            this.GDVTcr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GDVTcr.BackgroundColor = System.Drawing.Color.White;
+            this.GDVTcr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GDVTcr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GDVTcr.GridColor = System.Drawing.Color.Purple;
+            this.GDVTcr.Location = new System.Drawing.Point(40, 525);
+            this.GDVTcr.Name = "GDVTcr";
+            this.GDVTcr.ReadOnly = true;
+            this.GDVTcr.RowHeadersWidth = 51;
+            this.GDVTcr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GDVTcr.Size = new System.Drawing.Size(803, 251);
+            this.GDVTcr.TabIndex = 64;
+            this.GDVTcr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVTcr_CellContentClick);
+            // 
+            // Teachers
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.GDVTcr);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbSubjectTcr);
-            this.Controls.Add(this.txtPhoneStd);
+            this.Controls.Add(this.txtPhoneTcr);
             this.Controls.Add(this.btnDelTcr);
             this.Controls.Add(this.btnEdtTcr);
             this.Controls.Add(this.btnAddTcr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.GDVTcr);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -347,7 +355,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbGenTcr);
             this.Controls.Add(this.panel1);
-            this.Name = "Teacher";
+            this.Name = "Teachers";
             this.Size = new System.Drawing.Size(873, 795);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -363,13 +371,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbSubjectTcr;
-        private System.Windows.Forms.TextBox txtPhoneStd;
+        private System.Windows.Forms.TextBox txtPhoneTcr;
         private System.Windows.Forms.Button btnDelTcr;
         private System.Windows.Forms.Button btnEdtTcr;
         private System.Windows.Forms.Button btnAddTcr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView GDVTcr;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -382,5 +389,6 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.DataGridView GDVTcr;
     }
 }

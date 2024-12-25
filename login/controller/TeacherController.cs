@@ -9,19 +9,10 @@ using login.Model.Entity;
 using login.Model.Repository;
 namespace login.Controller
 {
-    internal class TeacherController
+    public class TeacherController
     {
         private TeacherRepository _tcrepository;
-        public List<Teacher> ReadAll()
-        {
-            List<Teacher> list = new List<Teacher>();
-            using (DbContext context = new DbContext())
-            {
-                _tcrepository = new TeacherRepository(context);
-                list = _tcrepository.ReadAll();
-            }
-            return list;
-        }
+       
 
         public int Create(Teacher tcr)
         {
@@ -45,12 +36,12 @@ namespace login.Controller
             }
             if (string.IsNullOrEmpty(tcr.tcPhone))
             {
-                MessageBox.Show("Class harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Phone harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 0;
             }
             if (string.IsNullOrEmpty(tcr.tcSubject))
             {
-                MessageBox.Show("Fee harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Subject harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 0;
             }
             if (string.IsNullOrEmpty(tcr.tcAdrs))
@@ -80,38 +71,7 @@ namespace login.Controller
         public int Update(Teacher tcr)
         {
             int result = 0;
-            if (string.IsNullOrEmpty(tcr.tcName))
-            {
-                MessageBox.Show("Nama harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
 
-            if (string.IsNullOrEmpty(tcr.tcGen))
-            {
-                MessageBox.Show("Gen harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-
-            if (string.IsNullOrEmpty(tcr.tcDOB))
-            {
-                MessageBox.Show("DOB harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcPhone))
-            {
-                MessageBox.Show("Class harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcSubject))
-            {
-                MessageBox.Show("Fee harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcAdrs))
-            {
-                MessageBox.Show("Address harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
             using (DbContext context = new DbContext())
             {
                 _tcrepository = new TeacherRepository(context);
@@ -133,56 +93,36 @@ namespace login.Controller
 
         public int Delete(Teacher tcr)
         {
-            int result = 0;
-            if (string.IsNullOrEmpty(tcr.tcName))
-            {
-                MessageBox.Show("Nama harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-
-            if (string.IsNullOrEmpty(tcr.tcGen))
-            {
-                MessageBox.Show("Gen harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-
-            if (string.IsNullOrEmpty(tcr.tcDOB))
-            {
-                MessageBox.Show("DOB harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcPhone))
-            {
-                MessageBox.Show("Class harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcSubject))
-            {
-                MessageBox.Show("Fee harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
-            if (string.IsNullOrEmpty(tcr.tcAdrs))
-            {
-                MessageBox.Show("Address harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return 0;
-            }
+            
+            
             using (DbContext context = new DbContext())
             {
                 _tcrepository = new TeacherRepository(context);
-                result = _tcrepository.Delete(tcr);
+                int result = _tcrepository.Delete(tcr);
+                if (result > 0)
+                {
+                    MessageBox.Show("Data Guru berhasil dihapus !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+                else
+
+                    MessageBox.Show("Data Guru gagal dihapus !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return result;
+
             }
-            if (result > 0)
+
+        }
+        public List<Teacher> ReadAll()
+        {
+            List<Teacher> list = new List<Teacher>();
+            using (DbContext context = new DbContext())
             {
-                MessageBox.Show("Data Guru berhasil dihapus !", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                _tcrepository = new TeacherRepository(context);
+                list = _tcrepository.ReadAll();
             }
-            else
-
-                MessageBox.Show("Data Guru gagal dihapus !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            return result;
-
+            return list;
         }
     }
 }

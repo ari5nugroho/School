@@ -8,6 +8,7 @@ namespace login.Model.Entity
 {
     public class Teacher
     {
+        public string tcId { get; set; }
         public string tcName { get; set; }
         public string tcPhone { get; set; }
         public string tcDOB { get; set; }

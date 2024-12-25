@@ -9,7 +9,7 @@ using login.Model.Context;
 
 namespace login.Model.Repository
 {
-    internal class TeacherRepository
+    public class TeacherRepository
     {
         private SQLiteConnection Con;
         public TeacherRepository(DbContext context)
@@ -19,7 +19,7 @@ namespace login.Model.Repository
         public int Create(Teacher tcr)
         {
             int result = 0;
-            string sql = @"insert into tbTeacher (tcName, tcGen, tcDOB, tcPhone, tcSubject, tcAdrs) values (@SName,@SGen,@SDOB,@SPhone,@SSubject,@SAdrs)";
+            string sql = @"insert into tbTeacher (tcName, tcGen, tcDOB, tcPhone, tcSubject, tcAdrs) values (@tcName,@tcGen,@tcDOB,@tcPhone,@tcSubject,@tcAdrs)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@tcName", tcr.tcName);
@@ -44,7 +44,7 @@ namespace login.Model.Repository
         public int Update(Teacher tcr)
         {
             int result = 0;
-            string sql = @"update tbTeacher set tcName=@SName,tcGen=@SGen,tcDOB=@SDOB,tcPhone=@SPhone,tcSubject=@SSubject,tcAdrs=@SAdrs)";
+            string sql = @"update tbTeacher set tcName=@tcName,tcGen=@tcGen,tcDOB=@tcDOB,tcPhone=@tcPhone,tcSubject=@tcSubject,tcAdrs=@tcAdrs where tcId = @tcId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@tcName", tcr.tcName);
@@ -69,7 +69,7 @@ namespace login.Model.Repository
         public int Delete(Teacher tcr)
         {
             int result = 0;
-            string sql = @"Delete from tbTeacher where tcName=@SName";
+            string sql = @"Delete from tbTeacher where tcId = @tcId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
                 cmd.Parameters.AddWithValue("@tcName", tcr.tcName);
@@ -108,6 +108,7 @@ namespace login.Model.Repository
                         {
                             // proses konversi dari row result set ke object
                             Teacher tcr = new Teacher();
+                            tcr.tcId = dtr["tcId"].ToString();
                             tcr.tcName = dtr["tcName"].ToString();
                             tcr.tcGen = dtr["tcGen"].ToString();
                             tcr.tcDOB = dtr["tcDOB"].ToString();
