@@ -110,10 +110,6 @@ namespace login.View
             GDVTcr.CellBorderStyle = DataGridViewCellBorderStyle.None;
             GDVTcr.GridColor = System.Drawing.Color.Black;
         }
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
         private void LoadDataTeacher()
         {
             // Kosongkan DataGridView
