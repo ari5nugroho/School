@@ -63,7 +63,7 @@ namespace login.View
         }
         private void StudentDeleteHandler(Student std)
         {
-            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Student {std.StId} berhasil dihapus", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
         private void InisialisasiGridView()
@@ -120,7 +120,7 @@ namespace login.View
             });
 
             // Mengatur garis grid
-            GDVStd.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            GDVStd.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             GDVStd.GridColor = System.Drawing.Color.Black;
         }
         private void LoadDataStudent()
@@ -222,7 +222,7 @@ namespace login.View
             {
                
                     
-                        MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Gagal menambahkan data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 
             }
@@ -255,7 +255,7 @@ namespace login.View
                 StId = GDVStd.SelectedRows[0].Cells[0].Value.ToString(),
                 StName = txtNameStd.Text,
                 StGen = cmbGenStd.SelectedItem.ToString(),
-                StDOB = dtDOBStd.Value.ToString("yyyy-MM-dd"),
+                StDOB = dtDOBStd.Text,
                 StClass = cmbClsStd.SelectedItem.ToString(),
                 StFee = txtFeeStd.Text,
                 StAdrs = txtAdrsStd.Text
@@ -267,7 +267,7 @@ namespace login.View
             if (result > 0)
             {
                 OnUpdate?.Invoke(std);
-                MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 LoadDataStudent(); // Refresh DataGridView
             }
             else
@@ -299,7 +299,7 @@ namespace login.View
                 if (result > 0)
                 {
                     OnDelete?.Invoke(std);
-                    MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     LoadDataStudent(); // Refresh DataGridView
                 }
                 else

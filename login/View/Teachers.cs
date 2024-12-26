@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using login.Model.Entity;
 using Guna.UI2.AnimatorNS;
 using static Mysqlx.Expect.Open.Types.Condition.Types;
+using K4os.Hash.xxHash;
 namespace login.View
 {
     public delegate void CreateUpdateEventTcrHandler(Teacher tcr);
@@ -107,7 +108,7 @@ namespace login.View
             });
 
             // Mengatur garis grid
-            GDVTcr.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            GDVTcr.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             GDVTcr.GridColor = System.Drawing.Color.Black;
         }
         private void label9_Click(object sender, EventArgs e)
@@ -130,8 +131,8 @@ namespace login.View
                     tcr.tcName,                  // Kolom Nama
                     tcr.tcGen,                   // Kolom Gender
                     tcr.tcDOB, // Kolom Tanggal Lahir
-                    tcr.tcSubject,                 // Kolom Kelas
                     tcr.tcPhone,     // Kolom Biaya
+                    tcr.tcSubject,                 // Kolom Kelas
                     tcr.tcAdrs                   // Kolom Alamat
                 );
             }
@@ -164,8 +165,8 @@ namespace login.View
             tcr.tcName = txtNameTcr.Text;
             tcr.tcGen = cmbGenTcr.SelectedItem.ToString();
             tcr.tcDOB = dtDOBTcr.Text;
-            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();
             tcr.tcPhone = txtPhoneTcr.Text;
+            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();
             tcr.tcAdrs = txtAdrsTcr.Text;
 
             int result = 0;
@@ -175,30 +176,24 @@ namespace login.View
                 result = controller.Create(tcr);
                 if (result > 0)
                 {
-                    if (OnCreate != null)
-                    {
-                        OnCreate(tcr);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event OnCreate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    OnCreate?.Invoke(tcr);
 
                     txtNameTcr.Clear();
                     cmbGenTcr.SelectedIndex = -1;
                     dtDOBTcr.Value = DateTime.Now;
-                    cmbSubjectTcr.SelectedIndex = -1;
                     txtPhoneTcr.Clear();
+                    cmbSubjectTcr.SelectedIndex = -1;
                     txtAdrsTcr.Clear();
 
                     txtNameTcr.Focus();
+                    LoadDataTeacher();
                 }
             }
             else
             {
 
 
-                MessageBox.Show("Event OnUpdate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal menambahkan data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
             }
@@ -229,7 +224,7 @@ namespace login.View
                 tcId = GDVTcr.SelectedRows[0].Cells[0].Value.ToString(),
                 tcName = txtNameTcr.Text,
                 tcGen = cmbGenTcr.SelectedItem.ToString(),
-                tcDOB = dtDOBTcr.Value.ToString("yyyy-MM-dd"),
+                tcDOB = dtDOBTcr.Text,
                 tcPhone = txtPhoneTcr.Text,
                 tcSubject = cmbSubjectTcr.SelectedItem.ToString(),
                 tcAdrs = txtAdrsTcr.Text
@@ -241,7 +236,7 @@ namespace login.View
             if (result > 0)
             {
                 OnUpdate?.Invoke(tcr);
-                MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 LoadDataTeacher(); // Refresh DataGridView
             }
             else
@@ -271,7 +266,7 @@ namespace login.View
                 if (result > 0)
                 {
                     OnDelete?.Invoke(tcr);
-                    MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     LoadDataTeacher(); // Refresh DataGridView
                 }
                 else
@@ -291,10 +286,10 @@ namespace login.View
                 txtNameTcr.Text = row.Cells[1].Value.ToString();
                 cmbGenTcr.SelectedItem = row.Cells[2].Value.ToString();
                 dtDOBTcr.Text = row.Cells[3].Value.ToString();
-                cmbSubjectTcr.SelectedItem = row.Cells[4].Value.ToString();
-                txtPhoneTcr.Text = row.Cells[5].Value.ToString();
+                txtPhoneTcr.Text = row.Cells[4].Value.ToString();
+                cmbSubjectTcr.SelectedItem = row.Cells[5].Value.ToString();
                 txtAdrsTcr.Text = row.Cells[6].Value.ToString();
-                Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
+                Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai Tc
             }
         }
 
