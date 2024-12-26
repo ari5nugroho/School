@@ -47,6 +47,7 @@ namespace login.Model.Repository
             string sql = @"update tbTeacher set tcName=@tcName,tcGen=@tcGen,tcDOB=@tcDOB,tcPhone=@tcPhone,tcSubject=@tcSubject,tcAdrs=@tcAdrs where tcId = @tcId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
+                cmd.Parameters.AddWithValue("@tcId", tcr.tcId);
                 cmd.Parameters.AddWithValue("@tcName", tcr.tcName);
                 cmd.Parameters.AddWithValue("@tcGen", tcr.tcGen);
                 cmd.Parameters.AddWithValue("@tcDOB", tcr.tcDOB);
@@ -72,14 +73,10 @@ namespace login.Model.Repository
             string sql = @"Delete from tbTeacher where tcId = @tcId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@tcName", tcr.tcName);
-                cmd.Parameters.AddWithValue("@tcGen", tcr.tcGen);
-                cmd.Parameters.AddWithValue("@tcDOB", tcr.tcDOB);
-                cmd.Parameters.AddWithValue("@tcPhone", tcr.tcPhone);
-                cmd.Parameters.AddWithValue("@tcSubject", tcr.tcSubject);
-                cmd.Parameters.AddWithValue("@tcAdrs", tcr.tcAdrs);
+                cmd.Parameters.AddWithValue("@tcId", tcr.tcId);
                 try
                 {
+
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
                     result = cmd.ExecuteNonQuery();
                 }

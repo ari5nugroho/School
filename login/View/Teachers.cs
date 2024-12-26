@@ -33,6 +33,7 @@ namespace login.View
             LoadDataTeacher();
 
             this.Resize += Teachers_Resize;
+            CenterGridView();
 
             OnCreate += TeacherCreatedHandler;
             OnUpdate += TeacherUpdateHandler;
@@ -126,13 +127,18 @@ namespace login.View
                     tcr.tcName,                  // Kolom Nama
                     tcr.tcGen,                   // Kolom Gender
                     tcr.tcDOB, // Kolom Tanggal Lahir
-                    tcr.tcSubject,                 // Kolom Kelas
-                    tcr.tcPhone,     // Kolom Biaya
+                    tcr.tcPhone,                 // Kolom Kelas
+                    tcr.tcSubject,     // Kolom Biaya
                     tcr.tcAdrs                   // Kolom Alamat
                 );
             }
 
         }
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+       
 
         private void Teachers_Resize(object sender, EventArgs e)
         {
@@ -160,8 +166,8 @@ namespace login.View
             tcr.tcName = txtNameTcr.Text;
             tcr.tcGen = cmbGenTcr.SelectedItem.ToString();
             tcr.tcDOB = dtDOBTcr.Text;
-            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();
             tcr.tcPhone = txtPhoneTcr.Text;
+            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();           
             tcr.tcAdrs = txtAdrsTcr.Text;
 
             int result = 0;
@@ -182,9 +188,9 @@ namespace login.View
 
                     txtNameTcr.Clear();
                     cmbGenTcr.SelectedIndex = -1;
-                    dtDOBTcr.Value = DateTime.Now;
-                    cmbSubjectTcr.SelectedIndex = -1;
+                    dtDOBTcr.Value = DateTime.Now;                  
                     txtPhoneTcr.Clear();
+                    cmbSubjectTcr.SelectedIndex = -1;
                     txtAdrsTcr.Clear();
 
                     txtNameTcr.Focus();
@@ -286,9 +292,9 @@ namespace login.View
 
                 txtNameTcr.Text = row.Cells[1].Value.ToString();
                 cmbGenTcr.SelectedItem = row.Cells[2].Value.ToString();
-                dtDOBTcr.Text = row.Cells[3].Value.ToString();
-                cmbSubjectTcr.SelectedItem = row.Cells[4].Value.ToString();
+                dtDOBTcr.Text = row.Cells[3].Value.ToString();                
                 txtPhoneTcr.Text = row.Cells[5].Value.ToString();
+                cmbSubjectTcr.SelectedItem = row.Cells[4].Value.ToString();
                 txtAdrsTcr.Text = row.Cells[6].Value.ToString();
                 Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
             }

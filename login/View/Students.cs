@@ -58,12 +58,12 @@ namespace login.View
         }
         private void StudentUpdateHandler(Student std)
         {
-            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Student {std.StName} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
         private void StudentDeleteHandler(Student std)
         {
-            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Student {std.StName} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
         private void InisialisasiGridView()
