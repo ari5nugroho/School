@@ -80,8 +80,10 @@ namespace login.Model.Repository
                 cmd.Parameters.AddWithValue("@tcPhone", tcr.tcPhone);
                 cmd.Parameters.AddWithValue("@tcSubject", tcr.tcSubject);
                 cmd.Parameters.AddWithValue("@tcAdrs", tcr.tcAdrs);
+
                 try
                 {
+
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
                     result = cmd.ExecuteNonQuery();
                 }

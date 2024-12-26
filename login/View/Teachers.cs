@@ -34,6 +34,7 @@ namespace login.View
             LoadDataTeacher();
 
             this.Resize += Teachers_Resize;
+            CenterGridView();
 
             OnCreate += TeacherCreatedHandler;
             OnUpdate += TeacherUpdateHandler;
@@ -111,10 +112,6 @@ namespace login.View
             GDVTcr.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             GDVTcr.GridColor = System.Drawing.Color.Black;
         }
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
         private void LoadDataTeacher()
         {
             // Kosongkan DataGridView
@@ -131,13 +128,18 @@ namespace login.View
                     tcr.tcName,                  // Kolom Nama
                     tcr.tcGen,                   // Kolom Gender
                     tcr.tcDOB, // Kolom Tanggal Lahir
-                    tcr.tcPhone,     // Kolom Biaya
-                    tcr.tcSubject,                 // Kolom Kelas
+                    tcr.tcPhone,                 // Kolom Kelas
+                    tcr.tcSubject,     // Kolom Biaya
                     tcr.tcAdrs                   // Kolom Alamat
                 );
             }
 
         }
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+       
 
         private void Teachers_Resize(object sender, EventArgs e)
         {
@@ -166,7 +168,7 @@ namespace login.View
             tcr.tcGen = cmbGenTcr.SelectedItem.ToString();
             tcr.tcDOB = dtDOBTcr.Text;
             tcr.tcPhone = txtPhoneTcr.Text;
-            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();
+            tcr.tcSubject = cmbSubjectTcr.SelectedItem.ToString();        
             tcr.tcAdrs = txtAdrsTcr.Text;
 
             int result = 0;
@@ -184,7 +186,6 @@ namespace login.View
                     txtPhoneTcr.Clear();
                     cmbSubjectTcr.SelectedIndex = -1;
                     txtAdrsTcr.Clear();
-
                     txtNameTcr.Focus();
                     LoadDataTeacher();
                 }

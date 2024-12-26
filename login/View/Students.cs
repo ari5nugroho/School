@@ -58,12 +58,12 @@ namespace login.View
         }
         private void StudentUpdateHandler(Student std)
         {
-            MessageBox.Show($"Student {std.StId} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Student {std.StName} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
         private void StudentDeleteHandler(Student std)
         {
-            MessageBox.Show($"Student {std.StId} berhasil dihapus", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Student {std.StName} berhasil dihapus", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataStudent(); // Refresh DataGridView
         }
         private void InisialisasiGridView()
@@ -199,14 +199,7 @@ namespace login.View
                 result = controller.Create(std);
                 if (result > 0)
                 {
-                    if (OnCreate != null)
-                    {
-                        OnCreate(std);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event OnCreate belum diatur!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    OnCreate?.Invoke(std);
 
                     txtNameStd.Clear();
                     cmbGenStd.SelectedIndex = -1;
