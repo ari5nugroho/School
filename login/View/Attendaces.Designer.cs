@@ -41,13 +41,13 @@
             this.dtAtt = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbStatusAtt = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnDelAtt = new System.Windows.Forms.Button();
             this.btnEdtAtt = new System.Windows.Forms.Button();
             this.btnAddAtt = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbStIdAtt = new System.Windows.Forms.ComboBox();
             this.GDVAtt = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVAtt)).BeginInit();
@@ -110,7 +110,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(100, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 21);
+            this.label1.Size = new System.Drawing.Size(210, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Students Attendance";
             // 
@@ -122,7 +122,7 @@
             this.label9.Location = new System.Drawing.Point(100, 75);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 25);
+            this.label9.Size = new System.Drawing.Size(203, 32);
             this.label9.TabIndex = 53;
             this.label9.Text = "Add Attendance";
             // 
@@ -134,12 +134,13 @@
             this.label6.Location = new System.Drawing.Point(307, 129);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 19);
+            this.label6.Size = new System.Drawing.Size(129, 23);
             this.label6.TabIndex = 57;
             this.label6.Text = "Student Name";
             // 
             // txtNameAtt
             // 
+            this.txtNameAtt.Enabled = false;
             this.txtNameAtt.Location = new System.Drawing.Point(311, 159);
             this.txtNameAtt.Multiline = true;
             this.txtNameAtt.Name = "txtNameAtt";
@@ -154,7 +155,7 @@
             this.label3.Location = new System.Drawing.Point(101, 129);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 19);
+            this.label3.Size = new System.Drawing.Size(101, 23);
             this.label3.TabIndex = 54;
             this.label3.Text = "Student ID";
             // 
@@ -166,7 +167,7 @@
             this.label5.Location = new System.Drawing.Point(101, 204);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 19);
+            this.label5.Size = new System.Drawing.Size(51, 23);
             this.label5.TabIndex = 60;
             this.label5.Text = "Date";
             // 
@@ -175,7 +176,7 @@
             this.dtAtt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtAtt.Location = new System.Drawing.Point(106, 238);
             this.dtAtt.Name = "dtAtt";
-            this.dtAtt.Size = new System.Drawing.Size(123, 20);
+            this.dtAtt.Size = new System.Drawing.Size(123, 22);
             this.dtAtt.TabIndex = 59;
             // 
             // label2
@@ -186,7 +187,7 @@
             this.label2.Location = new System.Drawing.Point(101, 281);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
+            this.label2.Size = new System.Drawing.Size(63, 23);
             this.label2.TabIndex = 62;
             this.label2.Text = "Status";
             // 
@@ -194,25 +195,13 @@
             // 
             this.cmbStatusAtt.FormattingEnabled = true;
             this.cmbStatusAtt.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "Present",
+            "Absent",
+            "Excused"});
             this.cmbStatusAtt.Location = new System.Drawing.Point(106, 313);
             this.cmbStatusAtt.Name = "cmbStatusAtt";
-            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 21);
+            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 24);
             this.cmbStatusAtt.TabIndex = 61;
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(571, 379);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(132, 47);
-            this.button4.TabIndex = 67;
-            this.button4.Text = "Back";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // btnDelAtt
             // 
@@ -220,7 +209,7 @@
             this.btnDelAtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnDelAtt.ForeColor = System.Drawing.Color.White;
             this.btnDelAtt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelAtt.Location = new System.Drawing.Point(434, 379);
+            this.btnDelAtt.Location = new System.Drawing.Point(440, 378);
             this.btnDelAtt.Name = "btnDelAtt";
             this.btnDelAtt.Size = new System.Drawing.Size(132, 47);
             this.btnDelAtt.TabIndex = 66;
@@ -234,7 +223,7 @@
             this.btnEdtAtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnEdtAtt.ForeColor = System.Drawing.Color.White;
             this.btnEdtAtt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEdtAtt.Location = new System.Drawing.Point(297, 379);
+            this.btnEdtAtt.Location = new System.Drawing.Point(303, 378);
             this.btnEdtAtt.Name = "btnEdtAtt";
             this.btnEdtAtt.Size = new System.Drawing.Size(132, 47);
             this.btnEdtAtt.TabIndex = 65;
@@ -248,7 +237,7 @@
             this.btnAddAtt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddAtt.ForeColor = System.Drawing.Color.White;
             this.btnAddAtt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddAtt.Location = new System.Drawing.Point(159, 379);
+            this.btnAddAtt.Location = new System.Drawing.Point(165, 378);
             this.btnAddAtt.Name = "btnAddAtt";
             this.btnAddAtt.Size = new System.Drawing.Size(132, 47);
             this.btnAddAtt.TabIndex = 64;
@@ -262,9 +251,9 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label7.Location = new System.Drawing.Point(339, 441);
+            this.label7.Location = new System.Drawing.Point(363, 441);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(152, 24);
+            this.label7.Size = new System.Drawing.Size(199, 31);
             this.label7.TabIndex = 68;
             this.label7.Text = "Attendance List";
             // 
@@ -273,8 +262,9 @@
             this.cmbStIdAtt.FormattingEnabled = true;
             this.cmbStIdAtt.Location = new System.Drawing.Point(108, 156);
             this.cmbStIdAtt.Name = "cmbStIdAtt";
-            this.cmbStIdAtt.Size = new System.Drawing.Size(120, 21);
+            this.cmbStIdAtt.Size = new System.Drawing.Size(120, 24);
             this.cmbStIdAtt.TabIndex = 70;
+            this.cmbStIdAtt.SelectedIndexChanged += new System.EventHandler(this.cmbStIdAtt_SelectedIndexChanged);
             // 
             // GDVAtt
             // 
@@ -291,14 +281,28 @@
             this.GDVAtt.Size = new System.Drawing.Size(803, 251);
             this.GDVAtt.TabIndex = 71;
             // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.Location = new System.Drawing.Point(578, 378);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(132, 47);
+            this.button4.TabIndex = 72;
+            this.button4.Text = "Reset";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Attendaces
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.GDVAtt);
             this.Controls.Add(this.cmbStIdAtt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelAtt);
             this.Controls.Add(this.btnEdtAtt);
             this.Controls.Add(this.btnAddAtt);
@@ -337,7 +341,6 @@
         private System.Windows.Forms.DateTimePicker dtAtt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbStatusAtt;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelAtt;
         private System.Windows.Forms.Button btnEdtAtt;
         private System.Windows.Forms.Button btnAddAtt;
@@ -346,5 +349,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.ComboBox cmbStIdAtt;
         private System.Windows.Forms.DataGridView GDVAtt;
+        private System.Windows.Forms.Button button4;
     }
 }

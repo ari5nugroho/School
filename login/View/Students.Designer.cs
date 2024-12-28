@@ -335,7 +335,7 @@
             this.GDVStd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GDVStd.Size = new System.Drawing.Size(803, 251);
             this.GDVStd.TabIndex = 45;
-            this.GDVStd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVStd_CellContentClick_1);
+            this.GDVStd.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVStd_CellClick);
             // 
             // button4
             // 

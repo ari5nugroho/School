@@ -8,7 +8,7 @@ namespace login.Model.Entity
 {
     public class Attendance
     {
-        public string AttStId { get; set; }
+        public string StId { get; set; }
         public string AttStName { get; set; }
         public string AttStDOB { get; set; }
         public string AttStStatus { get; set; }

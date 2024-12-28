@@ -12,6 +12,8 @@ using login.Controller;
 using login.Model.Repository;
 using System.Data.SqlClient;
 using Guna.UI2.AnimatorNS;
+using login.Model.Context;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace login.View
 {
@@ -33,6 +35,7 @@ namespace login.View
             InitializeComponent();
             controller = new AttendanceController();
             InisialisasiGridView();
+
             LoadDataAttendance();
             FillStId();
             this.Resize += Attendances_Resize;
@@ -42,6 +45,9 @@ namespace login.View
             OnCreate += AttendanceCreatedHandler;
             OnUpdate += AttendanceUpdateHandler;
             OnDelete += AttendanceDeleteHandler;
+            GDVAtt.CellClick += GDVAtt_CellClick;
+
+            GDVAtt.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
         private void AttendanceCreatedHandler(Attendance att)
         {
@@ -66,21 +72,21 @@ namespace login.View
             GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "StId",
-                Width = 70,
+                Width = 90,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Name",
-                Width = 70,
+                Width = 180,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
             GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
             {
-                HeaderText = "Day",
-                Width = 70,
+                HeaderText = "Date",
+                Width = 110,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
@@ -95,20 +101,23 @@ namespace login.View
             GDVAtt.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             GDVAtt.GridColor = System.Drawing.Color.Black;
         }
+
+
         private void LoadDataAttendance()
         {
             // Kosongkan DataGridView
             GDVAtt.Rows.Clear();
 
             // Panggil method ReadAll untuk mengambil data dari database
-            List<Attendance> ListOfAttendance = controller.ReadAll();
+            ListOfAttendance = controller.ReadAll();
+
 
             // Iterasi melalui data mahasiswa dan tambahkan ke DataGridView
             foreach (var att in ListOfAttendance)
             {
                 GDVAtt.Rows.Add(
-                    att.AttStId,
-                    att.AttStName,
+                    att.StId,
+                    att.AttStName,            
                     att.AttStDOB,
                     att.AttStStatus
                 );
@@ -123,7 +132,7 @@ namespace login.View
         private void CenterGridView()
         {
             // Hitung posisi horizontal untuk menempatkan di tengah
-            GDVAtt.Left = (415 - 203) / 2;
+            GDVAtt.Left = (470 - 203) / 2;
 
         }
         private void AttendacesControl_Load(object sender, EventArgs e)
@@ -132,130 +141,200 @@ namespace login.View
         }
         private void FillStId()
         {
-            
+            try
+            {
+                // Panggil repository untuk mengambil semua student ID
+                var repo = new AttendanceRepository(new DbContext());
+                DataTable dt = repo.GetStId();
+
+                // Atur data sumber ComboBox
+                cmbStIdAtt.DataSource = dt;
+                cmbStIdAtt.DisplayMember = "StId"; // Kolom yang akan ditampilkan di ComboBox
+                cmbStIdAtt.ValueMember = "StId";   // Nilai yang akan diambil (ID)
+                cmbStIdAtt.SelectedIndex = -1;     // Default kosong
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saat memuat ID siswa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnAddAtt_Click(object sender, EventArgs e)
         {
-            if (isNewData) att = new Attendance();
-            att.AttStId = cmbStIdAtt.Text;
-            att.AttStName = txtNameAtt.Text;
-            att.AttStDOB = dtAtt.Text;
-            att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
-
-            int result = 0;
-
-            if (isNewData)
+            att = new Attendance
             {
-                result = controller.Create(att);
+                StId = cmbStIdAtt.SelectedValue.ToString(),
+                AttStName = txtNameAtt.Text,
+                AttStDOB = dtAtt.Text, // Format sesuai database
+                AttStStatus = cmbStatusAtt.SelectedItem.ToString()
+            };
+
+            try
+            {
+                int result = controller.Create(att);
                 if (result > 0)
                 {
-                    OnCreate(att);
-
-                    cmbStIdAtt.SelectedIndex = -1;
-                    txtNameAtt.Clear();
-                    dtAtt.Value = DateTime.Now;
-                    cmbStatusAtt.SelectedIndex = -1;
-
-
-                    cmbStIdAtt.Focus();
+                    OnCreate?.Invoke(att);
+                    ResetInput();
+                    LoadDataAttendance();
+                    GDVAtt.ClearSelection();
+                    GDVAtt.Refresh();
                 }
-
+                else
+                {
+                    MessageBox.Show("Gagal menambahkan data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                result = controller.Update(att);
-                if (result > 0)
-                {
-                    OnUpdate(att);
-                    //this.Close();
-                }
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnEdtAtt_Click(object sender, EventArgs e)
         {
-            if (GDVAtt.SelectedRows.Count > 0)
+            if (GDVAtt.SelectedRows.Count == 0)
             {
-                int rowIndex = GDVAtt.SelectedRows[0].Index;
-                Attendance att = ListOfAttendance[rowIndex]; // studentList adalah koleksi data mahasiswa
-                att.AttStId = cmbStIdAtt.SelectedItem.ToString();
-                att.AttStName = txtNameAtt.Text;
-                att.AttStDOB = dtAtt.Text;
-                att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
+                MessageBox.Show("Pilih data yang akan diperbarui!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                // Update data student dengan data dari input
+            int rowIndex = GDVAtt.SelectedRows[0].Index;
+            att = ListOfAttendance[rowIndex];
 
-                // Panggil fungsi update di controller
+            att.StId = cmbStIdAtt.SelectedValue.ToString();
+            att.AttStName = txtNameAtt.Text.Trim();
+            att.AttStDOB = dtAtt.Text;
+            att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
+
+            try
+            {
                 int result = controller.Update(att);
                 if (result > 0)
                 {
-                    MessageBox.Show("Data berhasil diperbarui", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Refresh DataGridView
+                    OnUpdate?.Invoke(att);
+                    ResetInput();
+                    LoadDataAttendance();
+                    GDVAtt.ClearSelection();
                     GDVAtt.Refresh();
-
-                    // Kosongkan input setelah berhasil
-
                 }
                 else
                 {
-                    MessageBox.Show("Gagal memperbarui data", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Gagal memperbarui data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Pilih data yang akan diperbarui", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnDelAtt_Click(object sender, EventArgs e)
         {
-            if (GDVAtt.SelectedRows.Count > 0)
+            if (GDVAtt.SelectedRows.Count == 0)
             {
-                // Ambil data yang dipilih dari DataGridView
-                int rowIndex = GDVAtt.SelectedRows[0].Index;
-                Attendance att = ListOfAttendance[rowIndex]; // studentList adalah koleksi data mahasiswa
+                MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                // Konfirmasi penghapusan
-                DialogResult confirmation = MessageBox.Show(
-                    "Apakah Anda yakin ingin menghapus data ini?",
-                    "Konfirmasi Hapus",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
+            int rowIndex = GDVAtt.SelectedRows[0].Index;
+            att = ListOfAttendance[rowIndex];
 
-                if (confirmation == DialogResult.Yes)
+            DialogResult confirmation = MessageBox.Show(
+                "Apakah Anda yakin ingin menghapus data ini?",
+                "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmation == DialogResult.Yes)
+            {
+                try
                 {
-                    // Hapus data melalui controller
                     int result = controller.Delete(att);
-
                     if (result > 0)
                     {
-                        MessageBox.Show("Data berhasil dihapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OnDelete?.Invoke(att);
 
-                        // Hapus data dari koleksi
-                        ListOfAttendance.RemoveAt(rowIndex);
-
-                        // Refresh DataGridView
-                        GDVAtt.DataSource = null;
-                        GDVAtt.DataSource = ListOfAttendance;
+                        LoadDataAttendance();
+                        GDVAtt.ClearSelection();
+                        GDVAtt.Refresh();
                     }
                     else
                     {
-                        MessageBox.Show("Gagal menghapus data", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Gagal menghapus data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Pilih data yang akan dihapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
+        private void ResetInput()
+        {
+            cmbStIdAtt.SelectedIndex = -1;
+            txtNameAtt.Clear();
+            dtAtt.Value = DateTime.Now;
+            cmbStatusAtt.SelectedIndex = -1;
+            isNewData = true;
+        }
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cmbStIdAtt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbStIdAtt.SelectedValue != null)
+            {
+                string selectedStId = cmbStIdAtt.SelectedValue.ToString();
+                var repo = new AttendanceRepository(new DbContext());
+                string studentName = repo.GetStName(selectedStId);
+
+                if (!string.IsNullOrEmpty(studentName))
+                {
+                    txtNameAtt.Text = studentName;
+                }
+                else
+                {
+                    txtNameAtt.Clear();
+                }
+            }
+
+        }
+
+        private void GDVAtt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Pastikan klik berada di dalam baris data, bukan header
+            if (e.RowIndex >= 0 && e.RowIndex < GDVAtt.Rows.Count)
+            {
+                try
+                {
+                    // Ambil baris yang diklik
+                    DataGridViewRow row = GDVAtt.Rows[e.RowIndex];
+
+                    // Validasi data pada setiap kolom sebelum digunakan
+                    if (row.Cells[0].Value != null)
+                        cmbStIdAtt.SelectedValue = row.Cells[0].Value.ToString();
+
+                    if (row.Cells[1].Value != null)
+                        txtNameAtt.Text = row.Cells[1].Value.ToString();
+
+                    if (row.Cells[2].Value != null)
+                        dtAtt.Text = row.Cells[2].Value.ToString();
+
+                    if (row.Cells[3].Value != null)
+                        cmbStatusAtt.SelectedItem = row.Cells[3].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan saat memilih data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResetInput();
         }
     }
 }

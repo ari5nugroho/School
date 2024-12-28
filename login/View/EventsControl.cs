@@ -94,7 +94,7 @@ namespace login.View
 
 
             // Mengatur garis grid
-            GDVEvnt.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            GDVEvnt.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             GDVEvnt.GridColor = System.Drawing.Color.Black;
         }
         private void LoadDataEvent()
@@ -125,7 +125,7 @@ namespace login.View
         private void CenterGridView()
         {
             // Hitung posisi horizontal untuk menempatkan di tengah
-            GDVEvnt.Left = (415 - 203) / 2;
+            GDVEvnt.Left = (430 - 203) / 2;
 
         }
         private void btnAddEvnt_Click(object sender, EventArgs e)

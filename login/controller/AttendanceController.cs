@@ -36,7 +36,7 @@ namespace login.Controller
         public int Create(Attendance att)
         {
             int result = 0;
-            if (string.IsNullOrEmpty(att.AttStId))
+            if (string.IsNullOrEmpty(att.StId))
             {
                 MessageBox.Show("Id harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 0;
@@ -81,7 +81,7 @@ namespace login.Controller
         public int Update(Attendance att)
         {
             int result = 0;
-            if (string.IsNullOrEmpty(att.AttStId))
+            if (string.IsNullOrEmpty(att.StId))
             {
                 MessageBox.Show("Id harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 0;
@@ -124,7 +124,7 @@ namespace login.Controller
         public int Delete(Attendance att)
         {
             int result = 0;
-            if (string.IsNullOrEmpty(att.AttStId))
+            if (string.IsNullOrEmpty(att.StId))
             {
                 MessageBox.Show("Id harus diisi !!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return 0;

@@ -18,6 +18,26 @@ namespace login.Model.Repository
         {
             Con = context.Conn;
         }
+        public string GetStName(string stId)
+        {
+            string studentName = string.Empty;
+            string sql = "SELECT stName FROM stStudent WHERE stId = @stId";
+
+            try
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
+                {
+                    cmd.Parameters.AddWithValue("@stId", stId);
+                    studentName = cmd.ExecuteScalar()?.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("GetStName error: {0}", ex.Message);
+            }
+
+            return studentName;
+        }
         public DataTable GetStId()
         {
             DataTable dt = new DataTable();
@@ -28,13 +48,12 @@ namespace login.Model.Repository
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 using (SQLiteDataReader rdr = cmd.ExecuteReader())
                 {
-                    dt.Columns.Add("StId", typeof(int));
-                    dt.Load(rdr);
+                    dt.Load(rdr); // Langsung load data ke DataTable
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GetStudentIds error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("GetStId error: {0}", ex.Message);
             }
 
             return dt;
@@ -42,10 +61,10 @@ namespace login.Model.Repository
         public int Create(Attendance att)
         {
             int result = 0;
-            string sql = @"insert into tbAttendance (stIdAtt, stNameAtt, stDobAtt, stStatusAtt) values (@stIdAtt,@stNameAtt,@stDobAtt,@stStatusAtt)";
+            string sql = @"insert into tbAttendance (stId,stNameAtt, stDobAtt, stStatusAtt) values (@stId,@stNameAtt, @stDobAtt,@stStatusAtt)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
+                cmd.Parameters.AddWithValue("@stId", att.StId);
                 cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
                 cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
                 cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
@@ -66,10 +85,10 @@ namespace login.Model.Repository
         public int Update(Attendance att)
         {
             int result = 0;
-            string sql = @"update tbAttendance set stIdAtt=@stIdAtt,stNameAtt=@stNameAtt,stDobAtt=@stDobAtt,stStatusAtt=@stStatusAtt";
+            string sql = @"update tbAttendance set stDobAtt=@stDobAtt,stStatusAtt=@stStatusAtt WHERE stId=@stId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
+                cmd.Parameters.AddWithValue("@stId", att.StId);
                 cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
                 cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
                 cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
@@ -89,10 +108,10 @@ namespace login.Model.Repository
         public int Delete(Attendance att)
         {
             int result = 0;
-            string sql = @"Delete from tbAttendance where stIdAtt = @stIdAtt";
+            string sql = @"Delete from tbAttendance where stId = @stId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
+                cmd.Parameters.AddWithValue("@stId", att.StId);
                 cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
                 cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
                 cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
@@ -107,6 +126,39 @@ namespace login.Model.Repository
                 }
             }
             return result;
+        }
+        public List<Student> ReadAllstd()
+        {
+            List<Student> list = new List<Student>();
+            try
+            {
+                // deklarasi perintah SQL
+                string sql = @"select stId, stName from stStudent";
+                // membuat objek command menggunakan blok using
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
+                {
+                    // membuat objek dtr (data reader) untuk menampung result set (hasil perintah SELECT)
+                    using (SQLiteDataReader dt = cmd.ExecuteReader())
+                    {
+                        // panggil method Read untuk mendapatkan baris dari result set
+                        while (dt.Read())
+                        {
+                            // proses konversi dari row result set ke object
+                            Student std = new Student();
+                            std.StId = dt["StId"].ToString();
+                            std.StName = dt["StName"].ToString();
+                            // tambahkan objek mahasiswa ke dalam collection
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("ReadAll error: {0}", ex.Message);
+            }
+            return list;
+
         }
         public List<Attendance> ReadAll()
         {
@@ -126,7 +178,7 @@ namespace login.Model.Repository
                         {
                             // proses konversi dari row result set ke object
                             Attendance att = new Attendance();
-                            att.AttStId = dtr["stIdAtt"].ToString();
+                            att.StId = dtr["StId"].ToString();
                             att.AttStName = dtr["stNameAtt"].ToString();
                             att.AttStDOB = dtr["stDobAtt"].ToString();
                             att.AttStStatus = dtr["stStatusAtt"].ToString();

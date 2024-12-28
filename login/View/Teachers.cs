@@ -40,6 +40,9 @@ namespace login.View
             OnCreate += TeacherCreatedHandler;
             OnUpdate += TeacherUpdateHandler;
             OnDelete += TeacherDeleteHandler;
+
+            GDVTcr.CellClick += GDVTcr_CellClick;
+            GDVTcr.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
         private void TeacherCreatedHandler(Teacher tcr)
         {
@@ -279,19 +282,42 @@ namespace login.View
         }
       
 
-        private void GDVTcr_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void GDVTcr_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Pastikan klik berada di dalam baris data
+            // Pastikan klik berada di dalam baris data, bukan header
+            if (e.RowIndex >= 0 && e.RowIndex < GDVTcr.Rows.Count)
             {
-                DataGridViewRow row = GDVTcr.Rows[e.RowIndex];
+                try
+                {
+                    // Ambil baris yang diklik
+                    DataGridViewRow row = GDVTcr.Rows[e.RowIndex];
 
-                txtNameTcr.Text = row.Cells[1].Value.ToString();
-                cmbGenTcr.SelectedItem = row.Cells[2].Value.ToString();
-                dtDOBTcr.Text = row.Cells[3].Value.ToString();
-                txtPhoneTcr.Text = row.Cells[4].Value.ToString();
-                cmbSubjectTcr.SelectedItem = row.Cells[5].Value.ToString();
-                txtAdrsTcr.Text = row.Cells[6].Value.ToString();
-                Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai Tc
+                    // Validasi data pada setiap kolom sebelum digunakan
+                    if (row.Cells[0].Value != null)
+                        Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai Tc
+
+                    if (row.Cells[1].Value != null)
+                        txtNameTcr.Text = row.Cells[1].Value.ToString();
+
+                    if (row.Cells[2].Value != null)
+                        cmbGenTcr.SelectedItem = row.Cells[2].Value.ToString();
+
+                    if (row.Cells[3].Value != null)
+                        dtDOBTcr.Text = row.Cells[3].Value.ToString();
+
+                    if (row.Cells[4].Value != null)
+                        txtPhoneTcr.Text = row.Cells[4].Value.ToString();
+
+                    if (row.Cells[5].Value != null)
+                        cmbSubjectTcr.SelectedItem = row.Cells[5].Value.ToString();
+
+                    if (row.Cells[6].Value != null)
+                        txtAdrsTcr.Text = row.Cells[6].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan saat memilih data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -312,6 +338,11 @@ namespace login.View
         private void button4_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void cmbSubjectTcr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

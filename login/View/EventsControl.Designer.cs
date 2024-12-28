@@ -108,7 +108,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(100, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 21);
+            this.label1.Size = new System.Drawing.Size(143, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Events School";
             // 
@@ -120,7 +120,7 @@
             this.label5.Location = new System.Drawing.Point(101, 220);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 19);
+            this.label5.Size = new System.Drawing.Size(51, 23);
             this.label5.TabIndex = 58;
             this.label5.Text = "Date";
             // 
@@ -129,7 +129,7 @@
             this.dtEvent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtEvent.Location = new System.Drawing.Point(106, 254);
             this.dtEvent.Name = "dtEvent";
-            this.dtEvent.Size = new System.Drawing.Size(123, 20);
+            this.dtEvent.Size = new System.Drawing.Size(123, 22);
             this.dtEvent.TabIndex = 57;
             // 
             // label6
@@ -140,7 +140,7 @@
             this.label6.Location = new System.Drawing.Point(419, 135);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 19);
+            this.label6.Size = new System.Drawing.Size(160, 23);
             this.label6.TabIndex = 56;
             this.label6.Text = "Duration in Hours";
             // 
@@ -160,7 +160,7 @@
             this.label3.Location = new System.Drawing.Point(101, 135);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 19);
+            this.label3.Size = new System.Drawing.Size(122, 23);
             this.label3.TabIndex = 53;
             this.label3.Text = "Name Events";
             // 
@@ -172,7 +172,7 @@
             this.label9.Location = new System.Drawing.Point(100, 75);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 25);
+            this.label9.Size = new System.Drawing.Size(146, 32);
             this.label9.TabIndex = 52;
             this.label9.Text = "Add Events";
             // 
@@ -246,9 +246,9 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label7.Location = new System.Drawing.Point(361, 447);
+            this.label7.Location = new System.Drawing.Point(374, 447);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 24);
+            this.label7.Size = new System.Drawing.Size(146, 31);
             this.label7.TabIndex = 64;
             this.label7.Text = "Events List";
             // 

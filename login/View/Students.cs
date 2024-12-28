@@ -49,6 +49,10 @@ namespace login.View
             OnCreate += StudentCreatedHandler;
             OnUpdate += StudentUpdateHandler;
             OnDelete += StudentDeleteHandler;
+
+            GDVStd.CellClick += GDVStd_CellClick;
+
+            GDVStd.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
         private void StudentCreatedHandler(Student std)
@@ -373,7 +377,7 @@ namespace login.View
             Application.Exit();
         }
 
-        private void GDVStd_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void GDVStd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             /*txtNameStd.Text = GDVStd.SelectedRows[0].Cells[1].Value.ToString();
@@ -391,17 +395,40 @@ namespace login.View
                 Key = Convert.ToInt32(GDVStd.SelectedRows[0].Cells[0].Value.ToString());
             }*/
 
-            if (e.RowIndex >= 0) // Pastikan klik berada di dalam baris data
+            // Pastikan klik berada di dalam baris data, bukan header
+            if (e.RowIndex >= 0 && e.RowIndex < GDVStd.Rows.Count)
             {
-                DataGridViewRow row = GDVStd.Rows[e.RowIndex];
+                try
+                {
+                    // Ambil baris yang diklik
+                    DataGridViewRow row = GDVStd.Rows[e.RowIndex];
 
-                txtNameStd.Text = row.Cells[1].Value.ToString();
-                cmbGenStd.SelectedItem = row.Cells[2].Value.ToString();
-                dtDOBStd.Text = row.Cells[3].Value.ToString();
-                cmbClsStd.SelectedItem = row.Cells[4].Value.ToString();
-                txtFeeStd.Text = row.Cells[5].Value.ToString();
-                txtAdrsStd.Text = row.Cells[6].Value.ToString();
-                Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
+                    // Validasi data pada setiap kolom sebelum digunakan
+                    if (row.Cells[0].Value != null)
+                        Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
+
+                    if (row.Cells[1].Value != null)
+                        txtNameStd.Text = row.Cells[1].Value.ToString();
+
+                    if (row.Cells[2].Value != null)
+                        cmbGenStd.SelectedItem = row.Cells[2].Value.ToString();
+
+                    if (row.Cells[3].Value != null)
+                        dtDOBStd.Text = row.Cells[3].Value.ToString();
+
+                    if (row.Cells[4].Value != null)
+                        cmbClsStd.SelectedItem = row.Cells[4].Value.ToString();
+
+                    if (row.Cells[5].Value != null)
+                        txtFeeStd.Text = row.Cells[5].Value.ToString();
+
+                    if (row.Cells[6].Value != null)
+                        txtAdrsStd.Text = row.Cells[6].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Terjadi kesalahan saat memilih data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void ResetForm()
