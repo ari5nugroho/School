@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Controller;
 using login.Model.Repository;
+using System.Data.SqlClient;
+using Guna.UI2.AnimatorNS;
 
 namespace login.View
 {
@@ -23,24 +25,119 @@ namespace login.View
         public event CreateUpdateEventAttHandler OnUpdate;
         // deklarasi event ketika terjadi proses hapus data
         public event CreateUpdateEventAttHandler OnDelete;
-        private AttendanceController attcontroller;
+        private AttendanceController controller;
         private bool isNewData = true;
         private Attendance att;
         public Attendaces()
         {
             InitializeComponent();
-            attcontroller = new AttendanceController();
+            controller = new AttendanceController();
+            InisialisasiGridView();
+            LoadDataAttendance();
+            FillStId();
+            this.Resize += Attendances_Resize;
+
+            CenterGridView();
+
+            OnCreate += AttendanceCreatedHandler;
+            OnUpdate += AttendanceUpdateHandler;
+            OnDelete += AttendanceDeleteHandler;
+        }
+        private void AttendanceCreatedHandler(Attendance att)
+        {
+            MessageBox.Show($"Student {att.AttStName} berhasil ditambahkan!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataAttendance(); // Refresh DataGridView
+        }
+        private void AttendanceUpdateHandler(Attendance att)
+        {
+            MessageBox.Show($"Student {att.AttStName} berhasil diperbarui!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataAttendance(); // Refresh DataGridView
+        }
+        private void AttendanceDeleteHandler(Attendance att)
+        {
+            MessageBox.Show($"Student {att.AttStName} berhasil dihapus", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadDataAttendance(); // Refresh DataGridView
+        }
+        private void InisialisasiGridView()
+        {
+            GDVAtt.Columns.Clear();
+
+
+            GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "StId",
+                Width = 70,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Name",
+                Width = 70,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Day",
+                Width = 70,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleLeft }
+            });
+
+            GDVAtt.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Status",
+                Width = 140,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            // Mengatur garis grid
+            GDVAtt.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            GDVAtt.GridColor = System.Drawing.Color.Black;
+        }
+        private void LoadDataAttendance()
+        {
+            // Kosongkan DataGridView
+            GDVAtt.Rows.Clear();
+
+            // Panggil method ReadAll untuk mengambil data dari database
+            List<Attendance> ListOfAttendance = controller.ReadAll();
+
+            // Iterasi melalui data mahasiswa dan tambahkan ke DataGridView
+            foreach (var att in ListOfAttendance)
+            {
+                GDVAtt.Rows.Add(
+                    att.AttStId,
+                    att.AttStName,
+                    att.AttStDOB,
+                    att.AttStStatus
+                );
+            }
+
         }
 
+        private void Attendances_Resize(object sender, EventArgs e)
+        {
+            CenterGridView();
+        }
+        private void CenterGridView()
+        {
+            // Hitung posisi horizontal untuk menempatkan di tengah
+            GDVAtt.Left = (415 - 203) / 2;
+
+        }
         private void AttendacesControl_Load(object sender, EventArgs e)
         {
 
         }
-
+        private void FillStId()
+        {
+            
+        }
         private void btnAddAtt_Click(object sender, EventArgs e)
         {
             if (isNewData) att = new Attendance();
-            att.AttStId = txtStIdAtt.Text;
+            att.AttStId = cmbStIdAtt.Text;
             att.AttStName = txtNameAtt.Text;
             att.AttStDOB = dtAtt.Text;
             att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
@@ -49,24 +146,24 @@ namespace login.View
 
             if (isNewData)
             {
-                result = attcontroller.Create(att);
+                result = controller.Create(att);
                 if (result > 0)
                 {
                     OnCreate(att);
 
-                    txtStIdAtt.Clear();
+                    cmbStIdAtt.SelectedIndex = -1;
                     txtNameAtt.Clear();
                     dtAtt.Value = DateTime.Now;
                     cmbStatusAtt.SelectedIndex = -1;
 
 
-                    txtStIdAtt.Focus();
+                    cmbStIdAtt.Focus();
                 }
 
             }
             else
             {
-                result = attcontroller.Update(att);
+                result = controller.Update(att);
                 if (result > 0)
                 {
                     OnUpdate(att);
@@ -81,7 +178,7 @@ namespace login.View
             {
                 int rowIndex = GDVAtt.SelectedRows[0].Index;
                 Attendance att = ListOfAttendance[rowIndex]; // studentList adalah koleksi data mahasiswa
-                att.AttStId = txtStIdAtt.Text;
+                att.AttStId = cmbStIdAtt.SelectedItem.ToString();
                 att.AttStName = txtNameAtt.Text;
                 att.AttStDOB = dtAtt.Text;
                 att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
@@ -89,7 +186,7 @@ namespace login.View
                 // Update data student dengan data dari input
 
                 // Panggil fungsi update di controller
-                int result = attcontroller.Update(att);
+                int result = controller.Update(att);
                 if (result > 0)
                 {
                     MessageBox.Show("Data berhasil diperbarui", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,7 +228,7 @@ namespace login.View
                 if (confirmation == DialogResult.Yes)
                 {
                     // Hapus data melalui controller
-                    int result = attcontroller.Delete(att);
+                    int result = controller.Delete(att);
 
                     if (result > 0)
                     {
@@ -154,6 +251,11 @@ namespace login.View
             {
                 MessageBox.Show("Pilih data yang akan dihapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

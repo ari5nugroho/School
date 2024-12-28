@@ -404,5 +404,18 @@ namespace login.View
                 Key = Convert.ToInt32(row.Cells[0].Value.ToString()); // Set Key sesuai StId
             }
         }
+        private void ResetForm()
+        {
+            txtNameStd.Clear();
+            cmbGenStd.SelectedIndex = -1;
+            dtDOBStd.Value = DateTime.Now;
+            cmbClsStd.SelectedIndex = -1;
+            txtFeeStd.Clear();
+            txtAdrsStd.Clear();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
     }
 }

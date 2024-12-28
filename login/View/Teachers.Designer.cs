@@ -99,7 +99,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(98, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 28);
+            this.label1.Size = new System.Drawing.Size(69, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Teacher";
             // 
@@ -111,7 +111,7 @@
             this.label8.Location = new System.Drawing.Point(597, 251);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 23);
+            this.label8.Size = new System.Drawing.Size(65, 19);
             this.label8.TabIndex = 62;
             this.label8.Text = "Subjects";
             // 
@@ -129,7 +129,7 @@
             "Physics"});
             this.cmbSubjectTcr.Location = new System.Drawing.Point(601, 273);
             this.cmbSubjectTcr.Name = "cmbSubjectTcr";
-            this.cmbSubjectTcr.Size = new System.Drawing.Size(122, 24);
+            this.cmbSubjectTcr.Size = new System.Drawing.Size(122, 21);
             this.cmbSubjectTcr.TabIndex = 61;
             // 
             // txtPhoneTcr
@@ -190,7 +190,7 @@
             this.label2.Location = new System.Drawing.Point(133, 251);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 23);
+            this.label2.Size = new System.Drawing.Size(50, 19);
             this.label2.TabIndex = 59;
             this.label2.Text = "Phone";
             // 
@@ -202,7 +202,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.label7.Location = new System.Drawing.Point(362, 487);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 31);
+            this.label7.Size = new System.Drawing.Size(128, 24);
             this.label7.TabIndex = 51;
             this.label7.Text = "Teachers List";
             // 
@@ -216,8 +216,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(132, 47);
             this.button4.TabIndex = 57;
-            this.button4.Text = "Back";
+            this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label6
             // 
@@ -227,7 +228,7 @@
             this.label6.Location = new System.Drawing.Point(133, 332);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 23);
+            this.label6.Size = new System.Drawing.Size(64, 19);
             this.label6.TabIndex = 53;
             this.label6.Text = "Address";
             // 
@@ -239,7 +240,7 @@
             this.label5.Location = new System.Drawing.Point(597, 164);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 23);
+            this.label5.Size = new System.Drawing.Size(44, 19);
             this.label5.TabIndex = 52;
             this.label5.Text = "DOB";
             // 
@@ -248,7 +249,7 @@
             this.dtDOBTcr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDOBTcr.Location = new System.Drawing.Point(601, 186);
             this.dtDOBTcr.Name = "dtDOBTcr";
-            this.dtDOBTcr.Size = new System.Drawing.Size(122, 22);
+            this.dtDOBTcr.Size = new System.Drawing.Size(122, 20);
             this.dtDOBTcr.TabIndex = 50;
             // 
             // label4
@@ -259,7 +260,7 @@
             this.label4.Location = new System.Drawing.Point(459, 164);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 23);
+            this.label4.Size = new System.Drawing.Size(59, 19);
             this.label4.TabIndex = 49;
             this.label4.Text = "Gender";
             // 
@@ -287,7 +288,7 @@
             this.label3.Location = new System.Drawing.Point(133, 164);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 23);
+            this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 45;
             this.label3.Text = "Name";
             // 
@@ -299,7 +300,7 @@
             "Female"});
             this.cmbGenTcr.Location = new System.Drawing.Point(463, 186);
             this.cmbGenTcr.Name = "cmbGenTcr";
-            this.cmbGenTcr.Size = new System.Drawing.Size(109, 24);
+            this.cmbGenTcr.Size = new System.Drawing.Size(109, 21);
             this.cmbGenTcr.TabIndex = 48;
             // 
             // label9
@@ -310,7 +311,7 @@
             this.label9.Location = new System.Drawing.Point(131, 93);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(160, 32);
+            this.label9.Size = new System.Drawing.Size(129, 25);
             this.label9.TabIndex = 63;
             this.label9.Text = "Add Teacher";
             this.label9.Click += new System.EventHandler(this.label9_Click);

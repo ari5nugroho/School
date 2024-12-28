@@ -3,53 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
 using login.Model.Context;
 using login.Model.Entity;
-using System.Data.SQLite;
-using System.Data.SqlClient;
-using System.Data;
-using System.Web.Configuration;
+
 namespace login.Model.Repository
 {
-    public class AttendanceRepository
+    public class EventReposiotory
     {
         private SQLiteConnection Con;
-        public AttendanceRepository(DbContext context)
+        public EventReposiotory(DbContext context)
         {
             Con = context.Conn;
         }
-        public DataTable GetStId()
-        {
-            DataTable dt = new DataTable();
-            string sql = "SELECT stId FROM stStudent";
-
-            try
-            {
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
-                using (SQLiteDataReader rdr = cmd.ExecuteReader())
-                {
-                    dt.Columns.Add("StId", typeof(int));
-                    dt.Load(rdr);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print("GetStudentIds error: {0}", ex.Message);
-            }
-
-            return dt;
-        }
-        public int Create(Attendance att)
+        public int Create(Event evn)
         {
             int result = 0;
-            string sql = @"insert into tbAttendance (stIdAtt, stNameAtt, stDobAtt, stStatusAtt) values (@stIdAtt,@stNameAtt,@stDobAtt,@stStatusAtt)";
+            string sql = @"insert into tbEvent (EvntName, EvntDate, EvntHour) values (@EvntName,@EvntDate,@EvntHour)";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
-                cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
-                cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
-                cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
-
+                cmd.Parameters.AddWithValue("@EvntName", evn.EvntName);
+                cmd.Parameters.AddWithValue("@EvntDate", evn.EvntDate);
+                cmd.Parameters.AddWithValue("@EvntHour", evn.EvntDuration);
+              
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
@@ -63,16 +39,17 @@ namespace login.Model.Repository
             return result;
         }
 
-        public int Update(Attendance att)
+        public int Update(Event evn)
         {
             int result = 0;
-            string sql = @"update tbAttendance set stIdAtt=@stIdAtt,stNameAtt=@stNameAtt,stDobAtt=@stDobAtt,stStatusAtt=@stStatusAtt";
+            string sql = @"update tbEvent set EvntName=@EvntName,EvntDate=@EvntDate,EvntHour=@EvntHour WHERE EvntId = @EvntId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
-                cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
-                cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
-                cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
+                cmd.Parameters.AddWithValue("@EvntId", evn.EvntId);
+                cmd.Parameters.AddWithValue("@EvntName", evn.EvntName);
+                cmd.Parameters.AddWithValue("@EvntDate", evn.EvntDate);
+                cmd.Parameters.AddWithValue("@EvntHour", evn.EvntDuration);
+
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
@@ -86,16 +63,14 @@ namespace login.Model.Repository
             return result;
         }
 
-        public int Delete(Attendance att)
+        public int Delete(Event evn)
         {
             int result = 0;
-            string sql = @"Delete from tbAttendance where stIdAtt = @stIdAtt";
+            string sql = @"Delete from tbEvent where EvntId = @EvntId";
             using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
             {
-                cmd.Parameters.AddWithValue("@stIdAtt", att.AttStId);
-                cmd.Parameters.AddWithValue("@stNameAtt", att.AttStName);
-                cmd.Parameters.AddWithValue("@stDobAtt", att.AttStDOB);
-                cmd.Parameters.AddWithValue("@stStatusAtt", att.AttStStatus);
+                cmd.Parameters.AddWithValue("@EvntId", evn.EvntId);
+
                 try
                 {
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
@@ -108,13 +83,13 @@ namespace login.Model.Repository
             }
             return result;
         }
-        public List<Attendance> ReadAll()
+        public List<Event> ReadAll()
         {
-            List<Attendance> list = new List<Attendance>();
+            List<Event> list = new List<Event>();
             try
             {
                 // deklarasi perintah SQL
-                string sql = @"select * from tbAttendance";
+                string sql = @"select * from tbEvent";
                 // membuat objek command menggunakan blok using
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
@@ -125,14 +100,14 @@ namespace login.Model.Repository
                         while (dtr.Read())
                         {
                             // proses konversi dari row result set ke object
-                            Attendance att = new Attendance();
-                            att.AttStId = dtr["stIdAtt"].ToString();
-                            att.AttStName = dtr["stNameAtt"].ToString();
-                            att.AttStDOB = dtr["stDobAtt"].ToString();
-                            att.AttStStatus = dtr["stStatusAtt"].ToString();
-
+                            Event evn = new Event();
+                            evn.EvntId = dtr["EvntId"].ToString();
+                            evn.EvntName = dtr["EvntName"].ToString();
+                            evn.EvntDate = dtr["EvntDate"].ToString();
+                            evn.EvntDuration = dtr["EvntHour"].ToString();
+                           
                             // tambahkan objek mahasiswa ke dalam collection
-                            list.Add(att);
+                            list.Add(evn);
                         }
                     }
                 }
@@ -142,7 +117,7 @@ namespace login.Model.Repository
                 System.Diagnostics.Debug.Print("ReadAll error: {0}", ex.Message);
             }
             return list;
-
         }
+
     }
 }

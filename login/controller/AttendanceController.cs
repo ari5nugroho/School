@@ -7,6 +7,7 @@ using login.Model.Entity;
 using login.Model.Context;
 using login.Model.Repository;
 using System.Windows.Forms;
+using System.Data;
 
 namespace login.Controller
 {
@@ -26,6 +27,11 @@ namespace login.Controller
                 list = _attrepository.ReadAll();
             }
             return list;
+        }
+
+        public DataTable FetchStudentIds()
+        {
+            return _attrepository.GetStId();
         }
         public int Create(Attendance att)
         {

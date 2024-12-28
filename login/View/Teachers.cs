@@ -12,6 +12,7 @@ using login.Model.Entity;
 using Guna.UI2.AnimatorNS;
 using static Mysqlx.Expect.Open.Types.Condition.Types;
 using K4os.Hash.xxHash;
+using System.Management.Instrumentation;
 namespace login.View
 {
     public delegate void CreateUpdateEventTcrHandler(Teacher tcr);
@@ -297,6 +298,20 @@ namespace login.View
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void ResetForm()
+        {
+            txtNameTcr.Clear();
+            cmbGenTcr.SelectedIndex = -1;
+            dtDOBTcr.Value = DateTime.Now;
+            txtPhoneTcr.Clear();
+            cmbSubjectTcr.SelectedIndex = -1;
+            txtAdrsTcr.Clear();
+
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }

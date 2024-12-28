@@ -46,8 +46,8 @@
             this.btnEdtAtt = new System.Windows.Forms.Button();
             this.btnAddAtt = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.cmbStIdAtt = new System.Windows.Forms.ComboBox();
             this.GDVAtt = new System.Windows.Forms.DataGridView();
-            this.txtStIdAtt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVAtt)).BeginInit();
@@ -90,6 +90,7 @@
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
             this.guna2ControlBox1.TabIndex = 10;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // pictureBox1
             // 
@@ -267,32 +268,36 @@
             this.label7.TabIndex = 68;
             this.label7.Text = "Attendance List";
             // 
+            // cmbStIdAtt
+            // 
+            this.cmbStIdAtt.FormattingEnabled = true;
+            this.cmbStIdAtt.Location = new System.Drawing.Point(108, 156);
+            this.cmbStIdAtt.Name = "cmbStIdAtt";
+            this.cmbStIdAtt.Size = new System.Drawing.Size(120, 21);
+            this.cmbStIdAtt.TabIndex = 70;
+            // 
             // GDVAtt
             // 
+            this.GDVAtt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GDVAtt.BackgroundColor = System.Drawing.Color.White;
             this.GDVAtt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GDVAtt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GDVAtt.Location = new System.Drawing.Point(60, 496);
+            this.GDVAtt.GridColor = System.Drawing.Color.Purple;
+            this.GDVAtt.Location = new System.Drawing.Point(32, 501);
             this.GDVAtt.Name = "GDVAtt";
+            this.GDVAtt.ReadOnly = true;
             this.GDVAtt.RowHeadersWidth = 51;
-            this.GDVAtt.Size = new System.Drawing.Size(760, 260);
-            this.GDVAtt.TabIndex = 69;
-            // 
-            // txtStIdAtt
-            // 
-            this.txtStIdAtt.Location = new System.Drawing.Point(106, 159);
-            this.txtStIdAtt.Multiline = true;
-            this.txtStIdAtt.Name = "txtStIdAtt";
-            this.txtStIdAtt.Size = new System.Drawing.Size(137, 27);
-            this.txtStIdAtt.TabIndex = 70;
+            this.GDVAtt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GDVAtt.Size = new System.Drawing.Size(803, 251);
+            this.GDVAtt.TabIndex = 71;
             // 
             // Attendaces
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.txtStIdAtt);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.GDVAtt);
+            this.Controls.Add(this.cmbStIdAtt);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnDelAtt);
             this.Controls.Add(this.btnEdtAtt);
@@ -337,9 +342,9 @@
         private System.Windows.Forms.Button btnEdtAtt;
         private System.Windows.Forms.Button btnAddAtt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView GDVAtt;
-        private System.Windows.Forms.TextBox txtStIdAtt;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.ComboBox cmbStIdAtt;
+        private System.Windows.Forms.DataGridView GDVAtt;
     }
 }
