@@ -127,39 +127,7 @@ namespace login.Model.Repository
             }
             return result;
         }
-        public List<Student> ReadAllstd()
-        {
-            List<Student> list = new List<Student>();
-            try
-            {
-                // deklarasi perintah SQL
-                string sql = @"select stId, stName from stStudent";
-                // membuat objek command menggunakan blok using
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
-                {
-                    // membuat objek dtr (data reader) untuk menampung result set (hasil perintah SELECT)
-                    using (SQLiteDataReader dt = cmd.ExecuteReader())
-                    {
-                        // panggil method Read untuk mendapatkan baris dari result set
-                        while (dt.Read())
-                        {
-                            // proses konversi dari row result set ke object
-                            Student std = new Student();
-                            std.StId = dt["StId"].ToString();
-                            std.StName = dt["StName"].ToString();
-                            // tambahkan objek mahasiswa ke dalam collection
-
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print("ReadAll error: {0}", ex.Message);
-            }
-            return list;
-
-        }
+ 
         public List<Attendance> ReadAll()
         {
             List<Attendance> list = new List<Attendance>();

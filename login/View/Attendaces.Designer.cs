@@ -146,6 +146,7 @@
             this.txtNameAtt.Name = "txtNameAtt";
             this.txtNameAtt.Size = new System.Drawing.Size(271, 27);
             this.txtNameAtt.TabIndex = 55;
+            this.txtNameAtt.TextChanged += new System.EventHandler(this.txtNameAtt_TextChanged);
             // 
             // label3
             // 

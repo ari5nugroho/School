@@ -144,15 +144,18 @@
   <ItemGroup>
     <Compile Include="Controller\AttendanceController.cs" />
     <Compile Include="Controller\EventController.cs" />
+    <Compile Include="Controller\FeesController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
     <Compile Include="Model\Entity\Attendance.cs" />
     <Compile Include="Model\Entity\Event.cs" />
+    <Compile Include="Model\Entity\Fees.cs" />
     <Compile Include="Model\Entity\Student.cs" />
     <Compile Include="Model\Entity\Teacher.cs" />
     <Compile Include="Model\Repository\AttendanceRepository.cs" />
     <Compile Include="Model\Repository\EventReposiotory.cs" />
+    <Compile Include="Model\Repository\FeesRepository.cs" />
     <Compile Include="Model\Repository\StudentRepository.cs" />
     <Compile Include="Model\Repository\TeacherRepository.cs" />
     <Compile Include="View\Attendaces.cs">

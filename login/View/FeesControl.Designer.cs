@@ -29,25 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtStIdFee = new System.Windows.Forms.ComboBox();
-            this.txtNameFee = new System.Windows.Forms.TextBox();
+            this.cmbStIdFee = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtFee = new System.Windows.Forms.DateTimePicker();
             this.txtAmountFee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnDelFee = new System.Windows.Forms.Button();
-            this.btnEdtFee = new System.Windows.Forms.Button();
             this.btnAddFee = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.GDVFee = new System.Windows.Forms.DataGridView();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.txtNameFee = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVFee)).BeginInit();
@@ -66,6 +64,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(873, 51);
             this.panel1.TabIndex = 1;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(753, 8);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox2.TabIndex = 11;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 8);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox1.TabIndex = 10;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // pictureBox1
             // 
@@ -114,25 +137,17 @@
             this.label6.TabIndex = 49;
             this.label6.Text = "Student Name";
             // 
-            // txtStIdFee
+            // cmbStIdFee
             // 
-            this.txtStIdFee.FormattingEnabled = true;
-            this.txtStIdFee.Items.AddRange(new object[] {
+            this.cmbStIdFee.FormattingEnabled = true;
+            this.cmbStIdFee.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.txtStIdFee.Location = new System.Drawing.Point(110, 162);
-            this.txtStIdFee.Name = "txtStIdFee";
-            this.txtStIdFee.Size = new System.Drawing.Size(123, 24);
-            this.txtStIdFee.TabIndex = 48;
-            // 
-            // txtNameFee
-            // 
-            this.txtNameFee.Location = new System.Drawing.Point(316, 158);
-            this.txtNameFee.Multiline = true;
-            this.txtNameFee.Name = "txtNameFee";
-            this.txtNameFee.Size = new System.Drawing.Size(271, 27);
-            this.txtNameFee.TabIndex = 47;
-            this.txtNameFee.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.cmbStIdFee.Location = new System.Drawing.Point(110, 162);
+            this.cmbStIdFee.Name = "cmbStIdFee";
+            this.cmbStIdFee.Size = new System.Drawing.Size(123, 24);
+            this.cmbStIdFee.TabIndex = 48;
+            this.cmbStIdFee.SelectedIndexChanged += new System.EventHandler(this.cmbStIdFee_SelectedIndexChanged_1);
             // 
             // label3
             // 
@@ -191,48 +206,26 @@
             this.button4.AutoSize = true;
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(570, 397);
+            this.button4.Location = new System.Drawing.Point(481, 383);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(132, 47);
             this.button4.TabIndex = 57;
-            this.button4.Text = "Back";
+            this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // btnDelFee
-            // 
-            this.btnDelFee.AutoSize = true;
-            this.btnDelFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.btnDelFee.ForeColor = System.Drawing.Color.White;
-            this.btnDelFee.Location = new System.Drawing.Point(436, 397);
-            this.btnDelFee.Name = "btnDelFee";
-            this.btnDelFee.Size = new System.Drawing.Size(132, 47);
-            this.btnDelFee.TabIndex = 56;
-            this.btnDelFee.Text = "Delete";
-            this.btnDelFee.UseVisualStyleBackColor = false;
-            // 
-            // btnEdtFee
-            // 
-            this.btnEdtFee.AutoSize = true;
-            this.btnEdtFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.btnEdtFee.ForeColor = System.Drawing.Color.White;
-            this.btnEdtFee.Location = new System.Drawing.Point(299, 397);
-            this.btnEdtFee.Name = "btnEdtFee";
-            this.btnEdtFee.Size = new System.Drawing.Size(132, 47);
-            this.btnEdtFee.TabIndex = 55;
-            this.btnEdtFee.Text = "Edit";
-            this.btnEdtFee.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnAddFee
             // 
             this.btnAddFee.AutoSize = true;
             this.btnAddFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.btnAddFee.ForeColor = System.Drawing.Color.White;
-            this.btnAddFee.Location = new System.Drawing.Point(161, 397);
+            this.btnAddFee.Location = new System.Drawing.Point(199, 383);
             this.btnAddFee.Name = "btnAddFee";
-            this.btnAddFee.Size = new System.Drawing.Size(132, 47);
+            this.btnAddFee.Size = new System.Drawing.Size(266, 47);
             this.btnAddFee.TabIndex = 54;
-            this.btnAddFee.Text = "Add";
+            this.btnAddFee.Text = "Pay Fees";
             this.btnAddFee.UseVisualStyleBackColor = false;
+            this.btnAddFee.Click += new System.EventHandler(this.btnAddFee_Click);
             // 
             // label7
             // 
@@ -240,7 +233,7 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label7.Location = new System.Drawing.Point(373, 457);
+            this.label7.Location = new System.Drawing.Point(373, 454);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 31);
             this.label7.TabIndex = 58;
@@ -251,53 +244,37 @@
             this.GDVFee.BackgroundColor = System.Drawing.Color.White;
             this.GDVFee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GDVFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GDVFee.Location = new System.Drawing.Point(67, 512);
+            this.GDVFee.Location = new System.Drawing.Point(67, 506);
             this.GDVFee.Name = "GDVFee";
             this.GDVFee.RowHeadersWidth = 51;
-            this.GDVFee.Size = new System.Drawing.Size(739, 242);
+            this.GDVFee.Size = new System.Drawing.Size(739, 248);
             this.GDVFee.TabIndex = 59;
+            this.GDVFee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVFee_CellClick);
             // 
-            // guna2ControlBox2
+            // txtNameFee
             // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(753, 8);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox2.TabIndex = 11;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 8);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox1.TabIndex = 10;
+            this.txtNameFee.Enabled = false;
+            this.txtNameFee.Location = new System.Drawing.Point(315, 159);
+            this.txtNameFee.Multiline = true;
+            this.txtNameFee.Name = "txtNameFee";
+            this.txtNameFee.Size = new System.Drawing.Size(271, 27);
+            this.txtNameFee.TabIndex = 60;
             // 
             // FeesControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtNameFee);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.GDVFee);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.btnDelFee);
-            this.Controls.Add(this.btnEdtFee);
             this.Controls.Add(this.btnAddFee);
             this.Controls.Add(this.txtAmountFee);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtFee);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtStIdFee);
-            this.Controls.Add(this.txtNameFee);
+            this.Controls.Add(this.cmbStIdFee);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
@@ -320,20 +297,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox txtStIdFee;
-        private System.Windows.Forms.TextBox txtNameFee;
+        private System.Windows.Forms.ComboBox cmbStIdFee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtFee;
         private System.Windows.Forms.TextBox txtAmountFee;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnDelFee;
-        private System.Windows.Forms.Button btnEdtFee;
         private System.Windows.Forms.Button btnAddFee;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView GDVFee;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.TextBox txtNameFee;
     }
 }

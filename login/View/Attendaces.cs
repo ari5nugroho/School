@@ -336,5 +336,10 @@ namespace login.View
         {
             ResetInput();
         }
+
+        private void txtNameAtt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
