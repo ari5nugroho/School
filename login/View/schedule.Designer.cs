@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.GDVSch = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,49 +46,16 @@
             this.txtSchSub = new System.Windows.Forms.TextBox();
             this.txtSchName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.GDVSch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.panel1.Controls.Add(this.guna2ControlBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.guna2ControlBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 58);
-            this.panel1.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::login.Properties.Resources.pngwing_com__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(89, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lesson Schedule";
             // 
             // label7
             // 
@@ -102,7 +66,7 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label7.Location = new System.Drawing.Point(361, 420);
+            this.label7.Location = new System.Drawing.Point(361, 418);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 31);
             this.label7.TabIndex = 33;
@@ -123,13 +87,14 @@
             this.GDVSch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GDVSch.Size = new System.Drawing.Size(773, 304);
             this.GDVSch.TabIndex = 46;
+            this.GDVSch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GDVSch_CellClick);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label6.Location = new System.Drawing.Point(90, 131);
+            this.label6.Location = new System.Drawing.Point(90, 142);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 23);
@@ -139,18 +104,19 @@
             // cmbSchTcr
             // 
             this.cmbSchTcr.FormattingEnabled = true;
-            this.cmbSchTcr.Location = new System.Drawing.Point(93, 152);
+            this.cmbSchTcr.Location = new System.Drawing.Point(93, 163);
             this.cmbSchTcr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSchTcr.Name = "cmbSchTcr";
             this.cmbSchTcr.Size = new System.Drawing.Size(224, 24);
             this.cmbSchTcr.TabIndex = 49;
+            this.cmbSchTcr.SelectedIndexChanged += new System.EventHandler(this.cmbSchTcr_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label2.Location = new System.Drawing.Point(612, 197);
+            this.label2.Location = new System.Drawing.Point(612, 208);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
@@ -162,7 +128,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label3.Location = new System.Drawing.Point(412, 131);
+            this.label3.Location = new System.Drawing.Point(412, 142);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 23);
@@ -173,14 +139,13 @@
             // 
             this.cmbSchDay.FormattingEnabled = true;
             this.cmbSchDay.Items.AddRange(new object[] {
-            "Sunday",
             "Monday",
             "Tuesday",
             "Wednesday",
             "Thursday",
             "Friday",
             "Saturday"});
-            this.cmbSchDay.Location = new System.Drawing.Point(415, 153);
+            this.cmbSchDay.Location = new System.Drawing.Point(415, 164);
             this.cmbSchDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSchDay.Name = "cmbSchDay";
             this.cmbSchDay.Size = new System.Drawing.Size(132, 24);
@@ -191,7 +156,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label4.Location = new System.Drawing.Point(612, 131);
+            this.label4.Location = new System.Drawing.Point(612, 142);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 23);
@@ -207,7 +172,7 @@
             "10.40 - 12.20",
             "13.20 - 15.00",
             "15.30 - 17.10"});
-            this.cmbSchTime.Location = new System.Drawing.Point(615, 154);
+            this.cmbSchTime.Location = new System.Drawing.Point(615, 165);
             this.cmbSchTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSchTime.Name = "cmbSchTime";
             this.cmbSchTime.Size = new System.Drawing.Size(132, 24);
@@ -225,6 +190,7 @@
             this.button4.TabIndex = 68;
             this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnDelSch
             // 
@@ -238,6 +204,7 @@
             this.btnDelSch.TabIndex = 67;
             this.btnDelSch.Text = "Delete";
             this.btnDelSch.UseVisualStyleBackColor = false;
+            this.btnDelSch.Click += new System.EventHandler(this.btnDelSch_Click);
             // 
             // btnEdtSch
             // 
@@ -251,6 +218,7 @@
             this.btnEdtSch.TabIndex = 66;
             this.btnEdtSch.Text = "Edit";
             this.btnEdtSch.UseVisualStyleBackColor = false;
+            this.btnEdtSch.Click += new System.EventHandler(this.btnEdtSch_Click);
             // 
             // btnAddSch
             // 
@@ -264,6 +232,7 @@
             this.btnAddSch.TabIndex = 65;
             this.btnAddSch.Text = "Add";
             this.btnAddSch.UseVisualStyleBackColor = false;
+            this.btnAddSch.Click += new System.EventHandler(this.btnAddSch_Click);
             // 
             // cmbSchCls
             // 
@@ -272,7 +241,7 @@
             "10",
             "11",
             "12"});
-            this.cmbSchCls.Location = new System.Drawing.Point(616, 220);
+            this.cmbSchCls.Location = new System.Drawing.Point(616, 231);
             this.cmbSchCls.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSchCls.Name = "cmbSchCls";
             this.cmbSchCls.Size = new System.Drawing.Size(131, 24);
@@ -283,7 +252,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label5.Location = new System.Drawing.Point(89, 268);
+            this.label5.Location = new System.Drawing.Point(89, 279);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 23);
@@ -293,7 +262,7 @@
             // txtSchSub
             // 
             this.txtSchSub.Enabled = false;
-            this.txtSchSub.Location = new System.Drawing.Point(93, 289);
+            this.txtSchSub.Location = new System.Drawing.Point(93, 300);
             this.txtSchSub.Multiline = true;
             this.txtSchSub.Name = "txtSchSub";
             this.txtSchSub.Size = new System.Drawing.Size(224, 27);
@@ -302,7 +271,7 @@
             // txtSchName
             // 
             this.txtSchName.Enabled = false;
-            this.txtSchName.Location = new System.Drawing.Point(94, 217);
+            this.txtSchName.Location = new System.Drawing.Point(94, 228);
             this.txtSchName.Multiline = true;
             this.txtSchName.Name = "txtSchName";
             this.txtSchName.Size = new System.Drawing.Size(223, 27);
@@ -313,12 +282,59 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label8.Location = new System.Drawing.Point(90, 197);
+            this.label8.Location = new System.Drawing.Point(90, 208);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(132, 23);
             this.label8.TabIndex = 71;
             this.label8.Text = "Teacher Name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Black", 14.2F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.label9.Location = new System.Drawing.Point(88, 82);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(173, 32);
+            this.label9.TabIndex = 73;
+            this.label9.Text = "Add Schedule";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(89, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lesson Schedule";
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 11);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
+            this.guna2ControlBox1.TabIndex = 73;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.pngwing_com__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 39);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // guna2ControlBox2
             // 
@@ -332,29 +348,18 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(47, 34);
             this.guna2ControlBox2.TabIndex = 74;
             // 
-            // guna2ControlBox1
+            // panel1
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(808, 11);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
-            this.guna2ControlBox1.TabIndex = 73;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Black", 14.2F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.label9.Location = new System.Drawing.Point(88, 76);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(173, 32);
-            this.label9.TabIndex = 73;
-            this.label9.Text = "Add Schedule";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.panel1.Controls.Add(this.guna2ControlBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.guna2ControlBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(873, 58);
+            this.panel1.TabIndex = 3;
             // 
             // schedule
             // 
@@ -380,24 +385,19 @@
             this.Controls.Add(this.GDVSch);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "schedule";
             this.Size = new System.Drawing.Size(873, 795);
             this.Load += new System.EventHandler(this.schedule_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.GDVSch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GDVSch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView GDVSch;
         private System.Windows.Forms.Label label6;
@@ -416,8 +416,11 @@
         private System.Windows.Forms.TextBox txtSchSub;
         private System.Windows.Forms.TextBox txtSchName;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -341,5 +341,10 @@ namespace login.View
         {
 
         }
+
+        private void GDVAtt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
