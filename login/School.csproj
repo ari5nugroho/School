@@ -202,6 +202,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\schedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\schedule.Designer.cs">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\schedule.resx">
+      <DependentUpon>schedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,7 +328,9 @@
   <ItemGroup>
     <None Include="Resources\education-book-logo-template-vector-illustration.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %282%29.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\digital-wallet-icon-vector-removebg-preview.png" />
   </ItemGroup>
