@@ -64,7 +64,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 57);
+            this.panel1.Size = new System.Drawing.Size(873, 58);
             this.panel1.TabIndex = 3;
             // 
             // guna2ControlBox2

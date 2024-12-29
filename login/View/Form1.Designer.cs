@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnFeeSB = new Guna.UI2.WinForms.Guna2Button();
             this.btnEvntSB = new Guna.UI2.WinForms.Guna2Button();
             this.btnAttSB = new Guna.UI2.WinForms.Guna2Button();
@@ -48,6 +49,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.btnFeeSB);
             this.panel1.Controls.Add(this.btnEvntSB);
             this.panel1.Controls.Add(this.btnAttSB);
@@ -62,6 +64,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(199, 788);
             this.panel1.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 22;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2Button1.CheckedState.Image = global::login.Properties.Resources.pngwing_com__2_;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.Location = new System.Drawing.Point(33, 555);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(163, 43);
+            this.guna2Button1.TabIndex = 8;
+            this.guna2Button1.Text = "Lesson Schedule";
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.CheckedChanged += new System.EventHandler(this.guna2Button6_CheckedChanged);
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // btnFeeSB
             // 
@@ -203,6 +231,7 @@
             this.imgSlide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgSlide.TabIndex = 1;
             this.imgSlide.TabStop = false;
+            this.imgSlide.Click += new System.EventHandler(this.imgSlide_Click);
             // 
             // btnDashSB
             // 
@@ -239,7 +268,7 @@
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
             this.label1.Location = new System.Drawing.Point(66, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 15);
+            this.label1.Size = new System.Drawing.Size(122, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sigma Highschool";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -308,5 +337,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTcrSB;
         private System.Windows.Forms.Panel mainPanel;
         private Controller.Dashboard dashboard1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

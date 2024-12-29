@@ -85,5 +85,16 @@ namespace login.View
             FeesControl fee = new FeesControl();  // Membuat instance dari UserControl Fee
             LoadUserControl(fee);  // Menampilkan Fee di mainPanel
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            schedule Sch = new schedule();  // Membuat instance dari UserControl Schedule
+            LoadUserControl(Sch);  // Menampilkan Fee di mainPanel
+        }
+
+        private void imgSlide_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
