@@ -3,6 +3,7 @@ using login.View;
 using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 
 
 namespace login
@@ -90,8 +91,57 @@ namespace login
 
         private void label2_Click(object sender, EventArgs e)
         {
+            string username = UNametb.Text;
+            
+            if(string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("Masukkan username terlebih dahulu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            if (File.Exists(filePath))
+            {
+                var lines = File.ReadAllLines(filePath).ToList();
+                bool userFound = false;
+
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    var parts = lines[i].Split(':');
+                    if (parts.Length == 2 && parts[0] == username)
+                    {
+                        userFound = true;
+
+                        // Prompt untuk password baru
+                        string newPassword = Prompt.ShowDialog("Masukkan password baru:", "Reset Password");
+
+                        if (!string.IsNullOrEmpty(newPassword))
+                        {
+                            // Update password di file
+                            lines[i] = $"{username}:{newPassword}";
+                            File.WriteAllLines(filePath, lines);
+
+                            MessageBox.Show("Password berhasil direset!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password baru tidak boleh kosong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        break;
+                    }
+                }
+
+                if (!userFound)
+                {
+                    MessageBox.Show("Username tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("File config.txt tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+ 
 
         private void label1_Click(object sender, EventArgs e)
         {
