@@ -94,12 +94,6 @@ namespace login.View
 
             GDVSch.Columns.Add(new DataGridViewTextBoxColumn
             {
-                HeaderText = "Class",
-                Width = 70,
-                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
-            });
-            GDVSch.Columns.Add(new DataGridViewTextBoxColumn
-            {
                 HeaderText = "Day",
                 Width = 90,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
@@ -108,6 +102,12 @@ namespace login.View
             {
                 HeaderText = "Time",
                 Width = 110,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+            GDVSch.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Class",
+                Width = 70,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
