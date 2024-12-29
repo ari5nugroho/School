@@ -15,6 +15,7 @@ using Guna.UI2.AnimatorNS;
 using login.Model.Context;
 using static Mysqlx.Expect.Open.Types.Condition.Types;
 using Mysqlx.Crud;
+using System.IO;
 
 namespace login.View
 {
@@ -247,6 +248,75 @@ namespace login.View
                 {
                     MessageBox.Show($"Terjadi kesalahan saat memilih data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnEkspor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lokasi penyimpanan file HTML
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Fees.html");
+
+                // Template HTML
+                StringBuilder htmlContent = new StringBuilder();
+                htmlContent.AppendLine("<!DOCTYPE html>");
+                htmlContent.AppendLine("<html lang='en'>");
+                htmlContent.AppendLine("<head>");
+                htmlContent.AppendLine("<meta charset='UTF-8'>");
+                htmlContent.AppendLine("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+                htmlContent.AppendLine("<title>Data Fees</title>");
+                htmlContent.AppendLine("<style>");
+                htmlContent.AppendLine("table { width: 100%; border-collapse: collapse; margin: 20px 0; }");
+                htmlContent.AppendLine("th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }");
+                htmlContent.AppendLine("th { background-color: #c0c0c0;}"); 
+                htmlContent.AppendLine("</style>");
+                htmlContent.AppendLine("</head>");
+                htmlContent.AppendLine("<body>");
+                htmlContent.AppendLine("<h1>Data Fees</h1>");
+                htmlContent.AppendLine("<table>");
+                htmlContent.AppendLine("<thead>");
+                htmlContent.AppendLine("<tr>");
+                htmlContent.AppendLine("<th>StId</th>");
+                htmlContent.AppendLine("<th>Name</th>");
+                htmlContent.AppendLine("<th>Periode</th>");
+                htmlContent.AppendLine("<th>Amount</th>");
+                htmlContent.AppendLine("</tr>");
+                htmlContent.AppendLine("</thead>");
+                htmlContent.AppendLine("<tbody>");
+
+                // Iterasi data dari GDVFee
+                for (int i = 0; i < GDVFee.Rows.Count; i++)
+                {
+                    if (GDVFee.Rows[i].Cells[0].Value != null) // Validasi data
+                    {
+                        htmlContent.AppendLine("<tr>");
+                        htmlContent.AppendLine($"<td>{GDVFee.Rows[i].Cells[0].Value}</td>"); // StId
+                        htmlContent.AppendLine($"<td>{GDVFee.Rows[i].Cells[1].Value}</td>"); // Name
+                        htmlContent.AppendLine($"<td>{GDVFee.Rows[i].Cells[2].Value}</td>"); // Periode
+                        htmlContent.AppendLine($"<td>{GDVFee.Rows[i].Cells[3].Value}</td>"); // Amount
+                        htmlContent.AppendLine("</tr>");
+                    }
+                }
+
+                htmlContent.AppendLine("</tbody>");
+                htmlContent.AppendLine("</table>");
+                htmlContent.AppendLine("</body>");
+                htmlContent.AppendLine("</html>");
+
+                // Tulis file HTML ke disk
+                File.WriteAllText(filePath, htmlContent.ToString());
+
+                // Buka file HTML di browser
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

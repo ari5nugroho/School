@@ -143,6 +143,36 @@ namespace login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_download_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-download-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_download_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-download-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_download_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-download-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jadwal {
             get {
                 object obj = ResourceManager.GetObject("jadwal", resourceCulture);
@@ -206,6 +236,16 @@ namespace login.Properties {
         internal static System.Drawing.Bitmap th__1_ {
             get {
                 object obj = ResourceManager.GetObject("th (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Unduh {
+            get {
+                object obj = ResourceManager.GetObject("Unduh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

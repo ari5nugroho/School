@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using Guna.UI2.AnimatorNS;
 using login.Model.Context;
 using static Mysqlx.Expect.Open.Types.Condition.Types;
+using System.IO;
 
 namespace login.View
 {
@@ -377,6 +378,81 @@ namespace login.View
         private void button4_Click(object sender, EventArgs e)
         {
             ResetInput();
+        }
+
+        private void button1_Click(object sender, EventArgs e) // Button Ekspor
+        {
+
+            try
+            {
+                // Lokasi penyimpanan file HTML
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Jadwal.html");
+
+                // Template HTML
+                StringBuilder htmlContent = new StringBuilder();
+                htmlContent.AppendLine("<!DOCTYPE html>");
+                htmlContent.AppendLine("<html lang='en'>");
+                htmlContent.AppendLine("<head>");
+                htmlContent.AppendLine("<meta charset='UTF-8'>");
+                htmlContent.AppendLine("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+                htmlContent.AppendLine("<title>Jadwal Mata Pelajaran</title>");
+                htmlContent.AppendLine("<style>");
+                htmlContent.AppendLine("table { width: 100%; border-collapse: collapse; margin: 20px 0; }");
+                htmlContent.AppendLine("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }");
+                htmlContent.AppendLine("th { background-color: #c0c0c0; }");
+                htmlContent.AppendLine("</style>");
+                htmlContent.AppendLine("</head>");
+                htmlContent.AppendLine("<body>");
+                htmlContent.AppendLine("<h1>Jadwal Mata Pelajaran</h1>");
+                htmlContent.AppendLine("<table>");
+                htmlContent.AppendLine("<thead>");
+                htmlContent.AppendLine("<tr>");
+                htmlContent.AppendLine("<th>No</th>");
+                htmlContent.AppendLine("<th>Mata Pelajaran</th>");
+                htmlContent.AppendLine("<th>Guru</th>");
+                htmlContent.AppendLine("<th>Kelas</th>");
+                htmlContent.AppendLine("<th>Hari</th>");
+                htmlContent.AppendLine("<th>Waktu</th>");
+                htmlContent.AppendLine("</tr>");
+                htmlContent.AppendLine("</thead>");
+                htmlContent.AppendLine("<tbody>");
+
+                // Iterasi data dari GDVSch
+                for (int i = 0; i < GDVSch.Rows.Count; i++)
+                {
+                    if (GDVSch.Rows[i].Cells[0].Value != null) // Validasi data
+                    {
+                        htmlContent.AppendLine("<tr>");
+                        htmlContent.AppendLine($"<td>{i + 1}</td>");
+                        htmlContent.AppendLine($"<td>{GDVSch.Rows[i].Cells[2].Value}</td>");
+                        htmlContent.AppendLine($"<td>{GDVSch.Rows[i].Cells[1].Value}</td>");
+                        htmlContent.AppendLine($"<td>{GDVSch.Rows[i].Cells[5].Value}</td>");
+                        htmlContent.AppendLine($"<td>{GDVSch.Rows[i].Cells[3].Value}</td>");
+                        htmlContent.AppendLine($"<td>{GDVSch.Rows[i].Cells[4].Value}</td>");
+                        htmlContent.AppendLine("</tr>");
+                    }
+                }
+
+                htmlContent.AppendLine("</tbody>");
+                htmlContent.AppendLine("</table>");
+                htmlContent.AppendLine("</body>");
+                htmlContent.AppendLine("</html>");
+
+                // Tulis file HTML ke disk
+                File.WriteAllText(filePath, htmlContent.ToString());
+
+                // Buka file HTML di browser
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
