@@ -153,6 +153,9 @@ namespace login.View
                 int result = controller.Create(fees);
                 if (result > 0)
                 {
+                    var repo = new FeesRepository(new DbContext());
+                    repo.UpdateStudentFeeToZero(fees.StId);
+
                     OnCreate?.Invoke(fees);
                     ResetInput();
                     LoadDataFees();

@@ -102,7 +102,28 @@ namespace login.Model.Repository
             }
             return result;
         }
-        
+        public int UpdateStudentFeeToZero(string stId)
+        {
+            int result = 0;
+            string sql = "UPDATE stStudent SET stFee = 0 WHERE stId = @stId";
+
+            try
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
+                {
+                    cmd.Parameters.AddWithValue("@stId", stId);
+
+                    // Jalankan perintah UPDATE dan tampung hasilnya ke dalam variabel result
+                    result = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("UpdateStudentFeeToZero error: {0}", ex.Message);
+            }
+
+            return result;
+        }
         public List<Fees> ReadAll()
         {
             List<Fees> list = new List<Fees>();

@@ -431,6 +431,7 @@ namespace login.View
                 }
             }
         }
+
         private void ResetForm()
         {
             txtNameStd.Clear();
