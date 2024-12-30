@@ -219,6 +219,21 @@ namespace login.View
                     txtNameFee.Clear();
                 }
             }
+            if (cmbStIdFee.SelectedValue != null)
+            {
+                string selectedstIdFee = cmbStIdFee.SelectedValue.ToString();
+                var repo = new FeesRepository(new DbContext());
+                string FeesAmountstd = repo.GetAmountFees(selectedstIdFee);
+
+                if (!string.IsNullOrEmpty(FeesAmountstd))
+                {
+                    txtAmountFee.Text = FeesAmountstd;
+                }
+                else
+                {
+                    txtAmountFee.Clear();
+                }
+            }
         }
 
         private void GDVFee_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -273,7 +288,7 @@ namespace login.View
                 htmlContent.AppendLine("</style>");
                 htmlContent.AppendLine("</head>");
                 htmlContent.AppendLine("<body>");
-                htmlContent.AppendLine("<h1>Data Fees</h1>");
+                htmlContent.AppendLine("<h1>Student Payment</h1>");
                 htmlContent.AppendLine("<table>");
                 htmlContent.AppendLine("<thead>");
                 htmlContent.AppendLine("<tr>");

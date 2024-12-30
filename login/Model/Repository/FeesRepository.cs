@@ -39,7 +39,26 @@ namespace login.Model.Repository
 
             return studentNamefee;
         }
+        public string GetAmountFees(string stId)
+        {
+            string FeesAmountstd = string.Empty;
+            string sql = "SELECT stFee FROM stStudent WHERE stId = @stId";
 
+            try
+            {
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
+                {
+                    cmd.Parameters.AddWithValue("@stId", stId);
+                    FeesAmountstd = cmd.ExecuteScalar()?.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("GettcName error: {0}", ex.Message);
+            }
+
+            return FeesAmountstd;
+        }
         public DataTable GetStIdfee()
         {
             DataTable dt = new DataTable();

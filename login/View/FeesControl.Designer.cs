@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,11 +46,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.GDVFee = new System.Windows.Forms.DataGridView();
             this.txtNameFee = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEkspor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GDVFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVFee)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,6 +90,17 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(47, 34);
             this.guna2ControlBox1.TabIndex = 10;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.digital_wallet_icon_vector_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(32, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -173,6 +184,7 @@
             // 
             // txtAmountFee
             // 
+            this.txtAmountFee.Enabled = false;
             this.txtAmountFee.Location = new System.Drawing.Point(106, 308);
             this.txtAmountFee.Multiline = true;
             this.txtAmountFee.Name = "txtAmountFee";
@@ -250,17 +262,6 @@
             this.txtNameFee.Size = new System.Drawing.Size(271, 27);
             this.txtNameFee.TabIndex = 60;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::login.Properties.Resources.digital_wallet_icon_vector_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnEkspor
             // 
             this.btnEkspor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
@@ -299,8 +300,8 @@
             this.Size = new System.Drawing.Size(873, 795);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GDVFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GDVFee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
