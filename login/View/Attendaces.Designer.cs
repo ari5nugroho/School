@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,9 +47,10 @@
             this.cmbStIdAtt = new System.Windows.Forms.ComboBox();
             this.GDVAtt = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVAtt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,17 +92,6 @@
             this.guna2ControlBox1.TabIndex = 10;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::login.Properties.Resources.digital_wallet_icon_vector_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 49);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -110,7 +99,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(100, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 28);
+            this.label1.Size = new System.Drawing.Size(251, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Students Attendance";
             // 
@@ -122,7 +111,7 @@
             this.label9.Location = new System.Drawing.Point(100, 75);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 32);
+            this.label9.Size = new System.Drawing.Size(248, 40);
             this.label9.TabIndex = 53;
             this.label9.Text = "Add Attendance";
             // 
@@ -134,7 +123,7 @@
             this.label6.Location = new System.Drawing.Point(307, 129);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 23);
+            this.label6.Size = new System.Drawing.Size(156, 26);
             this.label6.TabIndex = 57;
             this.label6.Text = "Student Name";
             // 
@@ -156,7 +145,7 @@
             this.label3.Location = new System.Drawing.Point(101, 129);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 23);
+            this.label3.Size = new System.Drawing.Size(123, 26);
             this.label3.TabIndex = 54;
             this.label3.Text = "Student ID";
             // 
@@ -168,7 +157,7 @@
             this.label5.Location = new System.Drawing.Point(101, 204);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 23);
+            this.label5.Size = new System.Drawing.Size(60, 26);
             this.label5.TabIndex = 60;
             this.label5.Text = "Date";
             // 
@@ -177,7 +166,7 @@
             this.dtAtt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtAtt.Location = new System.Drawing.Point(106, 238);
             this.dtAtt.Name = "dtAtt";
-            this.dtAtt.Size = new System.Drawing.Size(123, 22);
+            this.dtAtt.Size = new System.Drawing.Size(123, 26);
             this.dtAtt.TabIndex = 59;
             // 
             // label2
@@ -188,7 +177,7 @@
             this.label2.Location = new System.Drawing.Point(101, 281);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 23);
+            this.label2.Size = new System.Drawing.Size(75, 26);
             this.label2.TabIndex = 62;
             this.label2.Text = "Status";
             // 
@@ -201,7 +190,7 @@
             "Excused"});
             this.cmbStatusAtt.Location = new System.Drawing.Point(106, 313);
             this.cmbStatusAtt.Name = "cmbStatusAtt";
-            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 24);
+            this.cmbStatusAtt.Size = new System.Drawing.Size(123, 28);
             this.cmbStatusAtt.TabIndex = 61;
             // 
             // btnDelAtt
@@ -254,7 +243,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
             this.label7.Location = new System.Drawing.Point(363, 441);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(199, 31);
+            this.label7.Size = new System.Drawing.Size(233, 36);
             this.label7.TabIndex = 68;
             this.label7.Text = "Attendance List";
             // 
@@ -263,7 +252,7 @@
             this.cmbStIdAtt.FormattingEnabled = true;
             this.cmbStIdAtt.Location = new System.Drawing.Point(108, 156);
             this.cmbStIdAtt.Name = "cmbStIdAtt";
-            this.cmbStIdAtt.Size = new System.Drawing.Size(120, 24);
+            this.cmbStIdAtt.Size = new System.Drawing.Size(120, 28);
             this.cmbStIdAtt.TabIndex = 70;
             this.cmbStIdAtt.SelectedIndexChanged += new System.EventHandler(this.cmbStIdAtt_SelectedIndexChanged);
             // 
@@ -297,6 +286,17 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::login.Properties.Resources.pngegg__2_;
+            this.pictureBox1.Location = new System.Drawing.Point(32, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 49);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Attendaces
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -323,8 +323,8 @@
             this.Load += new System.EventHandler(this.AttendacesControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GDVAtt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

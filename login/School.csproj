@@ -363,6 +363,27 @@
   <ItemGroup>
     <None Include="Resources\icons8-download-40.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipart2011326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attendance-1-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
