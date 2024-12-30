@@ -193,6 +193,16 @@ namespace login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_teacher_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-teacher-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jadwal {
             get {
                 object obj = ResourceManager.GetObject("jadwal", resourceCulture);
