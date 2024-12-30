@@ -711,17 +711,19 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Sed do eiusmod tempor incididunt ut labore 
+  <data name="label2.Text" xml:space="preserve">
+    <value>Welcome to School Management System!!
 
-et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat.
+Loading your experience...
+Please wait while we prepare everything for you.
 
-Duis aute irure dolor in reprehenderit in voluptate 
-velit esse cillum dolore eu fugiat nulla pariatur. 
-Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum.</value>
+We’re excited to have you here as we prepare everything 
+for your seamless experience. 
+
+This platform is designed to help you manage, organize, 
+and access all your school-related tasks efficiently. 
+While we load all the features and functionalities, 
+take a deep breath and get ready to explore a 
+system that simplifies your daily activities. </value>
   </data>
 </root>
