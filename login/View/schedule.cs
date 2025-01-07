@@ -163,8 +163,8 @@ namespace login.View
 
                 // Atur data sumber ComboBox
                 cmbSchTcr.DataSource = dt;
-                cmbSchTcr.DisplayMember = "StcId"; // Kolom yang akan ditampilkan di ComboBox
-                cmbSchTcr.ValueMember = "tcId";   // Nilai yang akan diambil (ID)
+                cmbSchTcr.DisplayMember = "tcName"; // Kolom yang akan ditampilkan di ComboBox
+                cmbSchTcr.ValueMember = "tcName";   // Nilai yang akan diambil (ID)
                 cmbSchTcr.SelectedIndex = -1;     // Default kosong
             }
             catch (Exception ex)
@@ -177,8 +177,8 @@ namespace login.View
         {
             sch = new Schedule
             {
-                tcId = cmbSchTcr.SelectedValue.ToString(),
-                SchName = txtSchName.Text,
+                SchName = cmbSchTcr.SelectedValue.ToString(),
+                tcId = txtSchName.Text,
                 SchSubjects = txtSchSub.Text, 
                 SchDay = cmbSchDay.SelectedItem.ToString(),
                 SchTime = cmbSchTime.SelectedItem.ToString(),
@@ -218,8 +218,8 @@ namespace login.View
             int rowIndex = GDVSch.SelectedRows[0].Index;
             sch = ListOfSchedule[rowIndex];
 
-            sch.tcId = cmbSchTcr.SelectedValue.ToString();
-            sch.SchName = txtSchName.Text.Trim();
+            sch.SchName = cmbSchTcr.SelectedValue.ToString();
+            sch.tcId = txtSchName.Text.Trim();
             sch.SchSubjects = txtSchSub.Text.Trim();
             sch.SchDay = cmbSchDay.SelectedItem.ToString();
             sch.SchTime = cmbSchTime.SelectedItem.ToString();
@@ -351,10 +351,10 @@ namespace login.View
 
                     // Validasi data pada setiap kolom sebelum digunakan
                     if (row.Cells[0].Value != null)
-                        cmbSchTcr.SelectedValue = row.Cells[0].Value.ToString();
-
+                        txtSchName.Text = row.Cells[0].Value.ToString();
                     if (row.Cells[1].Value != null)
-                        txtSchName.Text = row.Cells[1].Value.ToString();
+                        cmbSchTcr.SelectedValue = row.Cells[1].Value.ToString();
+
 
                     if (row.Cells[2].Value != null)
                         txtSchSub.Text = row.Cells[2].Value.ToString();

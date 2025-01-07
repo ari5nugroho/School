@@ -129,21 +129,21 @@ namespace login.View
 
                 // Atur data sumber ComboBox
                 cmbStIdFee.DataSource = dt;
-                cmbStIdFee.DisplayMember = "StId"; // Kolom yang akan ditampilkan di ComboBox
-                cmbStIdFee.ValueMember = "StId";   // Nilai yang akan diambil (ID)
+                cmbStIdFee.DisplayMember = "StName"; // Kolom yang akan ditampilkan di ComboBox
+                cmbStIdFee.ValueMember = "StName";   // Nilai yang akan diambil (ID)
                 cmbStIdFee.SelectedIndex = -1;     // Default kosong
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saat memuat ID siswa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saat memuat Nama siswa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnAddFee_Click(object sender, EventArgs e)
         {
             fees = new Fees
             {
-                StId = cmbStIdFee.SelectedValue.ToString(),
-                StNameFees = txtNameFee.Text,
+                StNameFees = cmbStIdFee.SelectedValue.ToString(),
+                StId = txtNameFee.Text,
                 StPrdFees = dtFee.Text, // Format sesuai database
                 StAmountFees = txtAmountFee.Text
             };
@@ -251,10 +251,10 @@ namespace login.View
 
                     // Validasi data pada setiap kolom sebelum digunakan
                     if (row.Cells[0].Value != null)
-                        cmbStIdFee.SelectedValue = row.Cells[0].Value.ToString();
-
+                        txtNameFee.Text = row.Cells[0].Value.ToString();
                     if (row.Cells[1].Value != null)
-                        txtNameFee.Text = row.Cells[1].Value.ToString();
+                        cmbStIdFee.SelectedValue = row.Cells[1].Value.ToString();
+
 
                     if (row.Cells[2].Value != null)
                         dtFee.Text = row.Cells[2].Value.ToString();

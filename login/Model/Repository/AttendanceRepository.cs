@@ -9,6 +9,8 @@ using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Configuration;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms;
 namespace login.Model.Repository
 {
     public class AttendanceRepository
@@ -18,30 +20,31 @@ namespace login.Model.Repository
         {
             Con = context.Conn;
         }
-        public string GetStName(string stId)
+        public string GetStName(string stName)
         {
             string studentName = string.Empty;
-            string sql = "SELECT stName FROM stStudent WHERE stId = @stId";
+            string sql = "SELECT stId FROM stStudent WHERE stName = @stName";
 
             try
             {
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
-                    cmd.Parameters.AddWithValue("@stId", stId);
+                    cmd.Parameters.AddWithValue("@stName", stName);
                     studentName = cmd.ExecuteScalar()?.ToString();
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GetStName error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("GetStId error: {0}", ex.Message);
             }
 
             return studentName;
         }
+       
         public DataTable GetStId()
         {
             DataTable dt = new DataTable();
-            string sql = "SELECT stId FROM stStudent";
+            string sql = "SELECT stName FROM stStudent";
 
             try
             {

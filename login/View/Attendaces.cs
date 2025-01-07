@@ -149,21 +149,21 @@ namespace login.View
 
                 // Atur data sumber ComboBox
                 cmbStIdAtt.DataSource = dt;
-                cmbStIdAtt.DisplayMember = "StId"; // Kolom yang akan ditampilkan di ComboBox
-                cmbStIdAtt.ValueMember = "StId";   // Nilai yang akan diambil (ID)
+                cmbStIdAtt.DisplayMember = "StName"; // Kolom yang akan ditampilkan di ComboBox
+                cmbStIdAtt.ValueMember = "StName";   // Nilai yang akan diambil (ID)
                 cmbStIdAtt.SelectedIndex = -1;     // Default kosong
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saat memuat ID siswa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saat memuat Nama siswa: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnAddAtt_Click(object sender, EventArgs e)
         {
             att = new Attendance
             {
-                StId = cmbStIdAtt.SelectedValue.ToString(),
-                AttStName = txtNameAtt.Text,
+                AttStName = cmbStIdAtt.SelectedValue.ToString(),
+                StId = txtNameAtt.Text,
                 AttStDOB = dtAtt.Text, // Format sesuai database
                 AttStStatus = cmbStatusAtt.SelectedItem.ToString()
             };
@@ -201,8 +201,8 @@ namespace login.View
             int rowIndex = GDVAtt.SelectedRows[0].Index;
             att = ListOfAttendance[rowIndex];
 
-            att.StId = cmbStIdAtt.SelectedValue.ToString();
-            att.AttStName = txtNameAtt.Text.Trim();
+            att.AttStName = cmbStIdAtt.SelectedValue.ToString();
+            att.StId = txtNameAtt.Text.Trim();
             att.AttStDOB = dtAtt.Text;
             att.AttStStatus = cmbStatusAtt.SelectedItem.ToString();
 
@@ -314,10 +314,10 @@ namespace login.View
 
                     // Validasi data pada setiap kolom sebelum digunakan
                     if (row.Cells[0].Value != null)
-                        cmbStIdAtt.SelectedValue = row.Cells[0].Value.ToString();
+                        txtNameAtt.Text = row.Cells[0].Value.ToString();
 
                     if (row.Cells[1].Value != null)
-                        txtNameAtt.Text = row.Cells[1].Value.ToString();
+                        cmbStIdAtt.SelectedValue = row.Cells[1].Value.ToString();
 
                     if (row.Cells[2].Value != null)
                         dtAtt.Text = row.Cells[2].Value.ToString();

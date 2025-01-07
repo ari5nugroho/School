@@ -9,6 +9,8 @@ using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Configuration;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms;
 
 namespace login.Model.Repository
 {
@@ -19,16 +21,16 @@ namespace login.Model.Repository
         {
             Con = context.Conn;
         }
-        public string GetStNamefee(string stId)
+        public string GetStNamefee(string stName)
         {
             string studentNamefee = string.Empty;
-            string sql = "SELECT stName FROM stStudent WHERE stId = @stId";
+            string sql = "SELECT stId FROM stStudent WHERE stName = @stName";
 
             try
             {
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
-                    cmd.Parameters.AddWithValue("@stId", stId);
+                    cmd.Parameters.AddWithValue("@stName", stName);
                     studentNamefee = cmd.ExecuteScalar()?.ToString();
                 }
             }
@@ -39,16 +41,16 @@ namespace login.Model.Repository
 
             return studentNamefee;
         }
-        public string GetAmountFees(string stId)
+        public string GetAmountFees(string stName)
         {
             string FeesAmountstd = string.Empty;
-            string sql = "SELECT stFee FROM stStudent WHERE stId = @stId";
+            string sql = "SELECT stFee FROM stStudent WHERE stName = @stName";
 
             try
             {
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
-                    cmd.Parameters.AddWithValue("@stId", stId);
+                    cmd.Parameters.AddWithValue("@stName", stName);
                     FeesAmountstd = cmd.ExecuteScalar()?.ToString();
                 }
             }
@@ -61,8 +63,9 @@ namespace login.Model.Repository
         }
         public DataTable GetStIdfee()
         {
+            
             DataTable dt = new DataTable();
-            string sql = "SELECT stId FROM stStudent";
+            string sql = "SELECT stName FROM stStudent";
 
             try
             {

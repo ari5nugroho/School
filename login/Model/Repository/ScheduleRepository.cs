@@ -19,42 +19,42 @@ namespace login.Model.Repository
         {
             Con = context.Conn;
         }
-        public string GettcNamesch(string tcId)
+        public string GettcNamesch(string tcName)
         {
             string teacherNamesch = string.Empty;
-            string sql = "SELECT tcName FROM tbTeacher WHERE tcId = @tcId";
+            string sql = "SELECT tcId FROM tbTeacher WHERE tcName = @tcName";
 
             try
             {
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
-                    cmd.Parameters.AddWithValue("@tcId", tcId);
+                    cmd.Parameters.AddWithValue("@tcName", tcName);
                     teacherNamesch = cmd.ExecuteScalar()?.ToString();
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GettcName error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("GettcId error: {0}", ex.Message);
             }
 
             return teacherNamesch;
         }
-        public string GettcSubjectssch(string tcId)
+        public string GettcSubjectssch(string tcName)
         {
             string teacherSubjectssch = string.Empty;
-            string sql = "SELECT tcSubject FROM tbTeacher WHERE tcId = @tcId";
+            string sql = "SELECT tcSubject FROM tbTeacher WHERE tcName = @tcName";
 
             try
             {
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, Con))
                 {
-                    cmd.Parameters.AddWithValue("@tcId", tcId);
+                    cmd.Parameters.AddWithValue("@tcName", tcName);
                     teacherSubjectssch = cmd.ExecuteScalar()?.ToString();
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GettcName error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("GettcSubject error: {0}", ex.Message);
             }
 
             return teacherSubjectssch;
@@ -63,7 +63,7 @@ namespace login.Model.Repository
         public DataTable GettcIdsch()
         {
             DataTable dt = new DataTable();
-            string sql = "SELECT tcId FROM tbTeacher";
+            string sql = "SELECT tcName FROM tbTeacher";
 
             try
             {
@@ -75,7 +75,7 @@ namespace login.Model.Repository
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("GettcId error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("GettcName error: {0}", ex.Message);
             }
 
             return dt;

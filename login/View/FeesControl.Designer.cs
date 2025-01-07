@@ -144,9 +144,9 @@
             this.cmbStIdFee.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cmbStIdFee.Location = new System.Drawing.Point(110, 162);
+            this.cmbStIdFee.Location = new System.Drawing.Point(315, 162);
             this.cmbStIdFee.Name = "cmbStIdFee";
-            this.cmbStIdFee.Size = new System.Drawing.Size(123, 24);
+            this.cmbStIdFee.Size = new System.Drawing.Size(268, 24);
             this.cmbStIdFee.TabIndex = 48;
             this.cmbStIdFee.SelectedIndexChanged += new System.EventHandler(this.cmbStIdFee_SelectedIndexChanged_1);
             // 
@@ -256,10 +256,10 @@
             // txtNameFee
             // 
             this.txtNameFee.Enabled = false;
-            this.txtNameFee.Location = new System.Drawing.Point(315, 159);
+            this.txtNameFee.Location = new System.Drawing.Point(110, 159);
             this.txtNameFee.Multiline = true;
             this.txtNameFee.Name = "txtNameFee";
-            this.txtNameFee.Size = new System.Drawing.Size(271, 27);
+            this.txtNameFee.Size = new System.Drawing.Size(123, 27);
             this.txtNameFee.TabIndex = 60;
             // 
             // btnEkspor
